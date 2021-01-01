@@ -1,0 +1,59 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="BooksStore.Master" %>
+
+<!DOCTYPE html>
+
+<html dir="rtl">
+<head runat="server" lang="he">
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
+    <script src="Scripts/popper.min.js"></script>
+     <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+
+   <style>
+
+       div.fixed {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: 300px;
+  
+    }
+ </style>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server" dir="rtl">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#" style="font-size: 30px">דעת ספרים</a>
+      <asp:Button ID="Button1" runat="server" Text="Button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"/>
+        <a class="navbar-brand" href="Home.aspx" style="font-size: 20px">ספרים</a>
+        <a class="navbar-brand" href="#" style="font-size: 20px">סל קניות</a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto" style="float:right" id="visitor">
+
+      <li><a href="Register.aspx" style="margin:10px; font-size: 20px"  ><span class="glyphicon glyphicon-user"></span>
+          <asp:Label ID="Label2" runat="server" Text="הירשם"></asp:Label> </a></li>
+       <li><a href="LogIn.aspx" style="margin:10px; font-size: 20px;" data-toggle="modal" data-target="#myModal" onclick="fanction"><span class="glyphicon glyphicon-log-in"></span>
+           <asp:Label ID="Label3" runat="server" Text="התחבר"></asp:Label> </a></li>
+        <li> <asp:Label ID="Label1" runat="server" Text=""></asp:Label></li>
+        </ul>
+ </div>
+</nav>
+    
+      <div class="fixed">  <p><b><a href="ContactUs.aspx"  class="btn btn-outline-info btn-rounded waves-effect"  style="margin:15px; text-decoration: underline; font-size: 18px">צור קשר</a></b></p> </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
+
