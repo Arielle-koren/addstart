@@ -15,7 +15,9 @@ namespace BooksStore
             Application.Lock();
             Application["monemevakrim"] = (int)(Application["monemevakrim"]);
             Session["name"] =null;
+            Session["email"] = null;
             Session["IsAdmin"] = "no";
+            Session["ID"] = null;
             Application.UnLock();
 
 

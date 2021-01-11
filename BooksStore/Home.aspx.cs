@@ -11,10 +11,15 @@ namespace BooksStore
     public partial class Home : System.Web.UI.Page
     {
         BooksLogic bl = new BooksLogic();
+        CartLogic ul = new CartLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
-            Repeater1.DataSource = bl.getAllBooks();
-            Repeater1.DataBind();
+            if (!IsPostBack)
+            {
+                Repeater1.DataSource = bl.getAllBooks();
+                Repeater1.DataBind();
+            }
+            
 
         }
 
@@ -24,5 +29,6 @@ namespace BooksStore
             Repeater1.DataSource = bl.getBooksBySearch(s);
             Repeater1.DataBind();
         }
+        
     }
 }

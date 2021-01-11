@@ -11,18 +11,40 @@ namespace BooksStore
 {
     public partial class ProductView : System.Web.UI.Page
     {
+        
         BooksLogic bl = new BooksLogic();
+        CartLogic cl = new CartLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            
-            DataSet ds1 = bl.getBooksByID(6);
-            Label3.Text = ds1.Tables[0].Rows[0]["Books.Name"].ToString();
-            Label1.Text = ds1.Tables[0].Rows[0]["Description"].ToString();
-            Label2.Text = ds1.Tables[0].Rows[0]["Price"].ToString();
-            Label5.Text = ds1.Tables[0].Rows[0]["Auther"].ToString();
-            Image1.ImageUrl = "Image/"+ds1.Tables[0].Rows[0]["Image"].ToString();
-            Label4.Text = ds1.Tables[0].Rows[0]["Type.Name"].ToString();
+            if(!IsPostBack)
+            {
+                if (!string.IsNullOrEmpty(Request.QueryString["data"]))
+                {
+                    int bookid = Int32.Parse(Request.QueryString["data"]);
+                    DataSet ds1 = bl.getBooksByID(bookid);
+                    Label3.Text = ds1.Tables[0].Rows[0]["Books.Name"].ToString();
+                    Label1.Text = ds1.Tables[0].Rows[0]["Description"].ToString();
+                    Label2.Text = ds1.Tables[0].Rows[0]["Price"].ToString();
+                    Label5.Text = ds1.Tables[0].Rows[0]["Auther"].ToString();
+                    Image1.ImageUrl = "Image/" + ds1.Tables[0].Rows[0]["Image1"].ToString();
+                    Label4.Text = ds1.Tables[0].Rows[0]["Type.Name"].ToString();
+                }
+                else
+                    Response.Redirect("Home.aspx");
+
+            }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            if (Session["ID"] == null)
+            {
+                Response.Redirect("LogIn.aspx");
+            }
+            else
+            {
+                cl.addToCart(Int32.Parse(Request.QueryString["data"]), Int32.Parse(Session["ID"].ToString()), Int32.Parse(TextBox1.Text));
+            }
         }
     }
 }

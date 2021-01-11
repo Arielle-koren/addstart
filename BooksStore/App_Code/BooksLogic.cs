@@ -12,7 +12,7 @@ namespace BooksStore.App_Code
 
         public DataSet getAllBooks()// שאילתה לדף הבית, מחזירה את הספרים שהכי נמכרים
         {
-            string sql = "SELECT TOP 8 Name, Auther, Price, Image1 FROM Books WHERE STOCK>0 ORDER BY NumSold DESC";
+            string sql = "SELECT TOP 8 ID, Name, Auther, Price, Image1 FROM Books WHERE STOCK>0 ORDER BY NumSold DESC";
             return dal.excuteQuery(sql);
         }
         

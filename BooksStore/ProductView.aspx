@@ -43,9 +43,15 @@
 <div class="col-md-12">
 <section class="panel" style="margin:15px; padding-left:2em">
       <div class="panel-body">
-          <div class="row">
-         
-          <div class="col-md-6" >
+       <div class="row">
+              <aside class="col-md-6">
+              <div class="pro-img-details"  >
+                  <asp:Image ID="Image1" runat="server" />
+                  
+              </div>
+       
+          </aside>
+          <aside class="col-md-6" >
               <h4 class="pro-d-title">
                  
                        <asp:Label ID="Label3" runat="server" Text=""></asp:Label>
@@ -63,22 +69,16 @@
               <div class="m-bot15"> <strong>מחיר: </strong> <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
               <div class="form-group">
                   <strong><label>כמות:</label></strong>
-                  <asp:TextBox ID="TextBox1" runat="server" type="quantiy" placeholder="1" class="form-control quantity"></asp:TextBox>
+                  <asp:TextBox ID="TextBox1" runat="server" type="quantiy" Text="1" class="form-control quantity"></asp:TextBox>
               </div>
-              <p>
                   
-                  <asp:Button ID="Button1" runat="server" Text="הוספה לסל" class="btn btn-round btn-danger" type="button" /><i class="fa fa-shopping-cart"></i>
-              </p>
-          </div>
-              <div class="col-md-6">
-              <div class="pro-img-details"  >
-                  <asp:Image ID="Image1" runat="server" />
-                  
-              </div>
-       
-          </div>
-              </div>
+            
+      
+              
       </div>
+               <asp:Button ID="Button2" runat="server" Text="הוספה לסל" class="btn btn-round btn-danger" OnClick="Button2_Click" /> <i class="fa fa-shopping-cart"></i>
+          </aside>
+          </div>
           </div>
   </section>
   </div>

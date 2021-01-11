@@ -13,5 +13,12 @@ namespace BooksStore
         {
 
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Session["name"] = null;
+            Session["email"] = null;
+            Response.Redirect("Home.aspx");
+        }
     }
 }

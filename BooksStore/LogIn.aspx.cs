@@ -21,6 +21,8 @@ namespace BooksStore
             if (us.checkExistUser(email.Text, password1.Text))
             {
                 Session["name"] = us.getName(email.Text).Tables[0].Rows[0]["Name"].ToString();
+                Session["email"] = email.Text;
+                Session["ID"] =Int32.Parse(us.getID(email.Text).Tables[0].Rows[0]["ID"].ToString());
                 if (us.getIsManager(email.Text))
                 {
                     Session["IsAdmin"] = "yes";

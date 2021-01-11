@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="BooksStore.Home" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" enableEventValidation="true" Inherits="BooksStore.Home" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <style>
@@ -95,11 +95,12 @@
                                                                                     
                 </div>
                 <ul class="social">
-                    <li><a href="ProductView.aspx" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                    <li><a href="LogIn.aspx" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li><a href="ProductView.aspx?data=<%# Eval ("ID") %>" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
                     
                 </ul>
+                
             </div>
+                
                 </div>
                 </ItemTemplate>
         </asp:Repeater>

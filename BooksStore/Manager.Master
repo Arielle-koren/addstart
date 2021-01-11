@@ -45,11 +45,16 @@
         <a class="navbar-brand" href="#" style="font-size: 20px">סטטיסטיקות</a>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto" style="float:right">
-
-
+        
+        <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">התנתק</asp:LinkButton>
+        
+        
       
  </div>
+            
+
 </nav>
+
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

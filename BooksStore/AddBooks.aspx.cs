@@ -45,9 +45,9 @@ namespace BooksStore
                 //בדיקה שהספר שהמשתמש הזין לא קיים כבר במערכת 
                 //שמירה של קובץ התמונה בתיקיה של האתר
                 FileUpload1.PostedFile.SaveAs(path + imageName);
-                String nameS = name.Text.Replace("'", "''");
-                String autherS = auther.Text.Replace("'", "''");
-                String descS = description.Text.Replace("'", "''");
+                String nameS = name.Text.Replace("'", "");
+                String autherS = auther.Text.Replace("'", "");
+                String descS = description.Text.Replace("'", "");
                 bl.addNewBook(nameS, autherS, Int32.Parse(type1.SelectedValue), Double.Parse(price.Text), descS, stock.Text, imageName);
                
                 string message = "הספר נשמר בהצלחה";

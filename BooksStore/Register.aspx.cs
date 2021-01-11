@@ -26,11 +26,14 @@ namespace BooksStore
             }
             else
             {
-                String nameS = firstName.Text.Replace("'", "''");
-                String lastnameS = lastName.Text.Replace("'", "''");
+                String nameS = firstName.Text.Replace("'", "");
+                String lastnameS = lastName.Text.Replace("'", "");
                 us.addNewUser(nameS, lastnameS, email.Text, birthDate.Text, password.Text);
                 // פנייה לשאילתת הכנסה שם משתמש חדש
-
+                
+                int id = Int32.Parse(us.getID(email.Text).Tables[0].Rows[0]["ID"].ToString());
+                
+                Session["ID"] = id;
                 string message = "שמחים שנרשמת לאתר!";
                 ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + message + "');", true);
             }

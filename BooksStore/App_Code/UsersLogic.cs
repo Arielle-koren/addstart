@@ -31,6 +31,7 @@ namespace BooksStore.App_Code
         {
             string sql = "INSERT INTO Users (Name, LastName, Email, Birthday, Pass, IsManager) VALUES ('"+ name+"', '"+lastName+"', '"+ email+"', #"+date+"#, '"+password+"', False)";
             dal.excuteQuery(sql);
+            
         }
         public void addNewManager(string name, string lastName, string email, string date, string password)// יצירת שם משתמש
         {
@@ -41,7 +42,12 @@ namespace BooksStore.App_Code
         {
             string sql= "SELECT Name FROM Users WHERE Email='" + email+"'";
             return dal.excuteQuery(sql);
-        } 
+        }
+        public DataSet getID(string email)//מביאה את השם של המשתמש שזה האימייל שלו
+        {
+            string sql = "SELECT ID FROM Users WHERE Email='" + email + "'";
+            return dal.excuteQuery(sql);
+        }
         public bool getIsManager(string email)//בודקת האם מנהל או לא
         {
             String sql = "SELECT IsManager FROM Users WHERE Email='" + email+"'";
@@ -54,6 +60,7 @@ namespace BooksStore.App_Code
             string sql = "SELECT Users.ID, Users.Name+' '+ Users.LastName AS Name, Users.Email, Users.Birthday, Users.Pass, Count(Orders.ID) AS Total FROM USERS LEFT JOIN Orders ON Orders.UsersID=Users.ID WHERE Users.IsManager= False GROUP BY  Users.ID, Users.Name, Users.LastName, Users.Birthday, Users.Email, Users.Pass";
             return dal.excuteQuery(sql);
         }
+        
 
         // "SELECT Books.Price* Books/Orders.NumBooks AS Total FROM BOOKS INNER JOIN Orders WHERE 
 

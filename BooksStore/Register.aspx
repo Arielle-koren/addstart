@@ -3,9 +3,9 @@
 
 <style>
     body {
-        background-origin:C:\Projects\BooksStore\BooksStore\Image\bookspicture.png;
+      
         background-image: C:\Projects\BooksStore\BooksStore\Image\bookspicture.png;
-        border-image-source:Image/bookspicture.png />;
+  
        
     }
     .form-control {

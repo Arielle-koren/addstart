@@ -28,8 +28,8 @@ namespace BooksStore
             }
             else            // פנייה לשאילתת הכנסה שם משתמש חדש
             {
-                String nameS = firstName.Text.Replace("'", "''");
-                String lastnameS = lastName.Text.Replace("'", "''");
+                String nameS = firstName.Text.Replace("'", "");
+                String lastnameS = lastName.Text.Replace("'", "");
 
                 us.addNewManager(nameS, lastnameS, email.Text, birthDate.Text, password.Text);
                 string message = "המנהל הוסף בהצלחה";
