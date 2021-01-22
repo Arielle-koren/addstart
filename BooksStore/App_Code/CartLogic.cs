@@ -71,5 +71,10 @@ namespace BooksStore.App_Code
                 this.deleteFromCart(booksID, ID);
             }
         }
+        public void deleteCart(int id)
+        {
+            string sql = "DELETE FROM BooksCart WHERE UsersID=" + id;
+            dal.excuteQuery(sql);
+        }
     }
 }

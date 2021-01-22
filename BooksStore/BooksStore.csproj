@@ -75,7 +75,9 @@
     <Content Include="BooksManager.aspx" />
     <Content Include="Cart.aspx" />
     <Content Include="OrderManager.aspx" />
-    <Content Include="Payment.aspx" />
+    <Content Include="Payment2.aspx" />
+    <Content Include="Payment1.aspx" />
+    <Content Include="Payment3.aspx" />
     <Content Include="RequestsManager.aspx" />
     <Content Include="ContactUs.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -235,7 +237,11 @@
     </Compile>
     <Compile Include="App_Code\BooksLogic.cs" />
     <Compile Include="App_Code\CartLogic.cs" />
+    <Compile Include="App_Code\CreditLogic.cs" />
     <Compile Include="App_Code\DAL.cs" />
+    <Compile Include="App_Code\paymentsDetail.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="App_Code\UsersLogic.cs" />
     <Compile Include="App_Code\OrdersLogic.cs" />
     <Compile Include="App_Code\RequestsLogic.cs" />
@@ -261,12 +267,26 @@
     <Compile Include="OrderManager.aspx.designer.cs">
       <DependentUpon>OrderManager.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Payment.aspx.cs">
-      <DependentUpon>Payment.aspx</DependentUpon>
+    <Compile Include="Payment2.aspx.cs">
+      <DependentUpon>Payment2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Payment.aspx.designer.cs">
-      <DependentUpon>Payment.aspx</DependentUpon>
+    <Compile Include="Payment2.aspx.designer.cs">
+      <DependentUpon>Payment2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payment1.aspx.cs">
+      <DependentUpon>Payment1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment1.aspx.designer.cs">
+      <DependentUpon>Payment1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payment3.aspx.cs">
+      <DependentUpon>Payment3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment3.aspx.designer.cs">
+      <DependentUpon>Payment3.aspx</DependentUpon>
     </Compile>
     <Compile Include="RequestsManager.aspx.cs">
       <DependentUpon>RequestsManager.aspx</DependentUpon>

@@ -18,6 +18,7 @@ namespace BooksStore
             Session["email"] = null;
             Session["IsAdmin"] = "no";
             Session["ID"] = null;
+            Session["PD"] = null;
             Application.UnLock();
 
 

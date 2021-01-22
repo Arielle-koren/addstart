@@ -130,7 +130,7 @@
                             <asp:HyperLink ID="HyperLink1" runat="server" Href=""><asp:Label ID="Label1" runat="server" Text='<%# Eval ("Name") %>'></asp:Label></asp:HyperLink>
                             
                         </div>
-                        <asp:Label ID="Label2" runat="server" Text='<%# Eval ("Date1") %>'></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Eval ("Date1") %>' DataFormatString="{0:d}"></asp:Label>
                     </div>
                 </div> 
                 <div class="post-description"> 

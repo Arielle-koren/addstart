@@ -11,21 +11,11 @@
     <asp:DropDownList ID="Year" runat="server" Width="100" Style="float:right; margin-right:5px; margin-top:5px"></asp:DropDownList>
     <asp:Button ID="Button1" runat="server" Text="חפש"  OnClick="Button1_Click" Style="float:right; margin-right:5px; margin-top:5px"/>
     <br />
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" style="text-align:right" Width="1053px">
+    <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" style="text-align:right" Width="1053px">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
           
-            <asp:BoundField DataField="FullName" HeaderText="שם" />
-            <asp:BoundField DataField="Hour" HeaderText="שעת הזמנה" />
-            <asp:BoundField DataField="Date1" HeaderText="תאריך הזמנה" />
-            <asp:BoundField DataField="City" HeaderText="עיר" />
-            <asp:BoundField DataField="Address" HeaderText="כתובת" />
-              <asp:BoundField DataField="ID" >
-            <ItemStyle CssClass="Hide" />
-            </asp:BoundField>
-            <asp:BoundField DataField="UsersID" >
-            <ItemStyle CssClass="Hide" />
-            </asp:BoundField>
+          
         </Columns>
 
         
