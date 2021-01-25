@@ -40,7 +40,7 @@ table tr th {
                     <div class="panel-heading">
                         <h3>
                             <img class="img-circle img-thumbnail" src="https://bootdey.com/img/Content/user_3.jpg">
-                            Arielle Koren
+                            <asp:Label ID="Label9" runat="server" Text=""></asp:Label>
                         </h3>
                     </div>
                     <div class="panel-body"> 

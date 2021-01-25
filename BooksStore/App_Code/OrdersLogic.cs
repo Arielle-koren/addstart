@@ -10,7 +10,7 @@ namespace BooksStore.App_Code
     {
         DAL dal = new DAL();
 
-        public DataSet showAllOrders()
+        public DataSet showAllOrders1()
         {
             string sql = "SELECT Orders.ID, Orders.UsersID, Orders.Hour, Orders.Date1, Orders.City, Orders.Address, Orders.Phone, More , Users.Name+' '+ Users.LastName AS FullName FROM Orders INNER JOIN Users ON Orders.UsersID = Users.ID";
             DataSet ds = dal.excuteQuery(sql);

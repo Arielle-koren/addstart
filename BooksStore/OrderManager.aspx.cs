@@ -18,7 +18,7 @@ namespace BooksStore
                 Response.Redirect("Home.aspx");
             if (!IsPostBack)
             {
-                GridView1.DataSource = ol.showAllOrders();
+                GridView1.DataSource = ol.showAllOrders1();
                 GridView1.DataBind();
 
             }

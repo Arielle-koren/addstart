@@ -15,7 +15,20 @@
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
           
-          
+            <asp:BoundField DataField="FullName" HeaderText="שם" />
+            <asp:BoundField DataField="Hour" HeaderText="שעת הזמנה" DataFormatString="{0:t}" />
+            <asp:BoundField DataField="Date1" HeaderText="תאריך הזמנה" DataFormatString="{0:d}" />
+            <asp:BoundField DataField="City" HeaderText="עיר" />
+            <asp:BoundField DataField="Address" HeaderText="כתובת" />
+             <asp:BoundField DataField="Address" HeaderText="כתובת" />
+            <asp:BoundField DataField="More" HeaderText="כתובת" />
+
+              <asp:BoundField DataField="ID" >
+            <ItemStyle CssClass="Hide" />
+            </asp:BoundField>
+            <asp:BoundField DataField="UsersID" >
+            <ItemStyle CssClass="Hide" />
+            </asp:BoundField>
         </Columns>
 
         

@@ -25,7 +25,7 @@ namespace BooksStore
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            int orderID =ol.addOrder(Session["ID"], );
+            int orderID =ol.addOrder(Session["ID"], Session["PD"].);
             cl.addNewCredit(orderID, TextBox1.Text, TextBox2.Text, TextBox3.Text, Int32.Parse(DropDownList1.SelectedValue), Int32.Parse(DropDownList2.SelectedValue));
             cal.deleteCart(Int32.Parse(Session["ID"].ToString()));
         }

@@ -15,10 +15,11 @@ namespace BooksStore
         {
             if(!IsPostBack)
             {
-                Repeater1.DataSource = cl.getCart(32);
+                Repeater1.DataSource = cl.getCart(Int32.Parse(Session["ID"].ToString()));
                 Repeater1.DataBind();
                 Label6.Text = cl.getTotal(32).Tables[0].Rows[0]["TOTAL"].ToString();
                 Label8.Text = (Int32.Parse(Label6.Text)+ Int32.Parse(Label7.Text)).ToString();
+                Label9.Text = Session["name"].ToString();
             }
         }
 
