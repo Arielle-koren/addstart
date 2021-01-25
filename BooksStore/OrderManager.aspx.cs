@@ -64,7 +64,7 @@ namespace BooksStore
             }
             else
             {
-                GridView1.DataSource = ol.showAllOrders();
+                GridView1.DataSource = ol.showAllOrders1();
                 GridView1.DataBind();
             }
         }

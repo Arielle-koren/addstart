@@ -10,7 +10,7 @@ namespace BooksStore
 {
     public partial class payment1 : System.Web.UI.Page
     {
-        paymentsDetail pd = new paymentsDetail;
+        paymentsDetail pd = new paymentsDetail();
         protected void Page_Load(object sender, EventArgs e)
         {
 
