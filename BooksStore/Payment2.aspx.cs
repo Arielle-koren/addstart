@@ -16,10 +16,13 @@ namespace BooksStore
         CreditLogic cl = new CreditLogic();
         OrdersLogic ol = new OrdersLogic();
         CartLogic cal = new CartLogic();
+        paymentsDetail pd;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!string.IsNullOrEmpty(Request.QueryString["price"]))
+            pd = (paymentsDetail)Session["pd"];
+            if (!string.IsNullOrEmpty(Request.QueryString["price"]))
             {
+                pd = (paymentsDetail)Session["pd"];
                 Label1.Text = Request.QueryString["price"];
                 if (this.Page.PreviousPage != null)
                 {
@@ -40,11 +43,13 @@ namespace BooksStore
 
         protected void Button2_Click(object sender, EventArgs e)
         {
+
             if (!string.IsNullOrEmpty(Request.QueryString["price"]))
             {
+                string city = pd.getCity();
                 if (PreviousPage != null)
                 {
-                    string city = PreviousPage.FindControl("TextBox1").ToString();
+                    //string city = PreviousPage.FindControl("TextBox1").ToString();
                     string address = PreviousPage.FindControl("TextBox2").ToString();
                     string phoneNum = PreviousPage.FindControl("TextBox3").ToString();
                     string comment = PreviousPage.FindControl("TextBox4").ToString();
