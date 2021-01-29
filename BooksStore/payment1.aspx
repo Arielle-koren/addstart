@@ -114,7 +114,8 @@ img {width:100%;}
                             <h3 class="text-center" >השלמת פרטי הזמנה</h3>
                             <hr>
 
-                            <form class="form" role="form" autocomplete="off">
+                            <form class="form" role="form">
+                                <asp:Label ID="Label2" runat="server" Text="" Font-Bold="true"></asp:Label>
                                 <div class="form-group">
                                     <label for="cc_name" style="font-weight:bold;">עיר</label>
                                     <asp:TextBox ID="TextBox1" runat="server" type="text" class="form-control" title="הקלד את העיר לשם תרצה שההזמנה תישלח"></asp:TextBox>
@@ -145,14 +146,15 @@ img {width:100%;}
                                 <div class="form-inline">
                                     <div class="input-group">
                                         <div class="input-group-append"><span class="input-group-text">₪</span></div>
-                                        <asp:Label ID="Label1" runat="server" Text="39" type="text" class="form-control text-right"  placeholder="39" disabled="disabled" Style=" padding-left: 60px"></asp:Label>
+                                        <asp:Label ID="Label1" runat="server" Text="" type="text" class="form-control text-right" disabled="disabled" Style=" padding-left: 60px"></asp:Label>
                                         <div class="input-group-prepend"><span class="input-group-text"> </span></div>
                                      </div>
                                 </div>
                                 <hr>
+
                                 <div class="form-group row">
                                     <div class="col-md-6">
-                                             <asp:Button ID="Button1" runat="server" Text="ביטול" class="btn btn-default btn-lg btn-block" OnClick="Button1_Click"/>    
+                                        <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-default btn-lg btn-block" href="Cart.aspx">ביטול</asp:LinkButton>
                                     </div>
                                     <div class="col-md-6">
                                                  <asp:Button ID="Button2" runat="server" Text="להמשך" class="btn btn-success btn-lg btn-block" OnClick="Button2_Click"/>

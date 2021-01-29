@@ -94,7 +94,7 @@ table tr th {
                                     <td><asp:Label ID="Label6" runat="server" Text=""></asp:Label>₪ </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="4" class="text-right">סך הזמנה</td>
+                                    <td colspan="4" class="text-right">מחיר משלוח</td>
                                     <td> <asp:Label ID="Label7" runat="server" Text="10"></asp:Label>₪</td>
                                 </tr>
                                 <tr>
@@ -103,9 +103,10 @@ table tr th {
                                 </tr>
                             </tbody>
                         </table>
+                            <asp:Label ID="Label10" runat="server" Text=""></asp:Label>
                             <asp:LinkButton ID="LinkButton5" runat="server" href="Home.aspx" class="btn btn-default"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i>&nbsp;המשך בקניות</asp:LinkButton>
-                            <asp:LinkButton ID="LinkButton6" runat="server" href="Payment1.aspx" class="btn btn-success">&nbsp;לתשלום <i class="fa fa-arrow-circle-left" aria-hidden="true"></i></asp:LinkButton>
-
+                            <asp:LinkButton ID="LinkButton6" runat="server" class="btn btn-success" OnClick="LinkButton6_Click">&nbsp;לתשלום <i class="fa fa-arrow-circle-left" aria-hidden="true"></i></asp:LinkButton>
+                            
                     </div>
 
                 </div>

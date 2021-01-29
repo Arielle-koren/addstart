@@ -14,7 +14,7 @@ namespace BooksStore
         OrdersLogic ol = new OrdersLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["IsAdmin"].ToString() != "no")
+            if (Session["IsAdmin"].ToString() != "yes")
                 Response.Redirect("Home.aspx");
             if (!IsPostBack)
             {

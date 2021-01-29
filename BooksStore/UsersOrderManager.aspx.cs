@@ -12,20 +12,21 @@ namespace BooksStore
     public partial class UsersOrderManager : System.Web.UI.Page
     {
         OrdersLogic ol = new OrdersLogic();
-
+        UsersLogic us = new UsersLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["IsAdmin"].ToString() != "yes")
                 Response.Redirect("Home.aspx");
             if (!IsPostBack)
             {
-
                 if (!string.IsNullOrEmpty(Request.QueryString["data"]))
                 {
-                    DataSet ds = ol.getUsersOrder(Int32.Parse(Request.QueryString["data"]));
+                    int id = Int32.Parse(Request.QueryString["data"]);
+                    Label1.Text = "ההזמנות של " +us.getName1(id).Tables[0].Rows[0]["Name"].ToString();
+                    DataSet ds = ol.getUsersOrder(id);
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                        GridView1.DataSource = ol.getUsersOrder(Int32.Parse(Request.QueryString["data"]));
+                        GridView1.DataSource = ol.getUsersOrder(id);
                         GridView1.DataBind();
                     }
                     else

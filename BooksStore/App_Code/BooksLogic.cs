@@ -18,12 +18,12 @@ namespace BooksStore.App_Code
         
         public DataSet getBooksBySearch(string name)// שאילתה ללחצן החיפוש, מקבלת את מה שחיפשו ומחזירה ספרים שבהם השמות שלהם או סופריהם מתחיל במה שחיפשו
         {
-            string sql = "SELECT TOP 8 Name, Auther, Price, Image1, Type, Description FROM Books WHERE Name Like '"+name+ "%' OR Auther Like '" + name + "%'";
+            string sql = "SELECT TOP 8 ID, Name, Auther, Price, Image1, Type, Description FROM Books WHERE Name Like '"+name+ "%' OR Auther Like '" + name + "%'";
             return dal.excuteQuery(sql);
         }
         public DataSet getBooksByID(int ID) // שאילתה שמחזירה ספר לפי ה איי די שהוכנס
         {
-            string sql = "SELECT Books.Name, Books.Auther, Books.Price, Books.Image1, Books.Description, Type.Name FROM Books INNER JOIN Type ON Books.Type = Type.ID WHERE Books.ID=" + ID;
+            string sql = "SELECT Books.ID, Books.Name, Books.Auther, Books.Price, Books.Image1, Books.Description, Type.Name FROM Books INNER JOIN Type ON Books.Type = Type.ID WHERE Books.ID=" + ID;
             return dal.excuteQuery(sql);
         }
        // public DataSet getAllBooksDetail()
@@ -54,7 +54,7 @@ namespace BooksStore.App_Code
             return dal.excuteQuery(sql);
 
         }
-        public bool checkExistBook(string name, string auther)// מחזיר אם קיים אימייל כזה במערכת true
+        public bool checkExistBook(string name, string auther)// מחזיר אם קיים ספר כזה במערכת true
         {
             string sql = "SELECT Name, Auther FROM Books WHERE Name= '" + name + "' AND Auther='" +auther + "'";
             DataSet ds = dal.excuteQuery(sql);
@@ -63,6 +63,11 @@ namespace BooksStore.App_Code
         public void updateStock(int ID) // ספר אינו נחמק אלא אין אפשרות לקנות אותו יותר
         {
             string sql = "UPDATE Books SET Stock=0 WHERE ID=" + ID;
+            dal.excuteQuery(sql);
+        }
+        public void updateStock1(int ID, int numsold) // ספר נמכר
+        {
+            string sql = "UPDATE Books SET Stock=Stock-"+numsold+" WHERE ID=" + ID;// לא יודעת איך להפחית את המערך הקיים פחות המשתנה
             dal.excuteQuery(sql);
         }
     }

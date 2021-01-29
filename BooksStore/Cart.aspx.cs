@@ -1,6 +1,7 @@
 ﻿using BooksStore.App_Code;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -17,7 +18,7 @@ namespace BooksStore
             {
                 Repeater1.DataSource = cl.getCart(Int32.Parse(Session["ID"].ToString()));
                 Repeater1.DataBind();
-                Label6.Text = cl.getTotal(32).Tables[0].Rows[0]["TOTAL"].ToString();
+                Label6.Text = cl.getTotal(Int32.Parse(Session["ID"].ToString())).Tables[0].Rows[0]["TOTAL"].ToString();
                 Label8.Text = (Int32.Parse(Label6.Text)+ Int32.Parse(Label7.Text)).ToString();
                 Label9.Text = Session["name"].ToString();
             }
@@ -26,31 +27,51 @@ namespace BooksStore
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
             string Booksid = (String)((sender as LinkButton).CommandName);
-            cl.add1(Int32.Parse(Booksid), 32);
-            Repeater1.DataSource = cl.getCart(32);
+            cl.add1(Int32.Parse(Booksid), Int32.Parse(Session["ID"].ToString()));
+            Repeater1.DataSource = cl.getCart(Int32.Parse(Session["ID"].ToString()));
             Repeater1.DataBind();
-            Label6.Text = cl.getTotal(32).Tables[0].Rows[0]["TOTAL"].ToString();
+            Label6.Text = cl.getTotal(Int32.Parse(Session["ID"].ToString())).Tables[0].Rows[0]["TOTAL"].ToString();
             Label8.Text = (Int32.Parse(Label6.Text) + Int32.Parse(Label7.Text)).ToString();
         }
 
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
             string Booksid = (String)((sender as LinkButton).CommandName);
-            cl.remove1(Int32.Parse(Booksid), 32);
-            Repeater1.DataSource = cl.getCart(32);
+            cl.remove1(Int32.Parse(Booksid), Int32.Parse(Session["ID"].ToString()));
+            Repeater1.DataSource = cl.getCart(Int32.Parse(Session["ID"].ToString()));
             Repeater1.DataBind();
-            Label6.Text = cl.getTotal(32).Tables[0].Rows[0]["TOTAL"].ToString();
+            Label6.Text = cl.getTotal(Int32.Parse(Session["ID"].ToString())).Tables[0].Rows[0]["TOTAL"].ToString();
             Label8.Text = (Int32.Parse(Label6.Text) + Int32.Parse(Label7.Text)).ToString();
         }
 
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
             string Booksid = (String)((sender as LinkButton).CommandName);
-            cl.deleteFromCart(Int32.Parse(Booksid), 32);
-            Repeater1.DataSource = cl.getCart(32);
+            cl.deleteFromCart(Int32.Parse(Booksid), Int32.Parse(Session["ID"].ToString()));
+            Repeater1.DataSource = cl.getCart(Int32.Parse(Session["ID"].ToString()));
             Repeater1.DataBind();
-            Label6.Text = cl.getTotal(32).Tables[0].Rows[0]["TOTAL"].ToString();
+            Label6.Text = cl.getTotal(Int32.Parse(Session["ID"].ToString())).Tables[0].Rows[0]["TOTAL"].ToString();
             Label8.Text = (Int32.Parse(Label6.Text) + Int32.Parse(Label7.Text)).ToString();
+        }
+
+        protected void LinkButton6_Click(object sender, EventArgs e)
+        {
+            // |בדיקה אם כל המוצרים במלאי
+            DataSet ds = cl.getCart(Int32.Parse(Session["ID"].ToString()));
+            Label10.Text = "";
+            bool instock=true;
+            for (int i=0; i< ds.Tables[0].Rows.Count; i++)
+            {
+                if (!cl.inStock(Int32.Parse(ds.Tables[0].Rows[i]["BooksID"].ToString()), Int32.Parse(ds.Tables[0].Rows[i]["NumBooks"].ToString())))// אם לא במלאי
+                {
+                    int n = i + 1;
+                    Label10.Text = Label10.Text + " מוצר מספר " + n + " חסר במלאי. ";
+                    instock = false;
+                }
+                
+            }
+            if (instock)
+                Response.Redirect("Payment1.aspx?data="+Label8.Text);
         }
     }
 }

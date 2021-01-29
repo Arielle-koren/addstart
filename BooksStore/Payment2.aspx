@@ -111,9 +111,9 @@ img {width:100%;}
                     <div class="card card-outline-secondary">
 
                         <div class="card-body">
-                            <h3 class="text-center" >השלמת פרטי  כרטיס אשראי</h3>
+                            <h3 class="text-center" >השלמת פרטי כרטיס אשראי</h3>
                             <hr>
-
+                            <asp:label ID="Label2" runat="server" Text="" Font-Bold="true"></asp:label>
                             <form class="form" role="form" autocomplete="off">
                                 <div class="form-group">
                                     <label for="cc_name" style="font-weight:bold;">שם בעל הכרטיס</label>
@@ -150,11 +150,11 @@ img {width:100%;}
                                     <div class="col-md-4">
                                    
                                     <asp:DropDownList ID="DropDownList2" runat="server" name="cc_exp_yr" size="0" style="font-size: 20px; padding: 5px 10px; border-radius: 5px 12px;">
-                                        <asp:ListItem Value=2018>2018</asp:ListItem>
-                                        <asp:ListItem Value=2019>2019</asp:ListItem>
-                                        <asp:ListItem Value="2020">2020</asp:ListItem>
-                                        <asp:ListItem Value="2021">2021</asp:ListItem>
-                                        <asp:ListItem Value="2022">2022</asp:ListItem>
+                                        <asp:ListItem Value=2018>2021</asp:ListItem>
+                                        <asp:ListItem Value=2019>2022</asp:ListItem>
+                                        <asp:ListItem Value="2020">2023</asp:ListItem>
+                                        <asp:ListItem Value="2021">2024</asp:ListItem>
+                                        <asp:ListItem Value="2022">2025</asp:ListItem>
                                     </asp:DropDownList>
                                     </div>
                                    
@@ -173,7 +173,7 @@ img {width:100%;}
                                 <div class="form-inline">
                                     <div class="input-group">
                                         <div class="input-group-append"><span class="input-group-text">₪</span></div>
-                                        <asp:Label ID="Label1" runat="server" Text="39" type="text" class="form-control text-right"  placeholder="39" disabled="disabled" Style=" padding-left: 60px"></asp:Label>
+                                        <asp:Label ID="Label1" runat="server" Text="" type="text" class="form-control text-right" disabled="disabled" Style=" padding-left: 60px"></asp:Label>
                                         <div class="input-group-prepend"><span class="input-group-text"> </span></div>
                                      </div>
                                 </div>
@@ -184,10 +184,10 @@ img {width:100%;}
                                     </div>
                                     <div class="col-md-6">
                                         
-                                                 <asp:Button runat="server" ID="Button2" Text="הזמנה" class="btn btn-success btn-lg btn-block" OnClick="Button2_Click"/>
+                                        <asp:Button runat="server" ID="Button2" Text="הזמנה" class="btn btn-success btn-lg btn-block" OnClick="Button2_Click"/>
                                         
-                                    </div>
-                                </div>
+                                   </div>
+                              </div>
                             </form>
                         </div>
                     </div>

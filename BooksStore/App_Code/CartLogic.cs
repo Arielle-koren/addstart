@@ -76,5 +76,13 @@ namespace BooksStore.App_Code
             string sql = "DELETE FROM BooksCart WHERE UsersID=" + id;
             dal.excuteQuery(sql);
         }
+        public bool inStock (int bookid, int num)
+        {
+            string sql = "SELECT Stock FROM Books WHERE ID="+ bookid;
+            DataSet ds= dal.excuteQuery(sql);
+            if (Int32.Parse(ds.Tables[0].Rows[0][0].ToString()) > num)
+                return true;
+            return false;
+        }
     }
 }

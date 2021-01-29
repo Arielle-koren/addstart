@@ -43,6 +43,11 @@ namespace BooksStore.App_Code
             string sql= "SELECT Name FROM Users WHERE Email='" + email+"'";
             return dal.excuteQuery(sql);
         }
+        public DataSet getName1(int id)//מביאה את השם של המשתמש שזה הid שלו
+        {
+            string sql = "SELECT Name FROM Users WHERE ID=" + id;
+            return dal.excuteQuery(sql);
+        }
         public DataSet getID(string email)//מביאה את השם של המשתמש שזה האימייל שלו
         {
             string sql = "SELECT ID FROM Users WHERE Email='" + email + "'";

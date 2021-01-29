@@ -27,21 +27,35 @@ namespace BooksStore.App_Code
         }
         public DataSet getUsersOrder( int ID)// מקבלת ID ומחזירה את כל ההזמנות שלו
         {
-            string sql = "SELECT Orders.ID, Orders.Hour, Orders.Date1, Orders.Address+ ' '+Orders.City AS Address, Orders.Phone, Orders.More, Sum(BooksOrders.NumBooks) AS S, SUM(Books.Price*BooksOrders.NumBooks) AS Total FROM ((Orders INNER JOIN BooksOrders ON Orders.ID=BooksOrders.OrdersID) INNER JOIN Books ON BOOKS.ID= BooksOrders.BooksID) WHERE Orders.UsersID= " + ID+ " GROUP BY Orders.ID, Orders.Hour, Orders.Date1, Orders.Address,Orders.Address+ ' '+Orders.City";
+            string sql = "SELECT Orders.ID, Orders.Hour, Orders.Date1, Orders.Phone, Orders.More, Orders.Address+ ' '+Orders.City AS Address, Sum(BooksOrders.NumBooks) AS S, SUM(Books.Price*BooksOrders.NumBooks) AS Total FROM ((Orders INNER JOIN BooksOrders ON Orders.ID=BooksOrders.OrdersID) INNER JOIN Books ON BOOKS.ID= BooksOrders.BooksID) WHERE Orders.UsersID= " + ID+ " GROUP BY Orders.ID, Orders.Hour, Orders.Date1, Orders.Address,Orders.Address+ ' '+Orders.City, Orders.Phone, Orders.More";
             return dal.excuteQuery(sql);
         }
 
         public int addOrder(int UID, string city, string Address, string more, string phone)
         {
+            CartLogic cl = new CartLogic();
+            BooksLogic bl = new BooksLogic();
             string sql = "INSERT INTO Orders (UsersID, Hour, Date1, City, Address, More, Phone) VALUES (" + UID + ", #" + DateTime.Today + "#,#" + DateTime.Today + "# , '" + city + "', '" + Address + "', '"+ more+"', '"+ phone+"')";
             dal.excuteQuery(sql);
-             return this.getID(UID);
+            int orderid = this.getID(UID);
+            DataSet ds = cl.getCart(UID);
+            int n = ds.Tables[0].Rows.Count;
+            for (int i=0; i<n; i++)
+            {
+                int bookId = Int32.Parse(ds.Tables[0].Rows[i]["BooksID"].ToString());
+                int numbook = Int32.Parse(ds.Tables[0].Rows[i]["NumBooks"].ToString());
+                sql = "INSERT INTO booksOrders(OrdersID, BooksID, NumBooks) VALUES ("+orderid+", "+bookId+", "+numbook +")";
+                dal.excuteQuery(sql);
+                bl.updateStock1(bookId, numbook);
+                
+            }
+             return orderid;
         }
         public int getID( int usersID)
         {
             string sql = " SELECT TOP 1 ID FROM Orders WHERE UsersID="+ usersID +" ORDER BY Date1 DESC, Hour DESC";
             DataSet ds= dal.excuteQuery(sql);
-            int id=Int32.Parse(ds.Tables[0].Rows[0]["UsersID"].ToString());
+            int id=Int32.Parse(ds.Tables[0].Rows[0]["ID"].ToString());
             return id;
         }
      
