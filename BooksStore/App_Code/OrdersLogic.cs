@@ -35,7 +35,7 @@ namespace BooksStore.App_Code
         {
             CartLogic cl = new CartLogic();
             BooksLogic bl = new BooksLogic();
-            string sql = "INSERT INTO Orders (UsersID, Hour, Date1, City, Address, More, Phone) VALUES (" + UID + ", #" + DateTime.Today + "#,#" + DateTime.Today + "# , '" + city + "', '" + Address + "', '"+ more+"', '"+ phone+"')";
+            string sql = "INSERT INTO Orders (UsersID, [Hour], Date1, City, Address, More, Phone) VALUES (" + UID + ", #" + DateTime.Today + "#, #" + DateTime.Today + "# , '" + city + "', '" + Address + "', '"+ more+"', '"+ phone+"')";
             dal.excuteQuery(sql);
             int orderid = this.getID(UID);
             DataSet ds = cl.getCart(UID);

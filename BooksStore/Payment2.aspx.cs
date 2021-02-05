@@ -24,14 +24,8 @@ namespace BooksStore
             {
                 pd = (paymentsDetail)Session["pd"];
                 Label1.Text = Request.QueryString["price"];
-                if (this.Page.PreviousPage != null)
-                {
-                    string city = PreviousPage.FindControl("TextBox1").ToString();
-                    string address = PreviousPage.FindControl("TextBox2").ToString();
-                    string phoneNum = PreviousPage.FindControl("TextBox3").ToString();
-                    string comment = PreviousPage.FindControl("TextBox4").ToString();
-                }
-                }
+
+            }
             else
                 Label2.Text = "מצטערים, משהו התפקשש :-(  ....  חזור בבקשה לעגלת הקניות";
         }
@@ -47,17 +41,14 @@ namespace BooksStore
             if (!string.IsNullOrEmpty(Request.QueryString["price"]))
             {
                 string city = pd.getCity();
-                if (PreviousPage != null)
-                {
-                    //string city = PreviousPage.FindControl("TextBox1").ToString();
-                    string address = PreviousPage.FindControl("TextBox2").ToString();
-                    string phoneNum = PreviousPage.FindControl("TextBox3").ToString();
-                    string comment = PreviousPage.FindControl("TextBox4").ToString();
-                    int orderID =ol.addOrder(Int32.Parse(Session["ID"].ToString()), city, address, comment, phoneNum);
-                    cl.addNewCredit(orderID, TextBox1.Text, TextBox2.Text, TextBox3.Text, Int32.Parse(DropDownList1.SelectedValue), Int32.Parse(DropDownList2.SelectedValue));
-                    cal.deleteCart(Int32.Parse(Session["ID"].ToString()));
-                    Response.Redirect("Payment3.aspx");
-                }
+                string address = pd.getAddress();
+                string phoneNum = pd.getPhone();
+                string comment = pd.getMore();
+                int orderID =ol.addOrder(Int32.Parse(Session["ID"].ToString()), city, address, comment, phoneNum);
+                cl.addNewCredit(orderID, TextBox1.Text, TextBox2.Text, TextBox3.Text, Int32.Parse(DropDownList1.SelectedValue), Int32.Parse(DropDownList2.SelectedValue));
+                cal.deleteCart(Int32.Parse(Session["ID"].ToString()));
+                Response.Redirect("Payment3.aspx");
+      
             }
         }
     }

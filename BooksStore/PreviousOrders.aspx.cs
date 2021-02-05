@@ -11,7 +11,7 @@ namespace BooksStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+          /*  if (!IsPostBack)
             {
                 
                     int id = Int32.Parse(Session["ID"].ToString());
@@ -26,7 +26,7 @@ namespace BooksStore
                 }
                 else
                     Label2.Text = "אין הזמנות מתאימות";
-            }
+            } */
         }
     }
 }

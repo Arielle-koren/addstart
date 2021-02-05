@@ -19,7 +19,8 @@ namespace BooksStore
                 Repeater1.DataSource = cl.getCart(Int32.Parse(Session["ID"].ToString()));
                 Repeater1.DataBind();
                 Label6.Text = cl.getTotal(Int32.Parse(Session["ID"].ToString())).Tables[0].Rows[0]["TOTAL"].ToString();
-                Label8.Text = (Int32.Parse(Label6.Text)+ Int32.Parse(Label7.Text)).ToString();
+                Label7.Text = "0";
+                Label8.Text = (Double.Parse(Label6.Text.ToString())+ Double.Parse(Label7.Text.ToString())).ToString();
                 Label9.Text = Session["name"].ToString();
             }
         }
@@ -31,7 +32,7 @@ namespace BooksStore
             Repeater1.DataSource = cl.getCart(Int32.Parse(Session["ID"].ToString()));
             Repeater1.DataBind();
             Label6.Text = cl.getTotal(Int32.Parse(Session["ID"].ToString())).Tables[0].Rows[0]["TOTAL"].ToString();
-            Label8.Text = (Int32.Parse(Label6.Text) + Int32.Parse(Label7.Text)).ToString();
+            Label8.Text = (Double.Parse(Label6.Text) + Double.Parse(Label7.Text)).ToString();
         }
 
         protected void LinkButton3_Click(object sender, EventArgs e)
@@ -41,7 +42,7 @@ namespace BooksStore
             Repeater1.DataSource = cl.getCart(Int32.Parse(Session["ID"].ToString()));
             Repeater1.DataBind();
             Label6.Text = cl.getTotal(Int32.Parse(Session["ID"].ToString())).Tables[0].Rows[0]["TOTAL"].ToString();
-            Label8.Text = (Int32.Parse(Label6.Text) + Int32.Parse(Label7.Text)).ToString();
+            Label8.Text = (Double.Parse(Label6.Text) + Double.Parse(Label7.Text)).ToString();
         }
 
         protected void LinkButton2_Click(object sender, EventArgs e)
@@ -51,7 +52,7 @@ namespace BooksStore
             Repeater1.DataSource = cl.getCart(Int32.Parse(Session["ID"].ToString()));
             Repeater1.DataBind();
             Label6.Text = cl.getTotal(Int32.Parse(Session["ID"].ToString())).Tables[0].Rows[0]["TOTAL"].ToString();
-            Label8.Text = (Int32.Parse(Label6.Text) + Int32.Parse(Label7.Text)).ToString();
+            Label8.Text = (Double.Parse(Label6.Text) + Double.Parse(Label7.Text)).ToString();
         }
 
         protected void LinkButton6_Click(object sender, EventArgs e)

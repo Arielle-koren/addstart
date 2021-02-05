@@ -80,7 +80,7 @@ namespace BooksStore.App_Code
         {
             string sql = "SELECT Stock FROM Books WHERE ID="+ bookid;
             DataSet ds= dal.excuteQuery(sql);
-            if (Int32.Parse(ds.Tables[0].Rows[0][0].ToString()) > num)
+            if (Int32.Parse(ds.Tables[0].Rows[0]["Stock"].ToString()) > num)
                 return true;
             return false;
         }
