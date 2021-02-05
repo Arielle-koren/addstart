@@ -75,6 +75,7 @@
     <Content Include="BooksManager.aspx" />
     <Content Include="Cart.aspx" />
     <Content Include="OrderManager.aspx" />
+    <Content Include="OrderReciept.aspx" />
     <Content Include="Payment2.aspx" />
     <Content Include="Payment1.aspx" />
     <Content Include="Payment3.aspx" />
@@ -266,6 +267,13 @@
     </Compile>
     <Compile Include="OrderManager.aspx.designer.cs">
       <DependentUpon>OrderManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrderReciept.aspx.cs">
+      <DependentUpon>OrderReciept.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderReciept.aspx.designer.cs">
+      <DependentUpon>OrderReciept.aspx</DependentUpon>
     </Compile>
     <Compile Include="Payment2.aspx.cs">
       <DependentUpon>Payment2.aspx</DependentUpon>

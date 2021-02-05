@@ -14,6 +14,8 @@ namespace BooksStore
         CartLogic cl = new CartLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["ID"] == null)
+                Response.Redirect("Login.aspx");
             if(!IsPostBack)
             {
                 Repeater1.DataSource = cl.getCart(Int32.Parse(Session["ID"].ToString()));

@@ -58,6 +58,16 @@ namespace BooksStore.App_Code
             int id=Int32.Parse(ds.Tables[0].Rows[0]["ID"].ToString());
             return id;
         }
-     
+        public DataSet getOrder(int ID)
+        {
+            string sql = "SELECT BooksID, NumBooks, Name, Auther, Price, Image1, Price*NumBooks AS TOTAL FROM ((Orders INNER JOIN BooksOrders ON Orders.ID=BooksOrders.OrdersID) INNER JOIN Books ON BOOKS.ID= BooksOrders.BooksID) WHERE Orders.ID=" + ID;
+            return dal.excuteQuery(sql);
+        }
+        public DataSet getTotal(int OrderID)
+        {
+            string sql = "SELECT SUM(Price*NumBooks) AS TOTAL FROM ((Orders INNER JOIN BooksOrders ON Orders.ID=BooksOrders.OrdersID) INNER JOIN Books ON BOOKS.ID= BooksOrders.BooksID) WHERE Orders.ID=" + OrderID;
+            return dal.excuteQuery(sql);
+        }
+
     }
 }
