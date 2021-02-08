@@ -36,6 +36,7 @@
       <asp:Button ID="Button1" runat="server" Text="Button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"/>
         <a class="navbar-brand" href="Home.aspx" style="font-size: 20px">ספרים</a>
         <a class="navbar-brand" href="Cart.aspx" style="font-size: 20px"><i class="fa fa-shopping-cart"> </i>עגלת קניות</a>
+        <a class="navbar-brand" href="PreviousOrders.aspx" style="font-size: 20px">להזמנות שלי</a>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto" style="float:right" id="visitor">
 

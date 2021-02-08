@@ -82,7 +82,7 @@
             <div class="col-md-3 col-sm-6">
             <div class="product-grid6" id="#top-section">
                 <div class="product-image6">
-                    <a href="#">
+                    <a href="ProductView.aspx?data=<%# Eval ("ID") %>">
                         <asp:Image ID="Image1" runat="server" class="pic-1" ImageUrl='<%# Eval ("Image1","Image/{0}") %>'/>
                     </a>
                 </div>

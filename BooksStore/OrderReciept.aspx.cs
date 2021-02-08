@@ -14,14 +14,18 @@ namespace BooksStore
         int orderID;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (!string.IsNullOrEmpty(Request.QueryString["data"]))
             {
-                orderID = 5;
-                Label6.Text = orderID.ToString();
-                Repeater1.DataSource = ol.getOrder(orderID);
-                Repeater1.DataBind();
-                Label5.Text = ol.getTotal(orderID).Tables[0].Rows[0]["Total"].ToString();
+                
+                    orderID = Int32.Parse(Request.QueryString["data"]);
+                    Label6.Text = orderID.ToString();
+                    Repeater1.DataSource = ol.getOrder(orderID);
+                    Repeater1.DataBind();
+                    Label5.Text = ol.getTotal(orderID).Tables[0].Rows[0]["Total"].ToString();
+                
             }
+            else
+            Label1.Text = "משהו השתבש, מצטערים";
         }
     }
 }

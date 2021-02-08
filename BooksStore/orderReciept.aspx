@@ -150,7 +150,9 @@ hr {
                 </div>
                 <div class="row d-flex">
                     <p class="text-muted"><asp:Label ID="Label3" runat="server" Text='<%# Eval ("Auther") %>'></asp:Label></p>
+                    
                 </div>
+                <p > X<asp:Label ID="Label7" runat="server" Text='<%# Eval ("NumBooks") %>'></asp:Label></p>
             </div>
             <div class="col-3 d-flex justify-content-end">
                 <p><b><asp:Label ID="Label4" runat="server" Text='<%# Eval ("Total") %>'></asp:Label>₪</b></p>

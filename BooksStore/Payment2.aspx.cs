@@ -48,7 +48,7 @@ namespace BooksStore
                 String t1 = TextBox1.Text.Replace("'", "''");
                 cl.addNewCredit(orderID, t1, TextBox2.Text, TextBox3.Text, Int32.Parse(DropDownList1.SelectedValue), Int32.Parse(DropDownList2.SelectedValue));
                 cal.deleteCart(Int32.Parse(Session["ID"].ToString()));
-                Response.Redirect("Payment3.aspx");
+                Response.Redirect("Payment3.aspx?data="+orderID);
       
             }
         }
