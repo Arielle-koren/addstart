@@ -20,9 +20,12 @@ namespace BooksStore
             {
                 Repeater1.DataSource = cl.getCart(Int32.Parse(Session["ID"].ToString()));
                 Repeater1.DataBind();
-                Label6.Text = cl.getTotal(Int32.Parse(Session["ID"].ToString())).Tables[0].Rows[0]["TOTAL"].ToString();
+                string total= cl.getTotal(Int32.Parse(Session["ID"].ToString())).Tables[0].Rows[0]["TOTAL"].ToString();
+                if (total == "")//במידה והעגלה ריקה המחיר הוא 0. במקרה כזה יחזור סטרינג ריק מהשאילתה . כאשר זה סטרינג ריק ההפיכה לדאבל לא יכולה להתבצע ולכן שמתי 0 במשתנה
+                    total = "0";
+                Label6.Text = total;
                 Label7.Text = "0";
-                Label8.Text = (Double.Parse(Label6.Text.ToString())+ Double.Parse(Label7.Text.ToString())).ToString();
+                Label8.Text = (Double.Parse(total)+ Double.Parse(Label7.Text.ToString())).ToString();
                 Label9.Text = Session["name"].ToString();
             }
         }
@@ -33,8 +36,11 @@ namespace BooksStore
             cl.add1(Int32.Parse(Booksid), Int32.Parse(Session["ID"].ToString()));
             Repeater1.DataSource = cl.getCart(Int32.Parse(Session["ID"].ToString()));
             Repeater1.DataBind();
-            Label6.Text = cl.getTotal(Int32.Parse(Session["ID"].ToString())).Tables[0].Rows[0]["TOTAL"].ToString();
-            Label8.Text = (Double.Parse(Label6.Text) + Double.Parse(Label7.Text)).ToString();
+            string total = cl.getTotal(Int32.Parse(Session["ID"].ToString())).Tables[0].Rows[0]["TOTAL"].ToString();
+            if (total == "")//במידה והעגלה ריקה המחיר הוא 0. במקרה כזה יחזור סטרינג ריק מהשאילתה . כאשר זה סטרינג ריק ההפיכה לדאבל לא יכולה להתבצע ולכן שמתי 0 במשתנה
+                total = "0";
+            Label6.Text = total;
+            Label8.Text = (Double.Parse(total) + Double.Parse(Label7.Text)).ToString();
         }
 
         protected void LinkButton3_Click(object sender, EventArgs e)
@@ -43,8 +49,11 @@ namespace BooksStore
             cl.remove1(Int32.Parse(Booksid), Int32.Parse(Session["ID"].ToString()));
             Repeater1.DataSource = cl.getCart(Int32.Parse(Session["ID"].ToString()));
             Repeater1.DataBind();
-            Label6.Text = cl.getTotal(Int32.Parse(Session["ID"].ToString())).Tables[0].Rows[0]["TOTAL"].ToString();
-            Label8.Text = (Double.Parse(Label6.Text) + Double.Parse(Label7.Text)).ToString();
+            string total = cl.getTotal(Int32.Parse(Session["ID"].ToString())).Tables[0].Rows[0]["TOTAL"].ToString();
+            if (total == "")//במידה והעגלה ריקה המחיר הוא 0. במקרה כזה יחזור סטרינג ריק מהשאילתה . כאשר זה סטרינג ריק ההפיכה לדאבל לא יכולה להתבצע ולכן שמתי 0 במשתנה
+                total = "0";
+            Label6.Text = total;
+            Label8.Text = (Double.Parse(total) + Double.Parse(Label7.Text)).ToString();
         }
 
         protected void LinkButton2_Click(object sender, EventArgs e)
@@ -53,28 +62,34 @@ namespace BooksStore
             cl.deleteFromCart(Int32.Parse(Booksid), Int32.Parse(Session["ID"].ToString()));
             Repeater1.DataSource = cl.getCart(Int32.Parse(Session["ID"].ToString()));
             Repeater1.DataBind();
-            Label6.Text = cl.getTotal(Int32.Parse(Session["ID"].ToString())).Tables[0].Rows[0]["TOTAL"].ToString();
-            Label8.Text = (Double.Parse(Label6.Text) + Double.Parse(Label7.Text)).ToString();
+            string total = cl.getTotal(Int32.Parse(Session["ID"].ToString())).Tables[0].Rows[0]["TOTAL"].ToString();
+            if (total == "")//במידה והעגלה ריקה המחיר הוא 0. במקרה כזה יחזור סטרינג ריק מהשאילתה . כאשר זה סטרינג ריק ההפיכה לדאבל לא יכולה להתבצע ולכן שמתי 0 במשתנה
+                total = "0";
+            Label6.Text = total;
+            Label8.Text = (Double.Parse(total) + Double.Parse(Label7.Text)).ToString();
         }
 
         protected void LinkButton6_Click(object sender, EventArgs e)
         {
-            // |בדיקה אם כל המוצרים במלאי
-            DataSet ds = cl.getCart(Int32.Parse(Session["ID"].ToString()));
-            Label10.Text = "";
-            bool instock=true;
-            for (int i=0; i< ds.Tables[0].Rows.Count; i++)
+            if (Label6.Text != "0")//ניתן לבצע הזמנה רק כאשר העגלה לא ריקה
             {
-                if (!cl.inStock(Int32.Parse(ds.Tables[0].Rows[i]["BooksID"].ToString()), Int32.Parse(ds.Tables[0].Rows[i]["NumBooks"].ToString())))// אם לא במלאי
+                // |בדיקה אם כל המוצרים במלאי
+                DataSet ds = cl.getCart(Int32.Parse(Session["ID"].ToString()));
+                Label10.Text = "";
+                bool instock = true;
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
-                    int n = i + 1;
-                    Label10.Text = Label10.Text + " מוצר מספר " + n + " חסר במלאי. ";
-                    instock = false;
+                    if (!cl.inStock(Int32.Parse(ds.Tables[0].Rows[i]["BooksID"].ToString()), Int32.Parse(ds.Tables[0].Rows[i]["NumBooks"].ToString())))// אם לא במלאי
+                    {
+                        int n = i + 1;
+                        Label10.Text = Label10.Text + " מוצר מספר " + n + " חסר במלאי. ";
+                        instock = false;
+                    }
+
                 }
-                
+                if (instock)
+                    Response.Redirect("Payment1.aspx?data=" + Label8.Text);
             }
-            if (instock)
-                Response.Redirect("Payment1.aspx?data="+Label8.Text);
         }
     }
 }

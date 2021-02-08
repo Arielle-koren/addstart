@@ -45,7 +45,8 @@ namespace BooksStore
                 string phoneNum = pd.getPhone();
                 string comment = pd.getMore();
                 int orderID =ol.addOrder(Int32.Parse(Session["ID"].ToString()), city, address, comment, phoneNum);
-                cl.addNewCredit(orderID, TextBox1.Text, TextBox2.Text, TextBox3.Text, Int32.Parse(DropDownList1.SelectedValue), Int32.Parse(DropDownList2.SelectedValue));
+                String t1 = TextBox1.Text.Replace("'", "''");
+                cl.addNewCredit(orderID, t1, TextBox2.Text, TextBox3.Text, Int32.Parse(DropDownList1.SelectedValue), Int32.Parse(DropDownList2.SelectedValue));
                 cal.deleteCart(Int32.Parse(Session["ID"].ToString()));
                 Response.Redirect("Payment3.aspx");
       

@@ -131,7 +131,7 @@ hr {
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="card mt-50 mb-50">
-    <div class="col d-flex"><span class="text-muted" id="orderno">order #546924</span></div>
+    <div class="col d-flex"><span class="text-muted" id="orderno">order #<asp:Label ID="Label6" runat="server" Text=""></asp:Label></span></div>
     <div class="gap">
         <div class="col-2 d-flex mx-auto"> </div>
     </div>
@@ -153,7 +153,7 @@ hr {
                 </div>
             </div>
             <div class="col-3 d-flex justify-content-end">
-                <p><b><asp:Label ID="Label4" runat="server" Text='<%# Eval ("Total") %>'></asp:Label></b></p>
+                <p><b><asp:Label ID="Label4" runat="server" Text='<%# Eval ("Total") %>'></asp:Label>₪</b></p>
             </div>
         </div>
                 </ItemTemplate>
@@ -163,8 +163,9 @@ hr {
             <div class="row">
                 <div class="col"> <b> סה"כ לתשלום:</b> </div>
                 <div class="col d-flex justify-content-end"> <b>
-        <asp:Label ID="Label5" runat="server" Text=""></asp:Label></b> </div>
-            </div> <button class="btn d-flex mx-auto"> Track your order </button>
+        <asp:Label ID="Label5" runat="server" Text=""></asp:Label>₪</b> </div>
+            </div>
+            <asp:LinkButton ID="LinkButton1" runat="server"  class="btn d-flex mx-auto" href="Home.aspx">חזרה לדף הבית</asp:LinkButton>
         </div>
     </div>
 </div>

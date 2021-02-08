@@ -85,10 +85,11 @@
                        
                                 <div class="form-group row">
                                     <div class="col-md-6">
-                                             <asp:Button ID="Button1" runat="server" Text="פרטי ההזמנה" class="btn btn-dark btn-lg btn-block" OnClick="Button1_Click"/>
+                                        <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-dark btn-lg btn-block" href="">פרטי ההזמנה</asp:LinkButton>
                                     </div>
                                              <div class="col-md-6">
-                                        <asp:Button ID="Button4" runat="server" Text="חזרה לדף הבית" class="btn btn-dark btn-lg btn-block" OnClick="Button1_Click"/> 
+                                                 <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-dark btn-lg btn-block" href="Home.aspx">חזרה לדף הבית</asp:LinkButton>
+                                    
                                     </div>
                                 </div>
                             </form>

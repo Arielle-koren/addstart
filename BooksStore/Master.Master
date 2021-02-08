@@ -17,10 +17,10 @@
    <style>
 
        div.fixed {
-  position: fixed;
+  position: fixed !important; 
   bottom: 30px;
   left: 30px;
-  width: 300px;
+  width: 300px !important;
   z-index:10;
     }
  </style>

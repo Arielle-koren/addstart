@@ -33,10 +33,12 @@ namespace BooksStore
         {
             if (!string.IsNullOrEmpty(Request.QueryString["data"]))
             {
-                pd.addPaymentsDetail(TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text);
+                String t1 = TextBox1.Text.Replace("'", "''");
+                String t2 = TextBox1.Text.Replace("'", "''");
+                String t4 = TextBox1.Text.Replace("'", "''");
+                pd.addPaymentsDetail(t1, t2, TextBox3.Text, t4);
                 Session["PD"] = pd;
                 Response.Redirect("Payment2.aspx?price="+Label1.Text);
-                //+"&city="+ TextBox1.Text +"&address"+ TextBox2.Text + "&phonenum"+ TextBox3.Text+"&comments"+ TextBox4.Text
             }
         }
     }
