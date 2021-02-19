@@ -34,8 +34,10 @@ namespace BooksStore
                 int id = Int32.Parse(us.getID(email.Text).Tables[0].Rows[0]["ID"].ToString());
                 
                 Session["ID"] = id;
-                string message = "שמחים שנרשמת לאתר!";
-                ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + message + "');", true);
+                Session["name"] = us.getName(email.Text).Tables[0].Rows[0]["Name"].ToString();
+                Session["email"] = email.Text;
+                Session["IsAdmin"] = "no";
+                Response.Redirect("Home.aspx");
             }
         }
     }

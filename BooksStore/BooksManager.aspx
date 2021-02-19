@@ -8,8 +8,10 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:Label ID="label1" runat="server" Text=""></asp:Label>
     <asp:gridview runat="server" ID="GridView1" AutoGenerateColumns="False" Height="16px" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal" style="text-align:right" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting">
         <Columns>
+            
             <asp:TemplateField HeaderText="תמונה">
                 <ItemTemplate>
                 <asp:Image ID="Image1" runat="server" class="pic-1" ImageUrl='<%# Eval ("Image1","Image/{0}") %>' width="100px" height="100px"/>

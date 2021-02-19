@@ -26,7 +26,7 @@ namespace BooksStore
                 Label6.Text = total;
                 Label7.Text = "0";
                 Label8.Text = (Double.Parse(total)+ Double.Parse(Label7.Text.ToString())).ToString();
-                Label9.Text = Session["name"].ToString();
+                
             }
         }
 

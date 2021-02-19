@@ -10,14 +10,14 @@ namespace BooksStore.App_Code
     {
         DAL dal = new DAL();
 
-        public DataSet showAllOrders1()
+        public DataSet showAllOrders1()//מחזירה את כל ההזמנות
         {
             string sql = "SELECT Orders.ID, Orders.UsersID, Orders.Hour, Orders.Date1, Orders.City, Orders.Address, Orders.Phone, More , Users.Name+' '+ Users.LastName AS FullName FROM Orders INNER JOIN Users ON Orders.UsersID = Users.ID";
             DataSet ds = dal.excuteQuery(sql);
             return ds;
 
         }
-        public DataSet getByMonthAndYear(string Month, string Year)
+        public DataSet getByMonthAndYear(string Month, string Year)// מחזירה הזמנות שבוצעו בשנה ובחודש שהשאילתה מקבלת
         {
             int A = Int32.Parse(Month);
             int B = Int32.Parse(Year);
@@ -31,7 +31,7 @@ namespace BooksStore.App_Code
             return dal.excuteQuery(sql);
         }
 
-        public int addOrder(int UID, string city, string Address, string more, string phone)
+        public int addOrder(int UID, string city, string Address, string more, string phone)// שאילתה שיוצרת הזמנה חדשה
         {
             CartLogic cl = new CartLogic();
             BooksLogic bl = new BooksLogic();
@@ -51,19 +51,19 @@ namespace BooksStore.App_Code
             }
              return orderid;
         }
-        public int getID( int usersID)
+        public int getID( int usersID)//שאילתה שמחזירה את האיידי של ההזמנה האחרונה שבוצעה של משתמש זה
         {
             string sql = " SELECT TOP 1 ID FROM Orders WHERE UsersID="+ usersID +" ORDER BY Date1 DESC, Hour DESC";
             DataSet ds= dal.excuteQuery(sql);
             int id=Int32.Parse(ds.Tables[0].Rows[0]["ID"].ToString());
             return id;
         }
-        public DataSet getOrder(int ID)
+        public DataSet getOrder(int ID)//שאילתה שמחזירה את הפרטים של ההזמנה עם האידי שמקבלת
         {
             string sql = "SELECT BooksID, NumBooks, Name, Auther, Price, Image1, Price*NumBooks AS TOTAL FROM ((Orders INNER JOIN BooksOrders ON Orders.ID=BooksOrders.OrdersID) INNER JOIN Books ON BOOKS.ID= BooksOrders.BooksID) WHERE Orders.ID=" + ID;
             return dal.excuteQuery(sql);
         }
-        public DataSet getTotal(int OrderID)
+        public DataSet getTotal(int OrderID)//שאילתה שמחזירה את סכום הקנייה של הזמנה מסויימת
         {
             string sql = "SELECT SUM(Price*NumBooks) AS TOTAL FROM ((Orders INNER JOIN BooksOrders ON Orders.ID=BooksOrders.OrdersID) INNER JOIN Books ON BOOKS.ID= BooksOrders.BooksID) WHERE Orders.ID=" + OrderID;
             return dal.excuteQuery(sql);

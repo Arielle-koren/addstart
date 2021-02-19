@@ -25,27 +25,37 @@ namespace BooksStore
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
+            GridView1.EditIndex = e.NewEditIndex;
             GridView1.DataSource = bl.getAllBooksDetail1();
             GridView1.DataBind();
         }
 
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            // לקיחת הנתונים
-            double price = Double.Parse(((TextBox)(GridView1.Rows[e.RowIndex].Cells[4].Controls[0])).Text);
-            int stock = Int32.Parse(((TextBox)(GridView1.Rows[e.RowIndex].Cells[5].Controls[0])).Text);
+            label1.Text = "";
+          //  try
+          //  {
+                // לקיחת הנתונים
+                double price = Double.Parse(((TextBox)(GridView1.Rows[e.RowIndex].Cells[4].Controls[0])).Text);
+                int stock = Int32.Parse(((TextBox)(GridView1.Rows[e.RowIndex].Cells[5].Controls[0])).Text);
 
-            //קריאה לפעולת העדכון
-            bl.updateProd(price, stock, Int32.Parse(GridView1.Rows[e.RowIndex].Cells[8].Text));
-            
-           //יציאה ממצב עריכה
-            GridView1.EditIndex = -1;
-            GridView1.DataSource = bl.getAllBooksDetail1();
-            GridView1.DataBind();
+                //קריאה לפעולת העדכון
+                bl.updateProd(price, stock, Int32.Parse(GridView1.Rows[e.RowIndex].Cells[8].Text));
+
+                //יציאה ממצב עריכה
+                GridView1.EditIndex = -1;
+                GridView1.DataSource = bl.getAllBooksDetail1();
+                GridView1.DataBind();
+         //   }
+           /* catch (Exception e)
+            {
+                label1.Text = "הודעת מערכת: הנתונים לא נשמרו, נסה עוד פעם מאוחר יותר";
+            }*/
         }
 
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
+            GridView1.EditIndex = -1;
             GridView1.DataSource = bl.getAllBooksDetail1();
             GridView1.DataBind();
 
@@ -54,13 +64,23 @@ namespace BooksStore
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            //קריאה לפעולת העדכון
-            bl.updateStock(Int32.Parse(GridView1.Rows[e.RowIndex].Cells[8].Text));
+            label1.Text = "";
+      //      try
+      //     {
 
-            //יציאה ממצב עריכה
-            GridView1.EditIndex = -1;
-            GridView1.DataSource = bl.getAllBooksDetail1();
-            GridView1.DataBind();
+                //קריאה לפעולת העדכון
+                bl.updateStock(Int32.Parse(GridView1.Rows[e.RowIndex].Cells[8].Text));
+
+                //יציאה ממצב עריכה
+                GridView1.EditIndex = -1;
+                GridView1.DataSource = bl.getAllBooksDetail1();
+                GridView1.DataBind();
+      //      }
+         /*   catch (Exception e)
+            {
+                label1.Text = "הודעת מערכת: הנתונים לא נשמרו, נסה עוד פעם מאוחר יותר";
+            }
+            */
         }
     }
 }

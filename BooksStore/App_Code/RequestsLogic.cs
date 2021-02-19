@@ -24,12 +24,12 @@ namespace BooksStore.App_Code
             string sql = "SELECT TOP 8 ID, Name, Email, Date1, Content, Done FROM Requests WHERE Done=False ORDER BY Date1 DESC";
             return dal.excuteQuery(sql);
         }
-        public void changeToDone(int id)
+        public void changeToDone(int id)//שאילתה שמסמנת שהבקשה נעשתה
         {
             string sql = "UPDATE Requests SET Done= True WHERE ID=" + id;
             dal.excuteQuery(sql);
         }
-        public void changeToNotDone(int id)
+        public void changeToNotDone(int id)//שאילתה שמסמנת שהבקשה לא נעשתה
         {
             string sql = "UPDATE Requests SET Done= False WHERE ID=" + id;
             dal.excuteQuery(sql);
@@ -39,7 +39,7 @@ namespace BooksStore.App_Code
             string sql = "SELECT TOP 8 ID, Name, Email, Date1, Content, Done FROM Requests WHERE Done= Yes ORDER BY Date1 DESC";
             return dal.excuteQuery(sql);
         }
-        public DataSet getDone(int id)// שאילתה שמחזירה את הבקשות שנענו
+        public DataSet getDone(int id)// שאילתה שמחזירה האם הבקשה נענתה או לא
         {
             string sql = "SELECT Done FROM Requests WHERE ID="+id;
             return dal.excuteQuery(sql);

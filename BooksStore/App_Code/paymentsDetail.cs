@@ -19,19 +19,19 @@ namespace BooksStore.App_Code
             this.phone = P;
             this.more = M;
         }
-        public string getCity()
+        public string getCity()//מחזירה את העיר
         {
             return this.city;
         }
-        public string getAddress()
+        public string getAddress()//מחזירה את הכתובת
         {
             return this.address;
         }
-        public string getPhone()
+        public string getPhone()//מחזירה את הטלפון
         {
             return this.phone;
         }
-        public string getMore()
+        public string getMore()//מחזירה את הפרטים הנוספים
         {
             return this.more;
         }

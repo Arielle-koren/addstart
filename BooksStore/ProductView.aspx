@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ProductView.aspx.cs" Inherits="BooksStore.ProductView" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" UnobtrusiveValidationMode="None" CodeBehind="ProductView.aspx.cs" Inherits="BooksStore.ProductView" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
 .product_meta a, .pro-price{
@@ -70,8 +70,9 @@
               <div class="form-group">
                   <strong><label>כמות:</label></strong>
                   <asp:TextBox ID="TextBox1" runat="server" type="quantiy" Text="1" class="form-control quantity"></asp:TextBox>
+                  <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="לא תקין" ControlToValidate="TextBox1" ValidationExpression="^[1-9][0-9]*$"></asp:RegularExpressionValidator>
               </div>
-                  
+                
             
       
               

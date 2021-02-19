@@ -37,12 +37,15 @@ table tr th {
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-info panel-shadow">
-                    <div class="panel-heading">
+                    <div class="panel-heading" style="align-items:center; text-align:right">
                         <h3>
-                            <img class="img-circle img-thumbnail" src="https://bootdey.com/img/Content/user_3.jpg">
-                            <asp:Label ID="Label9" runat="server" Text=""></asp:Label>
+                            <img class="img-circle img-thumbnail" src="Image/bookspicture.png" width="100" height="50"/>
+                            <asp:Label ID="Label9" runat="server" Text="עגלת הקניות שלי"></asp:Label>
                         </h3>
                     </div>
+                    <asp:Label ID="Label10" runat="server" Text=""></asp:Label>
+                                                <asp:LinkButton ID="LinkButton8" runat="server" href="Home.aspx" class="btn btn-default"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i>&nbsp;המשך בקניות</asp:LinkButton>
+                            <asp:LinkButton ID="LinkButton9" runat="server" class="btn btn-success" OnClick="LinkButton6_Click">&nbsp;לתשלום <i class="fa fa-arrow-circle-left" aria-hidden="true"></i></asp:LinkButton>
                     <div class="panel-body"> 
                         <div class="table-responsive">
                         <table class="table">
@@ -103,12 +106,11 @@ table tr th {
                                 </tr>
                             </tbody>
                         </table>
-                            <asp:Label ID="Label10" runat="server" Text=""></asp:Label>
-                            <asp:LinkButton ID="LinkButton5" runat="server" href="Home.aspx" class="btn btn-default"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i>&nbsp;המשך בקניות</asp:LinkButton>
-                            <asp:LinkButton ID="LinkButton6" runat="server" class="btn btn-success" OnClick="LinkButton6_Click">&nbsp;לתשלום <i class="fa fa-arrow-circle-left" aria-hidden="true"></i></asp:LinkButton>
+                            
                             
                     </div>
-
+                                                    <asp:LinkButton ID="LinkButton4" runat="server" href="Home.aspx" class="btn btn-default"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i>&nbsp;המשך בקניות</asp:LinkButton>
+                            <asp:LinkButton ID="LinkButton7" runat="server" class="btn btn-success" OnClick="LinkButton6_Click">&nbsp;לתשלום <i class="fa fa-arrow-circle-left" aria-hidden="true"></i></asp:LinkButton>
                 </div>
 
                 </div>

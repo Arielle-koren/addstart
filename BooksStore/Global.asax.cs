@@ -19,6 +19,7 @@ namespace BooksStore
             Session["IsAdmin"] = "no";
             Session["ID"] = null;
             Session["PD"] = null;
+            Session["cart"] = null;
             Application.UnLock();
 
 
