@@ -64,6 +64,7 @@ namespace BooksStore
             }
             else
             {
+                Label1.Text = "";
                 GridView1.DataSource = ol.showAllOrders1();
                 GridView1.DataBind();
             }

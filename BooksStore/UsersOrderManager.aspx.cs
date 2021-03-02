@@ -36,5 +36,10 @@ namespace BooksStore
                     Label2.Text = "אין הזמנות מתאימות";
             }
         }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

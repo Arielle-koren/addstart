@@ -1,7 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" enableEventValidation="true" Inherits="BooksStore.Home" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css” />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     <style>
         h3.h3{text-align:center;margin:1em;text-transform:capitalize;font-size:1.7em;}
         .product-grid6,.product-grid6 .product-image6{overflow:hidden}
@@ -62,13 +64,84 @@
                     font-size: 23px;
                 }
         }
+         .carousel { 
+ width:1100px; 
+ height:200px; 
+ } 
+ h2 {
+	color: #000;
+	font-size: 26px;
+	font-weight: 300;
+	text-align: center;
+	text-transform: uppercase;
+	position: relative;
+	margin: 30px 0 80px;
+}
+  h2 {
+	color: #000;
+	font-size: 26px;
+	font-weight: 300;
+	text-align: center;
+	text-transform: uppercase;
+	position: relative;
+	margin: 30px 0 80px;
+}
+h2 b {
+	color: #ffc000;
+}
+h2::after {
+	content: "";
+	width: 100px;
+	position: absolute;
+	margin: 0 auto;
+	height: 4px;
+	background: rgba(0, 0, 0, 0.2);
+	left: 0;
+	right: 0;
+	bottom: -20px;
+}
     </style>
+     <script type="text/javascript"
+            src="//code.jquery.com/jquery-1.9.1.js"> 
+  </script> 
+    <link rel="stylesheet" 
+          type="text/css" 
+          href="/css/result-light.css"> 
+    
+    <script type="text/javascript" 
+            src= 
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"> 
+  </script> 
+    <link rel="stylesheet" 
+          type="text/css" 
+          href= 
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> 
+    <link rel="stylesheet"
+          type="text/css" 
+          href= 
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
+    <!-- JavaScript for adding  
+     slider for multiple images 
+     shown at once-->
+    <script type="text/javascript"> 
+        $(window).load(function() { 
+            $(".carousel .item").each(function() { 
+                var i = $(this).next(); 
+                i.length || (i = $(this).siblings(":first")), 
+                  i.children(":first-child").clone().appendTo($(this)); 
+                
+                for (var n = 0; n < 4; n++)(i = i.next()).length || 
+                  (i = $(this).siblings(":first")), 
+                  i.children(":first-child").clone().appendTo($(this)) 
+            }) 
+        }); 
+    </script> 
+  
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" dir="rtl">
   
     <div class="container">
-
         <div class="row"  dir="ltr">
         <div class="col-md-6">
             <div id="custom-search-input">
@@ -81,9 +154,11 @@
                 </div>
             </div>
         </div>
+            
 	</div>
    
         <div class="row">
+            <asp:Label ID="Label11" runat="server" Text="הנמכרים ביותר" CssClass="h2" style="color: #ffc000; font-weight: 300;	text-align: center;"></asp:Label>
         <asp:Repeater ID="Repeater1" runat="server">
             <ItemTemplate>
             <div class="col-md-3 col-sm-6">
@@ -94,7 +169,7 @@
                     </a>
                 </div>
                 <div class="product-content">
-                    <asp:Label ID="Label1" class="title" runat="server" Text='<%# Eval ("Name") %>'><a href="#">Men's Shirt</a></asp:Label>
+                    <asp:Label ID="Label1" class="title" runat="server" Text='<%# Eval ("Name") %>'></asp:Label>
                     <div class="price">
                         <asp:Label ID="Label2" runat="server" style="font-size:18px;font-weight:600;color:#2e86de" Text='<%# Eval ("Price") %>'></asp:Label> ש"ח
                         <asp:Label ID="Label3" runat="server" Text='<%# Eval ("Auther") %>'></asp:Label>
@@ -117,5 +192,284 @@
 </div>
 
 <hr>
+    <!-- container class for bootstrap card-->
 
+    <div class="container"> 
+        <h2>קטגוריה: <b>מומלצים בשבילך</b></h2>
+        <!-- bootstrap card with row name myCarousel as row 1-->
+        <div class="carousel slide" id="myCarousel"> 
+            <div class="carousel-inner"> 
+                 
+                <asp:Repeater ID="Repeater2" runat="server">
+                    <ItemTemplate>
+                <div class="item"> 
+                    <div class="col-xs-2"> 
+                        <a href="ProductView.aspx?data=<%# Eval ("ID") %>"> 
+                            <asp:Image ID="Image1" runat="server" class="img-responsive" ImageUrl='<%# Eval ("Image1","Image/{0}") %>'/>
+                       
+                      </a> 
+                        <asp:Label ID="Label1" class="title" runat="server" Text='<%# Eval ("Name") %>'></asp:Label>
+                        <br />
+                        <asp:Label ID="Label2" runat="server" style="font-size:18px;font-weight:600;color:#2e86de" Text='<%# Eval ("Price") %>'></asp:Label> ש"ח
+                    </div> 
+                </div> 
+</ItemTemplate>
+                </asp:Repeater>
+                <div class="item active"> 
+                    <div class="col-xs-2"> 
+                        <a href="Home.aspx"> 
+                          <asp:Label ID="Label1" class="title" runat="server" Text="לא מצאת מה שחיפשת? נסה לכתוב את שם הספר בכפתור החיפוש"></asp:Label>
+                      </a> 
+                    </div> 
+                </div>
+            </div> <a class="left carousel-control"
+                      href="#myCarousel"
+                      data-slide="prev"> 
+          <i class="glyphicon glyphicon-chevron-left"> 
+          </i> 
+          </a> 
+            <a class="right carousel-control" 
+               href="#myCarousel" 
+               data-slide="next"> 
+              <i class="glyphicon glyphicon-chevron-right"> 
+              </i> 
+          </a> 
+  
+        </div> 
+    </div> 
+     <!-- container class for bootstrap card-->
+    <br />
+        <br />
+    <div class="container"> 
+        <h2>קטגוריה: <b>רומן</b></h2>
+        <!-- bootstrap card with row name myCarousel as row 1-->
+        <div class="carousel slide" id="myCarousel1"> 
+            <div class="carousel-inner"> 
+                 
+                <asp:Repeater ID="Repeater3" runat="server">
+                    <ItemTemplate>
+                <div class="item"> 
+                    <div class="col-xs-2"> 
+                        <a href="ProductView.aspx?data=<%# Eval ("ID") %>"> 
+                            <asp:Image ID="Image1" runat="server" class="img-responsive" ImageUrl='<%# Eval ("Image1","Image/{0}") %>'/>
+                       
+                      </a> 
+                        <asp:Label ID="Label1" class="title" runat="server" Text='<%# Eval ("Name") %>'></asp:Label>
+                        <br />
+                        <asp:Label ID="Label2" runat="server" style="font-size:18px;font-weight:600;color:#2e86de" Text='<%# Eval ("Price") %>'></asp:Label> ש"ח
+                    </div> 
+                </div> 
+</ItemTemplate>
+                </asp:Repeater>
+                <div class="item active"> 
+                    <div class="col-xs-2"> 
+                        <a href="Home.aspx"> 
+                          <asp:Label ID="Label4" class="title" runat="server" Text="לא מצאת מה שחיפשת? נסה לכתוב את שם הספר בכפתור החיפוש"></asp:Label>
+                      </a> 
+                    </div> 
+                </div>
+            </div> <a class="left carousel-control"
+                      href="#myCarousel1"
+                      data-slide="prev"> 
+          <i class="glyphicon glyphicon-chevron-left"> 
+          </i> 
+          </a> 
+            <a class="right carousel-control" 
+               href="#myCarousel1" 
+               data-slide="next"> 
+              <i class="glyphicon glyphicon-chevron-right"> 
+              </i> 
+          </a> 
+  
+        </div> 
+    </div> 
+    <br />
+        <br />
+      <!-- container class for bootstrap card-->
+
+    <div class="container"> 
+        <h2>קטגוריה: <b>מדע בדיוני ופנטזיה</b></h2>
+        <!-- bootstrap card with row name myCarousel as row 1-->
+        <div class="carousel slide" id="myCarousel2"> 
+            <div class="carousel-inner"> 
+                 
+                <asp:Repeater ID="Repeater4" runat="server">
+                    <ItemTemplate>
+                <div class="item"> 
+                    <div class="col-xs-2"> 
+                        <a href="ProductView.aspx?data=<%# Eval ("ID") %>"> 
+                            <asp:Image ID="Image1" runat="server" class="img-responsive" ImageUrl='<%# Eval ("Image1","Image/{0}") %>'/>
+                       
+                      </a> 
+                        <asp:Label ID="Label1" class="title" runat="server" Text='<%# Eval ("Name") %>'></asp:Label>
+                        <br />
+                        <asp:Label ID="Label2" runat="server" style="font-size:18px;font-weight:600;color:#2e86de" Text='<%# Eval ("Price") %>'></asp:Label> ש"ח
+                    </div> 
+                </div> 
+</ItemTemplate>
+                </asp:Repeater>
+                <div class="item active"> 
+                    <div class="col-xs-2"> 
+                        <a href="Home.aspx"> 
+                          <asp:Label ID="Label5" class="title" runat="server" Text="לא מצאת מה שחיפשת? נסה לכתוב את שם הספר בכפתור החיפוש"></asp:Label>
+                      </a> 
+                    </div> 
+                </div>
+            </div> <a class="left carousel-control"
+                      href="#myCarousel2"
+                      data-slide="prev"> 
+          <i class="glyphicon glyphicon-chevron-left"> 
+          </i> 
+          </a> 
+            <a class="right carousel-control" 
+               href="#myCarousel2" 
+               data-slide="next"> 
+              <i class="glyphicon glyphicon-chevron-right"> 
+              </i> 
+          </a> 
+  
+        </div> 
+    </div> 
+       <br />
+        <br />
+      <!-- container class for bootstrap card-->
+
+    <div class="container"> 
+        <h2>קטגוריה: <b>מדע</b></h2>
+        <!-- bootstrap card with row name myCarousel as row 1-->
+        <div class="carousel slide" id="myCarousel3"> 
+            <div class="carousel-inner"> 
+                 
+                <asp:Repeater ID="Repeater5" runat="server">
+                    <ItemTemplate>
+                <div class="item"> 
+                    <div class="col-xs-2"> 
+                        <a href="ProductView.aspx?data=<%# Eval ("ID") %>"> 
+                            <asp:Image ID="Image1" runat="server" class="img-responsive" ImageUrl='<%# Eval ("Image1","Image/{0}") %>'/>
+                       
+                      </a> 
+                        <asp:Label ID="Label1" class="title" runat="server" Text='<%# Eval ("Name") %>'></asp:Label>
+                        <br />
+                        <asp:Label ID="Label2" runat="server" style="font-size:18px;font-weight:600;color:#2e86de" Text='<%# Eval ("Price") %>'></asp:Label> ש"ח
+                    </div> 
+                </div> 
+</ItemTemplate>
+                </asp:Repeater>
+                <div class="item active"> 
+                    <div class="col-xs-2"> 
+                        <a href="Home.aspx"> 
+                          <asp:Label ID="Label6" class="title" runat="server" Text="לא מצאת מה שחיפשת? נסה לכתוב את שם הספר בכפתור החיפוש"></asp:Label>
+                      </a> 
+                    </div> 
+                </div>
+            </div> <a class="left carousel-control"
+                      href="#myCarousel3"
+                      data-slide="prev"> 
+          <i class="glyphicon glyphicon-chevron-left"> 
+          </i> 
+          </a> 
+            <a class="right carousel-control" 
+               href="#myCarousel3" 
+               data-slide="next"> 
+              <i class="glyphicon glyphicon-chevron-right"> 
+              </i> 
+          </a> 
+  
+        </div> 
+    </div> 
+       <br />
+        <br />
+      <!-- container class for bootstrap card-->
+
+    <div class="container"> 
+        <h2>קטגוריה: <b>קומדיה</b></h2>
+        <!-- bootstrap card with row name myCarousel as row 1-->
+        <div class="carousel slide" id="myCarousel4"> 
+            <div class="carousel-inner"> 
+                 
+                <asp:Repeater ID="Repeater6" runat="server">
+                    <ItemTemplate>
+                <div class="item"> 
+                    <div class="col-xs-2"> 
+                        <a href="ProductView.aspx?data=<%# Eval ("ID") %>"> 
+                            <asp:Image ID="Image1" runat="server" class="img-responsive" ImageUrl='<%# Eval ("Image1","Image/{0}") %>'/>
+                       
+                      </a> 
+                        <asp:Label ID="Label1" class="title" runat="server" Text='<%# Eval ("Name") %>'></asp:Label>
+                        <br />
+                        <asp:Label ID="Label2" runat="server" style="font-size:18px;font-weight:600;color:#2e86de" Text='<%# Eval ("Price") %>'></asp:Label> ש"ח
+                    </div> 
+                </div> 
+</ItemTemplate>
+                </asp:Repeater>
+                <div class="item active"> 
+                    <div class="col-xs-2"> 
+                        <a href="Home.aspx"> 
+                          <asp:Label ID="Label7" class="title" runat="server" Text="לא מצאת מה שחיפשת? נסה לכתוב את שם הספר בכפתור החיפוש"></asp:Label>
+                      </a> 
+                    </div> 
+                </div>
+            </div> <a class="left carousel-control"
+                      href="#myCarousel4"
+                      data-slide="prev"> 
+          <i class="glyphicon glyphicon-chevron-left"> 
+          </i> 
+          </a> 
+            <a class="right carousel-control" 
+               href="#myCarousel4" 
+               data-slide="next"> 
+              <i class="glyphicon glyphicon-chevron-right"> 
+              </i> 
+          </a> 
+  
+        </div> 
+    </div> 
+       <br />
+        <br />
+      <!-- container class for bootstrap card-->
+
+    <div class="container"> 
+        <h2>קטגוריה: <b>ילדים ונוער</b></h2>
+        <!-- bootstrap card with row name myCarousel as row 1-->
+        <div class="carousel slide" id="myCarousel5"> 
+            <div class="carousel-inner"> 
+                 
+                <asp:Repeater ID="Repeater7" runat="server">
+                    <ItemTemplate>
+                <div class="item"> 
+                    <div class="col-xs-2"> 
+                        <a href="ProductView.aspx?data=<%# Eval ("ID") %>"> 
+                            <asp:Image ID="Image1" runat="server" class="img-responsive" ImageUrl='<%# Eval ("Image1","Image/{0}") %>'/>
+                       
+                      </a> 
+                        <asp:Label ID="Label1" class="title" runat="server" Text='<%# Eval ("Name") %>'></asp:Label>
+                        <br />
+                        <asp:Label ID="Label2" runat="server" style="font-size:18px;font-weight:600;color:#2e86de" Text='<%# Eval ("Price") %>'></asp:Label> ש"ח
+                    </div> 
+                </div> 
+</ItemTemplate>
+                </asp:Repeater>
+                <div class="item active"> 
+                    <div class="col-xs-2"> 
+                        <a href="Home.aspx"> 
+                          <asp:Label ID="Label8" class="title" runat="server" Text="לא מצאת מה שחיפשת? נסה לכתוב את שם הספר בכפתור החיפוש"></asp:Label>
+                      </a> 
+                    </div> 
+                </div>
+            </div> <a class="left carousel-control"
+                      href="#myCarousel5"
+                      data-slide="prev"> 
+          <i class="glyphicon glyphicon-chevron-left"> 
+          </i> 
+          </a> 
+            <a class="right carousel-control" 
+               href="#myCarousel5" 
+               data-slide="next"> 
+              <i class="glyphicon glyphicon-chevron-right"> 
+              </i> 
+          </a> 
+  
+        </div> 
+    </div> 
+        <br />
 </asp:Content>

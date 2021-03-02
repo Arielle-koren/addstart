@@ -38,8 +38,8 @@ namespace BooksStore
             }
             else
             {
-            //    try
-             //   {
+               try
+               {
                     //save image name
                     string imageName = FileUpload1.PostedFile.FileName;
                     //מחזיר את הנתיב של התיקיה בשרת
@@ -53,13 +53,13 @@ namespace BooksStore
                     bl.addNewBook(nameS, autherS, Int32.Parse(type1.SelectedValue), Double.Parse(price.Text), descS, stock.Text, imageName);
                     string message = "הספר נשמר בהצלחה";
                     ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + message + "');", true);
-             //   }
-              /*  catch(Exception e)
+               }
+               catch(Exception ex)
                 {
                     string message = "ייתכן שהקובץ לא נמצא, נסה שוב בעוד כמה דקות";
                     ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + message + "');", true);
                 }
-                */
+               
             }
         }
 

@@ -18,6 +18,18 @@ namespace BooksStore
             {
                 Repeater1.DataSource = bl.getAllBooks();
                 Repeater1.DataBind();
+                Repeater2.DataSource = bl.getAllBooks();//לכתוב שאילה של ספרים מומלצים
+                Repeater2.DataBind();
+                Repeater3.DataSource = bl.getBooks(1);
+                Repeater3.DataBind();
+                Repeater4.DataSource = bl.getBooks(2);
+                Repeater4.DataBind();
+                Repeater5.DataSource = bl.getBooks(3);
+                Repeater5.DataBind();
+                Repeater6.DataSource = bl.getBooks(4);
+                Repeater6.DataBind();
+                Repeater7.DataSource = bl.getBooks(5);
+                Repeater7.DataBind();
             }
             
 

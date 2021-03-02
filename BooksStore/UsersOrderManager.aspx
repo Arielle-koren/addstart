@@ -3,18 +3,17 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
-    <asp:gridview ID="GridView1" runat="server" AutoGenerateColumns="False" style="text-align:right" CellPadding="4" ForeColor="#333333" GridLines="None"  DataKeyNames="ID">
+    <asp:Label ID="Label1" runat="server" Text="" Style="color: #ffc000; font-weight: 300;	text-align: center; float:right"></asp:Label>
+    <asp:gridview ID="GridView1" runat="server" AutoGenerateColumns="False" style="text-align:right; float:right;"  CellPadding="4" ForeColor="#333333" GridLines="None"  DataKeyNames="ID" Height="129px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="1083px">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:BoundField DataField="Date1" HeaderText="יום" DataFormatString="{0:d}"/>
             <asp:BoundField DataField="Hour" HeaderText="שעה" DataFormatString="{0:t}"/>
-            <asp:BoundField DataField="Address" HeaderText="תאריך" />
+            <asp:BoundField DataField="Address" HeaderText="כתובת" />
             <asp:BoundField DataField="S" HeaderText="מספר מוצרים" />
             <asp:BoundField DataField="Total" HeaderText="תשלום" />
             <asp:BoundField DataField="Phone" HeaderText="טלפון ליצירת קשר" />
             <asp:BoundField DataField="More" HeaderText="בקשות הלקוח" />
-
         </Columns>
         <EditRowStyle BackColor="#999999" />
         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

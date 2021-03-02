@@ -41,10 +41,13 @@ namespace BooksStore
             {
                 Response.Redirect("LogIn.aspx");
             }
-            else
+            else if (cl.inStock(Int32.Parse(Request.QueryString["data"]), Int32.Parse(TextBox1.Text)))
             {
                 cl.addToCart(Int32.Parse(Request.QueryString["data"]), Int32.Parse(Session["ID"].ToString()), Int32.Parse(TextBox1.Text));
+                Label6.Text = "הספר נוסף בהצלחה";
             }
+            else
+                Label6.Text = "לצערנו אין את הכמות שהזנת במלאי";
         }
     }
 }

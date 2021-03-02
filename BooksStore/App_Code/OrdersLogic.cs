@@ -27,7 +27,7 @@ namespace BooksStore.App_Code
         }
         public DataSet getUsersOrder( int ID)// מקבלת ID ומחזירה את כל ההזמנות שלו
         {
-            string sql = "SELECT Orders.ID, Orders.Hour, Orders.Date1, Orders.Phone, Orders.More, Orders.Address+ ' '+Orders.City AS Address, Sum(BooksOrders.NumBooks) AS S, SUM(Books.Price*BooksOrders.NumBooks) AS Total FROM ((Orders INNER JOIN BooksOrders ON Orders.ID=BooksOrders.OrdersID) INNER JOIN Books ON BOOKS.ID= BooksOrders.BooksID) WHERE Orders.UsersID= " + ID+ " GROUP BY Orders.ID, Orders.Hour, Orders.Date1, Orders.Address,Orders.Address+ ' '+Orders.City, Orders.Phone, Orders.More";
+            string sql = "SELECT Orders.ID, Orders.Hour, Orders.Date1, Orders.Phone, Orders.More, Orders.Address+ ' '+Orders.City AS Address, Sum(BooksOrders.NumBooks) AS S, SUM(BooksOrders.PricePerOne*BooksOrders.NumBooks) AS Total FROM (Orders INNER JOIN BooksOrders ON Orders.ID=BooksOrders.OrdersID) WHERE Orders.UsersID= " + ID+ " GROUP BY Orders.ID, Orders.Hour, Orders.Date1, Orders.Address,Orders.Address+ ' '+Orders.City, Orders.Phone, Orders.More";
             return dal.excuteQuery(sql);
         }
 
@@ -44,7 +44,8 @@ namespace BooksStore.App_Code
             {
                 int bookId = Int32.Parse(ds.Tables[0].Rows[i]["BooksID"].ToString());
                 int numbook = Int32.Parse(ds.Tables[0].Rows[i]["NumBooks"].ToString());
-                sql = "INSERT INTO booksOrders(OrdersID, BooksID, NumBooks) VALUES ("+orderid+", "+bookId+", "+numbook +")";
+                double price = bl.getPrice(bookId);
+                sql = "INSERT INTO booksOrders(OrdersID, BooksID, NumBooks, PricePerOne) VALUES (" + orderid+", "+bookId+", "+numbook +", "+price+")";
                 dal.excuteQuery(sql);
                 bl.updateStock1(bookId, numbook);
                 
@@ -60,12 +61,12 @@ namespace BooksStore.App_Code
         }
         public DataSet getOrder(int ID)//שאילתה שמחזירה את הפרטים של ההזמנה עם האידי שמקבלת
         {
-            string sql = "SELECT BooksID, NumBooks, Name, Auther, Price, Image1, Price*NumBooks AS TOTAL FROM ((Orders INNER JOIN BooksOrders ON Orders.ID=BooksOrders.OrdersID) INNER JOIN Books ON BOOKS.ID= BooksOrders.BooksID) WHERE Orders.ID=" + ID;
+            string sql = "SELECT BooksID, NumBooks, Name, Auther, Price, Image1, PricePerOne*NumBooks AS TOTAL FROM ((Orders INNER JOIN BooksOrders ON Orders.ID=BooksOrders.OrdersID) INNER JOIN Books ON BOOKS.ID= BooksOrders.BooksID) WHERE Orders.ID=" + ID;
             return dal.excuteQuery(sql);
         }
         public DataSet getTotal(int OrderID)//שאילתה שמחזירה את סכום הקנייה של הזמנה מסויימת
         {
-            string sql = "SELECT SUM(Price*NumBooks) AS TOTAL FROM ((Orders INNER JOIN BooksOrders ON Orders.ID=BooksOrders.OrdersID) INNER JOIN Books ON BOOKS.ID= BooksOrders.BooksID) WHERE Orders.ID=" + OrderID;
+            string sql = "SELECT SUM(PricePerOne*NumBooks) AS TOTAL FROM (Orders INNER JOIN BooksOrders ON Orders.ID=BooksOrders.OrdersID) WHERE Orders.ID=" + OrderID;
             return dal.excuteQuery(sql);
         }
 

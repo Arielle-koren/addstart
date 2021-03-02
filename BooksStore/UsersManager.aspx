@@ -7,7 +7,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" style="text-align:right; float:right;" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Height="374px" Width="1386px">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" style="text-align:right; float:right;" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Height="374px" Width="1297px">
         <AlternatingRowStyle BackColor="#CCCCCC" />
     <Columns>
         

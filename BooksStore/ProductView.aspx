@@ -43,6 +43,7 @@
 <div class="col-md-12">
 <section class="panel" style="margin:15px; padding-left:2em">
       <div class="panel-body">
+          <asp:Label ID="Label6" runat="server" Text="" Style="color:red;"></asp:Label>
        <div class="row">
               <aside class="col-md-6">
               <div class="pro-img-details"  >
@@ -77,7 +78,7 @@
       
               
       </div>
-               <asp:Button ID="Button2" runat="server" Text="הוספה לסל" class="btn btn-round btn-danger" OnClick="Button2_Click" /> <i class="fa fa-shopping-cart"></i>
+               <asp:Button ID="Button2" runat="server" Text="הוספה לסל" class="btn btn-round btn-danger" OnClick="Button2_Click" />
           </aside>
           </div>
           </div>

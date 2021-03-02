@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BooksStore.App_Code;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,12 +12,17 @@ namespace BooksStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            BooksLogic bl = new BooksLogic();
+            
+                if (!IsPostBack)
+                {
+                    Repeater1.DataSource = bl.getBooks(2);
+                    Repeater1.DataBind();
+
+                }
+           
 
         }
-        protected void btnShowPopup_Click(object sender, EventArgs e)
-        {
-            string message = "Message from server side";
-            ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + message + "');", true);
-        }
+       
     }
 }
