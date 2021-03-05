@@ -14,6 +14,8 @@
             <asp:BoundField DataField="Total" HeaderText="תשלום" />
             <asp:BoundField DataField="Phone" HeaderText="טלפון ליצירת קשר" />
             <asp:BoundField DataField="More" HeaderText="בקשות הלקוח" />
+            <asp:BoundField DataField="DelieveryPrice" HeaderText="מחיר משלוח" />
+
         </Columns>
         <EditRowStyle BackColor="#999999" />
         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

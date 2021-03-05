@@ -9,6 +9,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
     <asp:DropDownList ID="Month" runat="server" Width="100" Style="float:right; margin-right:5px; margin-top:5px"></asp:DropDownList>
     <asp:DropDownList ID="Year" runat="server" Width="100" Style="float:right; margin-right:5px; margin-top:5px"></asp:DropDownList>
+    <asp:TextBox ID="TextBox1" runat="server" TextMode="Date"></asp:TextBox>
     <asp:Button ID="Button1" runat="server" Text="חפש"  OnClick="Button1_Click" Style="float:right; margin-right:5px; margin-top:5px"/>
     <br />
     <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" style="text-align:right" Width="1053px" AutoGenerateColumns="False">
@@ -22,6 +23,8 @@
             <asp:BoundField DataField="Address" HeaderText="כתובת" />
             <asp:BoundField DataField="Phone" HeaderText="טלפון" />
             <asp:BoundField DataField="More" HeaderText="הערות של הלקוח" />
+            <asp:BoundField DataField="DelieveryPrice" HeaderText="מחיר משלוח" />
+
               <asp:BoundField DataField="ID" >
             <ItemStyle CssClass="Hide" />
             </asp:BoundField>

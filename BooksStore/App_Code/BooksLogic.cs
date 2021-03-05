@@ -13,13 +13,31 @@ namespace BooksStore.App_Code
 
         public DataSet getAllBooks()// שאילתה לדף הבית, מחזירה את הספרים שהכי נמכרים
         {
-            string sql = "SELECT TOP 8 ID, Name, Auther, Price, Image1 FROM Books WHERE STOCK>0 ORDER BY NumSold DESC";
+            string sql = "SELECT TOP 7 ID, Name, Auther, Price, Image1 FROM Books WHERE STOCK>0 ORDER BY NumSold DESC";
             return dal.excuteQuery(sql);
         }
         public DataSet getBooks(int id)// שאילתה לדף הבית, מחזירה ספרים מקטגוריה אידי
         {
 
             string sql = "SELECT TOP 8 ID, Name, Price, Image1 FROM Books WHERE STOCK>0 AND Type="+id+" ORDER BY NumSold DESC";
+            return dal.excuteQuery(sql);
+        }
+        public DataSet getRecommendedBooks(int userID)// שאילתה לדף הבית, מחזירה ספרים שמומלצים למשתמש
+        {
+            /*if (userID == null)
+                return this.getAllBooks();*/
+            string Types = ol.getRecommendedByType(userID);
+            string Authrs = ol.getRecommendedByAuther(userID);
+            DataSet AuthersTable = dal.excuteQuery(Authrs);
+            string sql;
+            if (dal.excuteQuery(Types).Tables[0].Rows.Count == 0 && AuthersTable.Tables[0].Rows.Count == 0)//לא ניתן לנתר העדפות משתמש
+                return this.getAllBooks();
+            else if (AuthersTable.Tables[0].Rows.Count != 0)// נראה שיש סופרים שהוא אוהב(יש הרבה יותר סופרים מסוגים ואם הוא נצמד לסופרים מסויימים כנראה שהוא באמת אוהב אותם ויותר סיכוי לכוון לספרים שיאהב)י
+            {
+                sql = "SELECT TOP 8 ID, Name, Price, Image1 FROM Books WHERE Auther IN (" + Authrs + ") ORDER BY NumSold DESC";
+                return dal.excuteQuery(sql);
+            }
+            sql = "SELECT TOP 8 ID, Name, Price, Image1 FROM Books WHERE Type IN (" + Types + ") ORDER BY NumSold DESC";
             return dal.excuteQuery(sql);
         }
         /*public DataSet recommendBooks(int userID)//שאילתה לדף הבית, מחזירה ספרים מומלצים

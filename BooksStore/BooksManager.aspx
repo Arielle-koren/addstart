@@ -24,11 +24,11 @@
             <asp:BoundField DataField="Price" HeaderText="מחיר" />
             <asp:BoundField DataField="Stock" HeaderText="מלאי" />
             <asp:BoundField DataField="NumSold" HeaderText="נמכרו" ReadOnly="True" />
-            <asp:CommandField ButtonType="Button" ShowEditButton="True"/>
+            <asp:CommandField ButtonType="Button" ShowEditButton="True" EditText="עריכה" UpdateText="שמירה" CancelText="ביטול"/>
             <asp:BoundField DataField="ID" ReadOnly="True" Visible="True">
 <ItemStyle Width="0px" CssClass="hide"></ItemStyle>
             </asp:BoundField>
-            <asp:CommandField ShowDeleteButton="True" />
+            <asp:CommandField ShowDeleteButton="True" DeleteText="מחק ספר"/>
         </Columns>
         
         <FooterStyle BackColor="White" ForeColor="#333333" />

@@ -18,8 +18,16 @@ namespace BooksStore
             {
                 Repeater1.DataSource = bl.getAllBooks();
                 Repeater1.DataBind();
-                Repeater2.DataSource = bl.getAllBooks();//לכתוב שאילה של ספרים מומלצים
-                Repeater2.DataBind();
+                if (Session["ID"] == null)//אין אפשרות להמליץ לו על ספרים במיוחד בשבילו מכיוון שהוא אינו מזוהה ולכן מביאים ספרים שנמכרו הכי הרבה ולכן מומלצים לכולם
+                {
+                    Repeater2.DataSource = bl.getAllBooks();
+                    Repeater2.DataBind();
+                }
+                else
+                {
+                    Repeater2.DataSource = bl.getRecommendedBooks(Int32.Parse(Session["ID"].ToString()));//שאילה של ספרים מומלצים
+                    Repeater2.DataBind();
+                }
                 Repeater3.DataSource = bl.getBooks(1);
                 Repeater3.DataBind();
                 Repeater4.DataSource = bl.getBooks(2);

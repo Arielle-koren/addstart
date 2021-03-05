@@ -167,6 +167,10 @@ hr {
                 <div class="col d-flex justify-content-end"> <b>
         <asp:Label ID="Label5" runat="server" Text=""></asp:Label>₪</b> </div>
             </div>
+            <div class="row">
+                <div class="col"> <b> סטטוס הזמנה</b> </div>
+        <asp:Label ID="Label8" runat="server" Text=""></asp:Label> </div>
+            </div>
             <asp:LinkButton ID="LinkButton1" runat="server"  class="btn d-flex mx-auto" href="Home.aspx">חזרה לדף הבית</asp:LinkButton>
         </div>
     </div>
