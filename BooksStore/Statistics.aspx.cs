@@ -14,12 +14,6 @@ namespace BooksStore
         {
             BooksLogic bl = new BooksLogic();
             
-                if (!IsPostBack)
-                {
-                    Repeater1.DataSource = bl.getBooks(2);
-                    Repeater1.DataBind();
-
-                }
            
 
         }

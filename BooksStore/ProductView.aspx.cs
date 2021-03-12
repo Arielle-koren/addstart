@@ -45,6 +45,7 @@ namespace BooksStore
             {
                 cl.addToCart(Int32.Parse(Request.QueryString["data"]), Int32.Parse(Session["ID"].ToString()), Int32.Parse(TextBox1.Text));
                 Label6.Text = "הספר נוסף בהצלחה";
+                Response.Redirect("ProductView.aspx?data=" + Request.QueryString["data"]);
             }
             else
                 Label6.Text = "לצערנו אין את הכמות שהזנת במלאי";

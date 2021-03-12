@@ -4,13 +4,71 @@
         .Hide{
             display:none;
         }
+        .btn-gradient
+{
+	width:36px;
+	height:36px;
+	text-align:center;
+	line-height:2.2;
+	display:block;
+	margin:10px;
+	border-radius:2px;
+	-webkit-transition:all 300ms;
+	transition:all 300ms
+}
+.btn-gradient i
+{font-size:18px; line-height:1;vertical-align:middle}
+#light
+{
+	margin:20px;
+	display:-webkit-box;
+	display:-ms-flexbox;
+	display:flex;
+	-webkit-box-align:center;
+	-ms-flex-align:center;
+	align-items:center;
+	-webkit-box-pack:center;
+	-ms-flex-pack:center;
+	justify-content:center;
+	-webkit-box-orient:vertical;
+	-webkit-box-direction:normal;
+	-ms-flex-direction:column;
+	flex-direction:column
+}
+#light .btn-gradient
+{
+	color:rgba(0,0,0,0.54);
+	box-shadow:0 0 1px rgba(0,0,0,0.54)
+}
+@keyframes Gradient {
+	0%
+	{background-position:0 50%}
+	50%
+	{background-position:100% 50%}
+	100%
+	{background-position:0 50%}
+}
+#light .btn-gradient.instagram:hover
+{
+	box-shadow:0 5px 8px rgba(63,81,181,0.25);
+	background:#FFC107;
+	background:-webkit-linear-gradient(left,#FFC107 0%,#F50057 50%,#3F51B5 100%);
+	background:linear-gradient(to right,#FFC107 0%,#F50057 50%,#3F51B5 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFC107',endColorstr='#3F51B5',GradientType=1);
+	background-size:400%;
+	-webkit-animation:Gradient 5s ease infinite;
+	animation:Gradient 5s ease infinite
+}
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
-    <asp:DropDownList ID="Month" runat="server" Width="100" Style="float:right; margin-right:5px; margin-top:5px"></asp:DropDownList>
-    <asp:DropDownList ID="Year" runat="server" Width="100" Style="float:right; margin-right:5px; margin-top:5px"></asp:DropDownList>
-    <asp:TextBox ID="TextBox1" runat="server" TextMode="Date"></asp:TextBox>
-    <asp:Button ID="Button1" runat="server" Text="חפש"  OnClick="Button1_Click" Style="float:right; margin-right:5px; margin-top:5px"/>
+   
+    <asp:Label ID="Label2" runat="server" Text="הזמנות מתאריך"  Width="200" Style="float:right; margin-right:5px; margin-top:5px"></asp:Label>
+    <asp:TextBox ID="TextBox1" runat="server" TextMode="Date" Width="200" Style="float:right; margin-right:5px; margin-top:5px"></asp:TextBox>
+    <asp:Label ID="Label3" runat="server" Text="עד לתאריך"  Width="200" Style="float:right; margin-right:5px; margin-top:5px"></asp:Label>
+    <asp:TextBox ID="TextBox2" runat="server" TextMode="Date" Width="200" Style="float:right; margin-right:5px; margin-top:5px; margin-bottom:5px"></asp:TextBox>
+    <asp:LinkButton ID="LinkButton1" runat="server" class="btn-gradient instagram" Style="float:right; margin-right:5px; margin-top:5px; margin-bottom:5px" OnClick="Button1_Click"><i class="fa fa-search" ></i></asp:LinkButton>
+    "/>
     <br />
     <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" style="text-align:right" Width="1053px" AutoGenerateColumns="False">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />

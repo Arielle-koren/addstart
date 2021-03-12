@@ -11,7 +11,7 @@ namespace BooksStore.App_Code
         DAL dal = new DAL();
         public void addNewRequest(string name, string email, string content)// יצירת שם משתמש
         {
-            string sql = "INSERT INTO Requests (Name, Email, Content, Date1, Done) VALUES ('" + name + "', '" + email + "', '" + content + "',#" + DateTime.Today + "# , No)";
+            string sql = "INSERT INTO Requests (Name, Email, Content, Date1, Done) VALUES ('" + name + "', '" + email + "', '" + content + "',#" + DateTime.Now + "# , No)";
             dal.excuteQuery(sql);
         }
         public DataSet getAllRequests()// שאילתה שמחזירה את כל הבקשות

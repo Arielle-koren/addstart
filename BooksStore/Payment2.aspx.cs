@@ -40,7 +40,7 @@ namespace BooksStore
 
             if (!string.IsNullOrEmpty(Request.QueryString["price"]))
             {
-                string city = pd.getCity();
+                int city = pd.getCity();
                 string address = pd.getAddress();
                 string phoneNum = pd.getPhone();
                 string comment = pd.getMore();

@@ -17,9 +17,9 @@ img {width:100%;}
 /**************** Banner Slider Carousel **************/
 .carousel-inner img {width: 100%;}
 .carousel-caption {color:#000;top:110px; bottom: auto; text-align:left;}
-.carousel-caption h1 { color:#dd0000; background-color:#;}
+.carousel-caption h1 { color:#dd0000;}
 /************ Services **************/
-.most-car-box:hover {background: ; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);}
+.most-car-box:hover {  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);}
 /*********** TABS *******/
 .nav-tabs { border-bottom: 1px solid #ccc; }
 .nav-tabs .nav-link.active {
@@ -61,7 +61,7 @@ img {width:100%;}
     width: 100%;
     height: 1px;
     background-color: #ccc;
-    z-order: 0;
+   
 }
 .stepwizard-step {
     display: table-cell;
@@ -118,8 +118,8 @@ img {width:100%;}
                                 <asp:Label ID="Label2" runat="server" Text="" Font-Bold="true"></asp:Label>
                                 <div class="form-group">
                                     <label for="cc_name" style="font-weight:bold;">עיר</label>
-                                    <asp:TextBox ID="TextBox1" runat="server" type="text" class="form-control" title="הקלד את העיר לשם תרצה שההזמנה תישלח"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="שדה חובה" ControlToValidate="TextBox1" BackColor="WhiteSmoke" ></asp:RequiredFieldValidator>
+                                    <asp:DropDownList ID="City" runat="server" placeholder="עיר" class="form-control" ></asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="שדה חובה" ControlToValidate="City" BackColor="WhiteSmoke" ></asp:RequiredFieldValidator>
                                 </div>
                                 <div class="form-group">
                                     <label style="font-weight:bold;"> רחוב+ מספר דירה</label>

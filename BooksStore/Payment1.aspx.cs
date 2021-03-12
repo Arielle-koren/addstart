@@ -14,11 +14,23 @@ namespace BooksStore
     public partial class payment1 : System.Web.UI.Page
     {
         paymentsDetail pd = new paymentsDetail();
+        OrdersLogic ol = new OrdersLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                City.DataSource = ol.getCities();
+                City.DataBind();
+
+                City.DataTextField = "City";
+                City.DataValueField = "ID";
+
+                City.DataBind();
+            }
             if (!string.IsNullOrEmpty(Request.QueryString["data"]))
             {
                 Label1.Text = Request.QueryString["data"];
+               
             }
             else
                 Label2.Text = "מצטערים, משהו התפקשש :-(  ....  חזור בבקשה לעגלת הקניות";
@@ -33,7 +45,7 @@ namespace BooksStore
         {
             if (!string.IsNullOrEmpty(Request.QueryString["data"]))
             {
-                String t1 = TextBox1.Text.Replace("'", "''");
+                int t1 = (Int32.Parse(City.SelectedValue));
                 String t2 = TextBox2.Text.Replace("'", "''");
                 String t4 = TextBox4.Text.Replace("'", "''");
                 pd.addPaymentsDetail(t1, t2, TextBox3.Text, t4);

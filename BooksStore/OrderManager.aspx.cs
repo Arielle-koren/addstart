@@ -22,7 +22,7 @@ namespace BooksStore
                 GridView1.DataBind();
 
             }
-            Year.Items.Insert(0, "בחר שנה");
+          /*  Year.Items.Insert(0, "בחר שנה");
             Year.Items.Insert(1, "2016");
             Year.Items.Insert(2, "2017");
             Year.Items.Insert(3, "2018");
@@ -41,16 +41,16 @@ namespace BooksStore
             Month.Items.Insert(9, "9");
             Month.Items.Insert(10, "10");
             Month.Items.Insert(11, "11");
-            Month.Items.Insert(12, "12");
+            Month.Items.Insert(12, "12");*/
 
 
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (Month.SelectedValue!=("בחר חודש") && Year.SelectedValue != ("בחר שנה"))
+            if (!(TextBox1.Text.Equals("") || TextBox2.Text.Equals("")))
             {
-                DataSet ds = ol.getByMonthAndYear(Month.SelectedValue, Year.SelectedValue);
+                DataSet ds = ol.getByMonthAndYear(TextBox1.Text, TextBox2.Text);
                 GridView1.DataSource = ds;
                 GridView1.DataBind();
                 if (ds.Tables[0].Rows.Count > 0)
