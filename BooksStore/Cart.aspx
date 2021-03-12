@@ -98,7 +98,7 @@ table tr th {
                                 </tr>
                                 <tr>
                                     <td colspan="4" class="text-right">מחיר משלוח</td>
-                                    <td> <asp:Label ID="Label7" runat="server" Text="0"></asp:Label>₪</td>
+                                    <td> <asp:Label ID="Label7" runat="server" Text="10.00"></asp:Label>₪</td>
                                 </tr>
                                 <tr>
                                     <td colspan="4" class="text-right"><strong>מחיר סופי</strong></td>

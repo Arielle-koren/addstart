@@ -68,7 +68,7 @@
     <asp:Label ID="Label3" runat="server" Text="עד לתאריך"  Width="200" Style="float:right; margin-right:5px; margin-top:5px"></asp:Label>
     <asp:TextBox ID="TextBox2" runat="server" TextMode="Date" Width="200" Style="float:right; margin-right:5px; margin-top:5px; margin-bottom:5px"></asp:TextBox>
     <asp:LinkButton ID="LinkButton1" runat="server" class="btn-gradient instagram" Style="float:right; margin-right:5px; margin-top:5px; margin-bottom:5px" OnClick="Button1_Click"><i class="fa fa-search" ></i></asp:LinkButton>
-    "/>
+   
     <br />
     <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" style="text-align:right" Width="1053px" AutoGenerateColumns="False">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />

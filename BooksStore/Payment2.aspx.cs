@@ -8,6 +8,8 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
+using BooksStore.DeliveriesServices;
+
 
 namespace BooksStore
 {
@@ -17,6 +19,7 @@ namespace BooksStore
         OrdersLogic ol = new OrdersLogic();
         CartLogic cal = new CartLogic();
         paymentsDetail pd;
+        WebService1 ws = new WebService1();
         protected void Page_Load(object sender, EventArgs e)
         {
             pd = (paymentsDetail)Session["pd"];
@@ -44,10 +47,20 @@ namespace BooksStore
                 string address = pd.getAddress();
                 string phoneNum = pd.getPhone();
                 string comment = pd.getMore();
+                //הוספת הזמנה
                 int orderID =ol.addOrder(Int32.Parse(Session["ID"].ToString()), city, address, comment, phoneNum);
+                //הכנסת פרטי כרטיס אשראי לדאטא ביס
                 String t1 = TextBox1.Text.Replace("'", "''");
                 cl.addNewCredit(orderID, t1, TextBox2.Text, TextBox3.Text, Int32.Parse(DropDownList1.SelectedValue), Int32.Parse(DropDownList2.SelectedValue));
+                //מחיקת ספרים מהעגלה
                 cal.deleteCart(Int32.Parse(Session["ID"].ToString()));
+                //העברה לשירות משלוחים
+                string cityName = ol.getCityName(city);// מעביר לשירות המשלוחים שם עיר ולא אידי מכיוון שאי אפשר להסתמך על זה שהטבלאות שלהם מסונכרנות
+                cityName = cityName.Replace("'", "''");
+                int numBooks = Int32.Parse(ol.getNumBooks(orderID).Tables[0].Rows[0][0].ToString());
+                double deliveryPrice= double.Parse(ws.AddOrder(cityName, address, phoneNum, 1, numBooks, orderID).ToString());
+                //שמירת מחיר המשלוח לפי חברת המשלוחים
+                ol.setDelieveryPrice(orderID,deliveryPrice);
                 Response.Redirect("Payment3.aspx?data="+orderID);
       
             }

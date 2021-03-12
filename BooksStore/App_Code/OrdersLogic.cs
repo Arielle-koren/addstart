@@ -12,7 +12,7 @@ namespace BooksStore.App_Code
 
         public DataSet showAllOrders1()//מחזירה את כל ההזמנות
         {
-            string sql = "SELECT Orders.ID, Orders.UsersID, Orders.Hour, Orders.Date1, Cities.City, Orders.Address, Orders.Phone, More , Users.Name+' '+ Users.LastName AS FullName,  Orders.DelieveryPrice  FROM ((Orders INNER JOIN Users ON Orders.UsersID = Users.ID) INNER JOIN Cities ON Orders.City= Cities.ID) ";
+            string sql = "SELECT Orders.ID, Orders.UsersID, Orders.Hour, Orders.Date1, Cities.City, Orders.Address, Orders.Phone, More , Users.Name+' '+ Users.LastName AS FullName,  Orders.DelieveryPrice  FROM ((Orders INNER JOIN Users ON Orders.UsersID = Users.ID) INNER JOIN Cities ON Orders.City= Cities.ID) ORDER BY Date1 DESC, Hour DESC";
             DataSet ds = dal.excuteQuery(sql);
             return ds;
 
@@ -86,6 +86,21 @@ namespace BooksStore.App_Code
             string sql = "SELECT ID, City FROM Cities";
             return dal.excuteQuery(sql);
 
+        }
+        public string getCityName(int cityID)
+        {
+            string sql = "SELECT City FROM Cities WHERE ID= "+ cityID;
+            return dal.excuteQuery(sql).Tables[0].Rows[0][0].ToString();
+        }
+        public DataSet getNumBooks(int ID)// מקבלת את מספר הספרים בהזמנה
+        {
+            string sql = "SELECT SUM(NumBooks) AS TOTAL FROM (Orders INNER JOIN BooksOrders ON Orders.ID=BooksOrders.OrdersID) WHERE Orders.ID=" + ID;
+            return dal.excuteQuery(sql);
+        }
+        public void setDelieveryPrice(int ID, double price)
+        {
+            string sql = "UPDATE Orders SET DelieveryPrice="+ price+ " WHERE ID="+ID;
+            dal.excuteQuery(sql);
         }
     }
 }

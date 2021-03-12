@@ -1,6 +1,7 @@
 ﻿using BooksStore.App_Code;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -46,8 +47,15 @@ namespace BooksStore
         protected void Button1_Click(object sender, EventArgs e)
         {
             String s = TextBox1.Text.Replace("'", "''");
-            Repeater1.DataSource = bl.getBooksBySearch(s);
+            DataSet ds = bl.getBooksBySearch(s);
+            Repeater1.DataSource = ds;
             Repeater1.DataBind();
+            if (ds.Tables[0].Rows.Count == 0)
+            {
+                Label11.Text = "לא נמצאו תוצאות מתאימות";
+            }
+            else
+                Label11.Text = "תוצאות לחיפושך: '"+ s+ "' ";
         }
         
     }

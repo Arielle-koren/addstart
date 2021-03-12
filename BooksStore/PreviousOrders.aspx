@@ -5,18 +5,18 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1 style="text-align:right">ההזמנות שלי</h1>
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" style="float:right; text-align:right">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" style="float:right; text-align:right" Width="1148px">
                 <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="Date1" HeaderText="יום" DataFormatString="{0:d}"/>
             <asp:BoundField DataField="Hour" HeaderText="שעה" DataFormatString="{0:t}"/>
             <asp:BoundField DataField="Address" HeaderText="כתובת" />
             <asp:BoundField DataField="S" HeaderText="מספר מוצרים" />
-            <asp:BoundField DataField="Total" HeaderText="מחיר" />
+            <asp:BoundField DataField="Total" HeaderText="מחיר לא כולל דמי משלוח (תוספת 10 שקלים)" />
             <asp:BoundField DataField="More" HeaderText="בקשות מיוחדות" />
             <asp:TemplateField>
                 <ItemTemplate>
-                    <a id="LinkButton1" href="OrderReciept.aspx?data=<%# Eval ("ID") %>">לפירוט ההזמנה</a>
+                    <a id="LinkButton1" href="OrderReciept.aspx?data=<%# Eval ("ID") %>">לפירוט חשבון ומצב ההזמנה</a>
                 </ItemTemplate>
             </asp:TemplateField>
 
