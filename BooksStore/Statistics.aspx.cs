@@ -13,10 +13,11 @@ namespace BooksStore
         protected void Page_Load(object sender, EventArgs e)
         {
             BooksLogic bl = new BooksLogic();
-            
-           
+
 
         }
-       
+        protected void OpenWindow(object sender, EventArgs e)
+        {
+        }
     }
 }

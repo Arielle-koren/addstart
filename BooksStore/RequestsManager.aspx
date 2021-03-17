@@ -135,7 +135,7 @@
                 </div> 
                 <div class="post-description"> 
                     <p><asp:Label ID="Label3" runat="server" Text='<%# Eval ("Content") %>'></asp:Label></p>
-                    <asp:Label ID="Label5" runat="server" Text='<%# Eval ("Email") %>' style=" color:Highlight"></asp:Label>
+                    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" CommandName='<%# Eval ("Email") %>' Text='<%# Eval ("Email") %>'></asp:LinkButton>
                  <br />
                  <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Eval ("Done") %>' OnCheckedChanged="CheckBox1_CheckedChanged"  Enabled="False"></asp:CheckBox>
                    <asp:Label ID="Label4" runat="server" Text="בקשה נענתה"></asp:Label>

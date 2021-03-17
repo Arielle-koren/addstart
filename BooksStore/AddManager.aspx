@@ -152,6 +152,7 @@ textarea:focus::-webkit-input-placeholder {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s;
+  
 }
 
 /* Add animation (fade in the popup) */
@@ -228,11 +229,11 @@ textarea:focus::-webkit-input-placeholder {
         <div class="popup" onclick="myFunction()">
             <asp:Button ID="Button1" runat="server" Text="הירשם" class="btn btn-outline-info btn-rounded waves-effect" onClick="Button1_Click" style="background-color:gray; color:white; margin-right:15px; margin-left:430px; margin-bottom:100px; width:805px;"/>
 
-            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/jquery-ui.js" type="text/javascript"></script>
 <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/start/jquery-ui.css"
     rel="stylesheet" type="text/css" />
-<script type="text/javascript" >
+<script type="text/javascript">
     function ShowPopup(message) {
         $(function () {
             $("#dialog").html(message);
@@ -246,7 +247,7 @@ textarea:focus::-webkit-input-placeholder {
         });
     };
 </script>
-<div id="dialog" style="display: none" data-backdrop="true">
+<div id="dialog" style="display: none" data-backdrop="false">
 </div>
 
 
