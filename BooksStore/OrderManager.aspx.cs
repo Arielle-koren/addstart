@@ -1,4 +1,5 @@
 ﻿using BooksStore.App_Code;
+using BooksStore.DeliveriesServices;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,6 +13,7 @@ namespace BooksStore
     public partial class OrderManager : System.Web.UI.Page
     {
         OrdersLogic ol = new OrdersLogic();
+        WebService1 ws = new WebService1();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["IsAdmin"].ToString() != "yes")
@@ -20,6 +22,7 @@ namespace BooksStore
             {
                 GridView1.DataSource = ol.showAllOrders1();
                 GridView1.DataBind();
+                
 
             }
           /*  Year.Items.Insert(0, "בחר שנה");
@@ -67,6 +70,19 @@ namespace BooksStore
                 Label1.Text = "";
                 GridView1.DataSource = ol.showAllOrders1();
                 GridView1.DataBind();
+            }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                Label4.Text = ws.GetStatus(Int32.Parse(TextBox3.Text));
+            }
+            catch (Exception ex)
+            {
+                Label4.Text = "משהו השתבש, בדוק  אם קוד ההזמנה תקין";
             }
         }
     }

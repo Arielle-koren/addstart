@@ -1,4 +1,5 @@
 ﻿using BooksStore.App_Code;
+using BooksStore.DeliveriesServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,14 +11,29 @@ namespace BooksStore
 {
     public partial class Statistics : System.Web.UI.Page
     {
+        WebService1 wb = new WebService1();
         protected void Page_Load(object sender, EventArgs e)
         {
-            BooksLogic bl = new BooksLogic();
-
+            
+            if(!IsPostBack)
+            {
+               
+                
+            }
 
         }
-        protected void OpenWindow(object sender, EventArgs e)
+
+        protected void Button1_Click(object sender, EventArgs e)
         {
+          
+            try
+            {
+                Label1.Text = wb.GetStatus(Int32.Parse(TextBox1.Text));
+            }
+            catch(Exception ex)
+            {
+                Label1.Text = "משהו השתבש, בדוק  אם קוד ההזמנה תקין";
+            }
         }
     }
 }

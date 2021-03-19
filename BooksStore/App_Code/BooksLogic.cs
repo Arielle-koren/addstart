@@ -104,6 +104,11 @@ namespace BooksStore.App_Code
             string sql = "UPDATE Books SET Stock=Stock-"+numsold+ " ,NumSold=NumSold+"+ numsold + " WHERE ID=" + ID;// לא יודעת איך להפחית את המערך הקיים פחות המשתנה
             dal.excuteQuery(sql);
         }
+        public DataSet numOfType() // שאילתה שמחזירה כמה ספרים נקנו מכל סוג
+        {
+            string sql = "SELECT Type.Name, Books.NumSold FROM Type INNER JOIN Books ON Books.Type=Type.ID";
+            return dal.excuteQuery(sql);
 
+        }
     }
 }

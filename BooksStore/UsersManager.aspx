@@ -16,7 +16,7 @@
         <asp:BoundField DataField="Name" HeaderText="שם" />
        
         <asp:BoundField DataField="Email" HeaderText="אימייל" />
-        <asp:BoundField DataField="Birthday" HeaderText="תאריך לידה" />
+        <asp:BoundField DataField="Birthday" HeaderText="תאריך לידה" DataFormatString="{0:d}"/>
         <asp:BoundField DataField="Pass" HeaderText="סיסמה" />
         <asp:TemplateField HeaderText="מספר הזמנות">
             <ItemTemplate>
