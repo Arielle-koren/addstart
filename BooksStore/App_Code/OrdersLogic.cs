@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Globalization;
+using System.Threading;
 
 namespace BooksStore.App_Code
 {
@@ -37,7 +39,8 @@ namespace BooksStore.App_Code
         {
             CartLogic cl = new CartLogic();
             BooksLogic bl = new BooksLogic();
-            string sql = "INSERT INTO Orders (UsersID, [Hour], Date1, City, Address, More, Phone) VALUES (" + UID + ", #" + DateTime.Now + "#, #" + DateTime.Today + "# , " + city + ", '" + Address + "', '"+ more+"', '"+ phone+"')";
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");//משום מה התאריך משתנה מdd/mm/yyyy ל mm/dd/yyyyכשהוא נכנס לדאתא בייס. לכן מלכתחילה הפכתי אותו כדי שלאחר שייכנס ישוב לצורתו המקורית.
+            string sql = "INSERT INTO Orders (UsersID, [Hour], Date1, City, Address, More, Phone) VALUES (" + UID + ", #" + DateTime.Now + "#, #" + DateTime.Now.ToShortDateString() + "# , " + city + ", '" + Address + "', '"+ more+"', '"+ phone+"')";
             dal.excuteQuery(sql);
             int orderid = this.getID(UID);
             DataSet ds = cl.getCart(UID);

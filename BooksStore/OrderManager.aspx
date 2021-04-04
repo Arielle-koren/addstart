@@ -148,9 +148,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
    <script>
-$( "#datepicker" ).datepicker({dateFormat: "dd/mm/yyyy"});
+       $("#datepicker").datepicker({ dateFormat: "dd/mm/yyyy" });
+       Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-FR");
 
    </script>
+
     <asp:Label ID="Label2" runat="server" Text="הזמנות מתאריך"  Width="200" Style="float:right; margin-right:5px; margin-top:5px"></asp:Label>
     <asp:TextBox ID="TextBox1" runat="server" TextMode="Date" Width="200" Style="float:right; margin-right:5px; margin-top:5px" ></asp:TextBox>
     <asp:Label ID="Label3" runat="server" Text="עד לתאריך"  Width="200" Style="float:right; margin-right:5px; margin-top:5px"></asp:Label>
@@ -164,7 +166,7 @@ $( "#datepicker" ).datepicker({dateFormat: "dd/mm/yyyy"});
           <asp:BoundField DataField="ID" HeaderText="קוד הזמנה"/>
             <asp:BoundField DataField="FullName" HeaderText="שם" />
             <asp:BoundField DataField="Hour" HeaderText="שעת הזמנה" DataFormatString="{0:t}" />
-            <asp:BoundField DataField="Date1" HeaderText="תאריך הזמנה" DataFormatString="{0:d}" />
+            <asp:BoundField DataField="Date1" HeaderText=" תאריך הזמנה[DD/MM/YYYY] " DataFormatString="{0:d}" />
             <asp:BoundField DataField="City" HeaderText="עיר" />
             <asp:BoundField DataField="Address" HeaderText="כתובת" />
             <asp:BoundField DataField="Phone" HeaderText="טלפון" />
