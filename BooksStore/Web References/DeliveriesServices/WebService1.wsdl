@@ -45,6 +45,33 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="paymentsDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="costumerID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="paymentsDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="paymentsDetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="a">
+        <s:complexType />
+      </s:element>
+      <s:element name="aResponse">
+        <s:complexType />
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="HelloWorldSoapIn">
@@ -65,6 +92,18 @@
   <wsdl:message name="GetStatusSoapOut">
     <wsdl:part name="parameters" element="tns:GetStatusResponse" />
   </wsdl:message>
+  <wsdl:message name="paymentsDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:paymentsDetail" />
+  </wsdl:message>
+  <wsdl:message name="paymentsDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:paymentsDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="aSoapIn">
+    <wsdl:part name="parameters" element="tns:a" />
+  </wsdl:message>
+  <wsdl:message name="aSoapOut">
+    <wsdl:part name="parameters" element="tns:aResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebService1Soap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
@@ -77,6 +116,14 @@
     <wsdl:operation name="GetStatus">
       <wsdl:input message="tns:GetStatusSoapIn" />
       <wsdl:output message="tns:GetStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="paymentsDetail">
+      <wsdl:input message="tns:paymentsDetailSoapIn" />
+      <wsdl:output message="tns:paymentsDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="a">
+      <wsdl:input message="tns:aSoapIn" />
+      <wsdl:output message="tns:aSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
@@ -108,6 +155,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="paymentsDetail">
+      <soap:operation soapAction="http://tempuri.org/paymentsDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="a">
+      <soap:operation soapAction="http://tempuri.org/a" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -131,6 +196,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetStatus">
       <soap12:operation soapAction="http://tempuri.org/GetStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="paymentsDetail">
+      <soap12:operation soapAction="http://tempuri.org/paymentsDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="a">
+      <soap12:operation soapAction="http://tempuri.org/a" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

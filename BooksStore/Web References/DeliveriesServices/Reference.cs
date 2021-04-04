@@ -20,6 +20,7 @@ namespace BooksStore.DeliveriesServices {
     using System.Web.Services.Protocols;
     using System.Xml.Serialization;
     using System.ComponentModel;
+    using System.Data;
     
     
     /// <remarks/>
@@ -34,6 +35,10 @@ namespace BooksStore.DeliveriesServices {
         private System.Threading.SendOrPostCallback AddOrderOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetStatusOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback paymentsDetailOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback aOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -81,6 +86,12 @@ namespace BooksStore.DeliveriesServices {
         
         /// <remarks/>
         public event GetStatusCompletedEventHandler GetStatusCompleted;
+        
+        /// <remarks/>
+        public event paymentsDetailCompletedEventHandler paymentsDetailCompleted;
+        
+        /// <remarks/>
+        public event aCompletedEventHandler aCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -174,6 +185,61 @@ namespace BooksStore.DeliveriesServices {
             if ((this.GetStatusCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetStatusCompleted(this, new GetStatusCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/paymentsDetail", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataTable paymentsDetail(int costumerID) {
+            object[] results = this.Invoke("paymentsDetail", new object[] {
+                        costumerID});
+            return ((System.Data.DataTable)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void paymentsDetailAsync(int costumerID) {
+            this.paymentsDetailAsync(costumerID, null);
+        }
+        
+        /// <remarks/>
+        public void paymentsDetailAsync(int costumerID, object userState) {
+            if ((this.paymentsDetailOperationCompleted == null)) {
+                this.paymentsDetailOperationCompleted = new System.Threading.SendOrPostCallback(this.OnpaymentsDetailOperationCompleted);
+            }
+            this.InvokeAsync("paymentsDetail", new object[] {
+                        costumerID}, this.paymentsDetailOperationCompleted, userState);
+        }
+        
+        private void OnpaymentsDetailOperationCompleted(object arg) {
+            if ((this.paymentsDetailCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.paymentsDetailCompleted(this, new paymentsDetailCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/a", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void a() {
+            this.Invoke("a", new object[0]);
+        }
+        
+        /// <remarks/>
+        public void aAsync() {
+            this.aAsync(null);
+        }
+        
+        /// <remarks/>
+        public void aAsync(object userState) {
+            if ((this.aOperationCompleted == null)) {
+                this.aOperationCompleted = new System.Threading.SendOrPostCallback(this.OnaOperationCompleted);
+            }
+            this.InvokeAsync("a", new object[0], this.aOperationCompleted, userState);
+        }
+        
+        private void OnaOperationCompleted(object arg) {
+            if ((this.aCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.aCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -273,6 +339,36 @@ namespace BooksStore.DeliveriesServices {
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void paymentsDetailCompletedEventHandler(object sender, paymentsDetailCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class paymentsDetailCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal paymentsDetailCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataTable Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataTable)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void aCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

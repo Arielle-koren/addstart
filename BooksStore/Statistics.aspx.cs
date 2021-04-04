@@ -23,17 +23,6 @@ namespace BooksStore
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-          
-            try
-            {
-                Label1.Text = wb.GetStatus(Int32.Parse(TextBox1.Text));
-            }
-            catch(Exception ex)
-            {
-                Label1.Text = "משהו השתבש, בדוק  אם קוד ההזמנה תקין";
-            }
-        }
+      
     }
 }

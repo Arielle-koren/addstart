@@ -17,7 +17,7 @@ namespace BooksStore.App_Code
             return ds;
 
         }
-        public DataSet getByMonthAndYear(string d1, string d2)// מחזירה הזמנות שבוצעו בשנה ובחודש שהשאילתה מקבלת
+        public DataSet getByMonthAndYear(string d1, string d2)// מחזירה הזמנות שבוצעו בין הזמנים  שהשאילתה מקבלת
         {
            // int A = Int32.Parse(Month);
          //   int B = Int32.Parse(Year);
@@ -56,7 +56,7 @@ namespace BooksStore.App_Code
         }
         public int getID( int usersID)//שאילתה שמחזירה את האיידי של ההזמנה האחרונה שבוצעה של משתמש זה
         {
-            string sql = " SELECT TOP 1 ID FROM Orders WHERE UsersID="+ usersID +" ORDER BY Date1 DESC, Hour DESC";
+            string sql = " SELECT TOP 1 ID FROM Orders WHERE UsersID="+ usersID +" ORDER BY ID DESC";
             DataSet ds= dal.excuteQuery(sql);
             int id=Int32.Parse(ds.Tables[0].Rows[0]["ID"].ToString());
             return id;

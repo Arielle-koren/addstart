@@ -214,10 +214,10 @@
     <Content Include="Statistics.aspx" />
     <Content Include="UsersManager.aspx" />
     <Content Include="UsersOrderManager.aspx" />
-    <Content Include="Web References\DeliveriesServices\Reference.map">
+    <None Include="Web References\DeliveriesServices\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <None Include="Web References\DeliveriesServices\WebService1.disco" />
     <Content Include="Web.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />

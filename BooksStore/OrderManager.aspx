@@ -147,12 +147,15 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
-   
+   <script>
+$( "#datepicker" ).datepicker({dateFormat: "dd/mm/yyyy"});
+
+   </script>
     <asp:Label ID="Label2" runat="server" Text="הזמנות מתאריך"  Width="200" Style="float:right; margin-right:5px; margin-top:5px"></asp:Label>
-    <asp:TextBox ID="TextBox1" runat="server" TextMode="Date" Width="200" Style="float:right; margin-right:5px; margin-top:5px"></asp:TextBox>
+    <asp:TextBox ID="TextBox1" runat="server" TextMode="Date" Width="200" Style="float:right; margin-right:5px; margin-top:5px" ></asp:TextBox>
     <asp:Label ID="Label3" runat="server" Text="עד לתאריך"  Width="200" Style="float:right; margin-right:5px; margin-top:5px"></asp:Label>
     <asp:TextBox ID="TextBox2" runat="server" TextMode="Date" Width="200" Style="float:right; margin-right:5px; margin-top:5px; margin-bottom:5px"></asp:TextBox>
-    <asp:LinkButton ID="LinkButton1" runat="server" class="btn-gradient instagram" Style="float:right; margin-right:5px; margin-top:5px; margin-bottom:5px" OnClick="Button1_Click"><i class="fa fa-search" ></i></asp:LinkButton>
+    <asp:LinkButton ID="LinkButton1" runat="server" class="btn-gradient instagram" Text="חפש" Style="float:right; margin-right:5px; margin-top:5px; margin-bottom:5px" OnClick="Button1_Click"><i class="fa fa-search" ></i></asp:LinkButton>
    
     <br />
     <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" style="text-align:right" Width="1053px" AutoGenerateColumns="False">
@@ -222,5 +225,21 @@
         </div>
     </div>
 
-
+    <asp:GridView ID="GridView2" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" style="text-align:right" Width="1053px" AutoGenerateColumns="False">
+        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+        <Columns>
+            <asp:BoundField DataField="Y" HeaderText="הזמנות משנת" />
+            <asp:BoundField DataField="M" HeaderText="מחודש" />
+            <asp:BoundField DataField="S" HeaderText="סכום המשלוחים לחודש זה" />
+        </Columns>
+        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+        
+        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#E9E7E2" />
+        <SortedAscendingHeaderStyle BackColor="#506C8C" />
+        <SortedDescendingCellStyle BackColor="#FFFDF8" />
+        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+    </asp:GridView>
 </asp:Content>
