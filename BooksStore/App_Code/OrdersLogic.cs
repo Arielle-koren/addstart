@@ -14,7 +14,7 @@ namespace BooksStore.App_Code
 
         public DataSet showAllOrders1()//מחזירה את כל ההזמנות
         {
-            string sql = "SELECT Orders.ID, Orders.UsersID, Orders.Hour, Orders.Date1, Cities.City, Orders.Address, Orders.Phone, More , Users.Name+' '+ Users.LastName AS FullName,  Orders.DelieveryPrice  FROM ((Orders INNER JOIN Users ON Orders.UsersID = Users.ID) INNER JOIN Cities ON Orders.City= Cities.ID) ORDER BY Date1 DESC, Hour DESC";
+            string sql = "SELECT TOP 20 Orders.ID, Orders.UsersID, Orders.Hour, Orders.Date1, Cities.City, Orders.Address, Orders.Phone, More , Users.Name+' '+ Users.LastName AS FullName,  Orders.DelieveryPrice  FROM ((Orders INNER JOIN Users ON Orders.UsersID = Users.ID) INNER JOIN Cities ON Orders.City= Cities.ID) ORDER BY Date1 DESC, Hour DESC";
             DataSet ds = dal.excuteQuery(sql);
             return ds;
 
@@ -24,7 +24,7 @@ namespace BooksStore.App_Code
            // int A = Int32.Parse(Month);
          //   int B = Int32.Parse(Year);
            // string sql = "SELECT Orders.ID, Orders.UsersID, Orders.Hour, Orders.Date1, Orders.City, Orders.Address, Orders.Phone, Orders.More, Users.Name+' '+ Users.LastName AS FullName, Orders.DelieveryPrice FROM Orders INNER JOIN Users ON Orders.UsersID = Users.ID WHERE Month(Orders.Date1) IN (" + A + ") AND Year(Orders.Date1) IN (" + B + ")";
-            string sql = String.Format("SELECT Orders.ID, Orders.UsersID, Orders.Hour, Orders.Date1, Cities.City, Orders.Address, Orders.Phone, Orders.More, Users.Name+' '+ Users.LastName AS FullName, Orders.DelieveryPrice FROM ((Orders INNER JOIN Users ON Orders.UsersID = Users.ID) INNER JOIN Cities ON Orders.City= Cities.ID) WHERE ((Orders.Date1 >#{0}#) AND (Orders.Date1 <#{1}#))", d1, d2);
+            string sql = String.Format("SELECT Orders.ID, Orders.UsersID, Orders.Hour, Orders.Date1, Cities.City, Orders.Address, Orders.Phone, Orders.More, Users.Name+' '+ Users.LastName AS FullName, Orders.DelieveryPrice FROM ((Orders INNER JOIN Users ON Orders.UsersID = Users.ID) INNER JOIN Cities ON Orders.City= Cities.ID) WHERE ((Orders.Date1 >=#{0}#) AND (Orders.Date1 <=#{1}#))", d1, d2);
 
             DataSet ds = dal.excuteQuery(sql);
             return ds;
@@ -39,8 +39,8 @@ namespace BooksStore.App_Code
         {
             CartLogic cl = new CartLogic();
             BooksLogic bl = new BooksLogic();
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");//משום מה התאריך משתנה מdd/mm/yyyy ל mm/dd/yyyyכשהוא נכנס לדאתא בייס. לכן מלכתחילה הפכתי אותו כדי שלאחר שייכנס ישוב לצורתו המקורית.
-            string sql = "INSERT INTO Orders (UsersID, [Hour], Date1, City, Address, More, Phone) VALUES (" + UID + ", #" + DateTime.Now + "#, #" + DateTime.Now.ToShortDateString() + "# , " + city + ", '" + Address + "', '"+ more+"', '"+ phone+"')";
+           // Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");//משום מה התאריך משתנה מdd/mm/yyyy ל mm/dd/yyyyכשהוא נכנס לדאתא בייס. לכן מלכתחילה הפכתי אותו כדי שלאחר שייכנס ישוב לצורתו המקורית.
+            string sql = "INSERT INTO Orders (UsersID, [Hour], Date1, City, Address, More, Phone) VALUES (" + UID + ", '" + DateTime.Now + "', #" + DateTime.Now.ToShortDateString() + "# , " + city + ", '" + Address + "', '"+ more+"', '"+ phone+"')";
             dal.excuteQuery(sql);
             int orderid = this.getID(UID);
             DataSet ds = cl.getCart(UID);

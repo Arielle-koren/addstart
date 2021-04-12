@@ -41,11 +41,31 @@
   <a class="navbar-brand" href="Home.aspx" style="font-size: 30px;">דעת ספרים</a>
       <asp:Button ID="Button1" runat="server" Text="Button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"/>
         <a class="navbar-brand" href="Home.aspx" style="font-size: 20px">בית</a>
-        <a class="navbar-brand" href="PreviousOrders.aspx" style="font-size: 20px">להזמנות שלי</a>
-      <a class="navbar-brand" href="Cart.aspx" style="font-size: 20px"><i class="fa fa-shopping-cart" data-count="1"> <asp:Label ID="Label5" runat="server" Text=""></asp:Label></i></a>
 
+      <div class="nav-item dropdown" style="color:black">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:black; font-size: 20px">
+          קטגורית ספרים
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="color:black; direction:rtl; text-align:right; font-size: 20px">
+          <a class="dropdown-item" href="#">רומן</a>
+            <a class="dropdown-item" href="#">מדע בדיוני ופנטזיה</a>
+           <a class="dropdown-item" href="#">מדע</a>
+            <a class="dropdown-item" href="#">קומדיה</a>
+            <a class="dropdown-item" href="#">ילדים ונוער</a>
+             <a class="dropdown-item" href="#">דת</a>
+           
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">אחר</a>
+        </div>
+      </div>
+
+        <a class="navbar-brand" href="PreviousOrders.aspx" style="font-size: 20px">להזמנות שלי</a>
+
+      <a class="navbar-brand" href="Cart.aspx" style="font-size: 20px"><i class="fa fa-shopping-cart" data-count="1"> <asp:Label ID="Label5" runat="server" Text=""></asp:Label></i></a>
+    
+      
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto" style="float:right" id="visitor">
+    <ul class="navbar-nav mr-auto" style="float:left" id="visitor">
 
       <li><a href="Register.aspx" style="margin:10px; font-size: 15px"  >
           <asp:Label ID="Label2" runat="server" Text="הירשם" ></asp:Label> </a></li>
@@ -56,7 +76,7 @@
         <li> <asp:Label ID="Label1" runat="server" Text=""></asp:Label></li>
         
         <li> <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click"  style="margin:10px; font-size: 15px;" >
-            <asp:Label ID="Label4" runat="server" Text=""></asp:Label><span class="glyphicon glyphicon-log-in"></span></asp:LinkButton>
+            <asp:Label ID="Label4" runat="server" Text=""></asp:Label></asp:LinkButton>
             </li>
         </ul>
      

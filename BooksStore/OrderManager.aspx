@@ -147,11 +147,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
-   <script>
-       $("#datepicker").datepicker({ dateFormat: "dd/mm/yyyy" });
-       Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-FR");
-
-   </script>
+  
 
     <asp:Label ID="Label2" runat="server" Text="הזמנות מתאריך"  Width="200" Style="float:right; margin-right:5px; margin-top:5px"></asp:Label>
     <asp:TextBox ID="TextBox1" runat="server" TextMode="Date" Width="200" Style="float:right; margin-right:5px; margin-top:5px" ></asp:TextBox>
@@ -166,7 +162,7 @@
           <asp:BoundField DataField="ID" HeaderText="קוד הזמנה"/>
             <asp:BoundField DataField="FullName" HeaderText="שם" />
             <asp:BoundField DataField="Hour" HeaderText="שעת הזמנה" DataFormatString="{0:t}" />
-            <asp:BoundField DataField="Date1" HeaderText=" תאריך הזמנה[DD/MM/YYYY] " DataFormatString="{0:d}" />
+            <asp:BoundField DataField="Date1" HeaderText=" תאריך הזמנה[DD/MM/YYYY] " DataFormatString="{0:dd/MM/yyyy}" />
             <asp:BoundField DataField="City" HeaderText="עיר" />
             <asp:BoundField DataField="Address" HeaderText="כתובת" />
             <asp:BoundField DataField="Phone" HeaderText="טלפון" />
@@ -212,12 +208,11 @@
                                 <asp:TextBox ID="TextBox3" runat="server" class="form-control"></asp:TextBox>
 
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="לא תקין" ControlToValidate="TextBox3" ValidationExpression="^[1-9][0-9]*$"></asp:RegularExpressionValidator>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="לא תקין" ControlToValidate="TextBox3"></asp:RequiredFieldValidator>
-
+                            
                             </div>
 
                             <div class="form-group">
-                            <asp:Button ID="Button1" runat="server" Text="חפש סטטוס הזמנה" class="btn btn-info btn-md" OnClick="Button2_Click" Style="float:right"/>
+                            <asp:Button ID="Button2" runat="server" Text="חפש סטטוס הזמנה" class="btn btn-info btn-md" OnClick="Button2_Click" Style="float:right"/>
                             </div>
                             <asp:Label ID="Label4" runat="server" Text=""></asp:Label>
                         </form>

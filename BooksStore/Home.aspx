@@ -149,17 +149,20 @@ h2::after {
                     <span class="input-group-btn" >
                     <asp:Button ID="Button1" runat="server" Text="חפש" class="btn btn-info btn-lg" type="button" Style=" padding:3px 12px" OnClick="Button1_Click"/>
                     </span>
-                    <asp:TextBox ID="TextBox1" runat="server" class="form-control input-lg" placeholder=" איזה ספר בא לך היום? הקלד שם ספר או סופר" style="margin-left:5px;"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" class="form-control input-lg" placeholder=" איזה ספר בא לך היום? הקלד שם ספר או סופר" style="margin-left:15px;"></asp:TextBox>
                    
                 </div>
+
             </div>
+
         </div>
             
 	</div>
    
         <div class="row">
-            <asp:Label ID="Label11" runat="server" Text="הנמכרים ביותר" CssClass="h2" style="color: #ffc000; font-weight: 300;	text-align: center;"></asp:Label>
-        <asp:Repeater ID="Repeater1" runat="server">
+            <asp:Label ID="Label11" runat="server" Text="הנמכרים ביותר:" CssClass="h2" style="color: #ffc000; font-weight: 300 ;text-align: center; font-size:30px"></asp:Label>
+      <br />
+            <asp:Repeater ID="Repeater1" runat="server">
             <ItemTemplate>
             <div class="col-md-3 col-sm-6">
             <div class="product-grid6" id="#top-section">

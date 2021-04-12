@@ -152,7 +152,7 @@ hr {
                     <p class="text-muted"><asp:Label ID="Label3" runat="server" Text='<%# Eval ("Auther") %>'></asp:Label></p>
                     
                 </div>
-                <p > X<asp:Label ID="Label7" runat="server" Text='<%# Eval ("NumBooks") %>'></asp:Label></p>
+                <p >  <asp:Label ID="Label7" runat="server" Text='<%# Eval ("NumBooks") %>'></asp:Label>X <asp:Label ID="Label10" runat="server" Text='<%# Eval ("Price") %>'></asp:Label></p>
             </div>
             <div class="col-3 d-flex justify-content-end">
                 <p><b><asp:Label ID="Label4" runat="server" Text='<%# Eval ("Total") %>'></asp:Label>₪</b></p>

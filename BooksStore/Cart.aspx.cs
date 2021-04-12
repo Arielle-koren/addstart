@@ -24,7 +24,6 @@ namespace BooksStore
                 if (total == "")//במידה והעגלה ריקה המחיר הוא 0. במקרה כזה יחזור סטרינג ריק מהשאילתה . כאשר זה סטרינג ריק ההפיכה לדאבל לא יכולה להתבצע ולכן שמתי 0 במשתנה
                     total = "0";
                 Label6.Text = total;
-                Label7.Text = "0";
                 Label8.Text = (Double.Parse(total)+ Double.Parse(Label7.Text.ToString())).ToString();
                 
             }

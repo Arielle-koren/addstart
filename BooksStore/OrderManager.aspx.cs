@@ -77,10 +77,12 @@ namespace BooksStore
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-
             try
             {
-                Label4.Text = ws.GetStatus(Int32.Parse(TextBox3.Text));
+                if (TextBox3.Text != "")
+                    Label4.Text = ws.GetStatus(Int32.Parse(TextBox3.Text));
+                else
+                    Label4.Text = "חובה להזין קוד הזמנה";
             }
             catch (Exception ex)
             {

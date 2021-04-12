@@ -113,7 +113,7 @@ img {width:100%;}
                         <div class="card-body">
                             <h3 class="text-center" >השלמת פרטי כרטיס אשראי</h3>
                             <hr>
-                            <asp:label ID="Label2" runat="server" Text="" Font-Bold="true"></asp:label>
+                            <asp:label ID="Label2" runat="server" Text="" Font-Bold="true" Style="color:red"></asp:label>
                             <form class="form" role="form" autocomplete="off">
                                 <div class="form-group">
                                     <label for="cc_name" style="font-weight:bold;">שם בעל הכרטיס</label>
@@ -150,11 +150,11 @@ img {width:100%;}
                                     <div class="col-md-4">
                                    
                                     <asp:DropDownList ID="DropDownList2" runat="server" name="cc_exp_yr" size="0" style="font-size: 20px; padding: 5px 10px; border-radius: 5px 12px;">
-                                        <asp:ListItem Value=2018>2021</asp:ListItem>
-                                        <asp:ListItem Value=2019>2022</asp:ListItem>
-                                        <asp:ListItem Value="2020">2023</asp:ListItem>
-                                        <asp:ListItem Value="2021">2024</asp:ListItem>
-                                        <asp:ListItem Value="2022">2025</asp:ListItem>
+                                        <asp:ListItem Value=2021>2021</asp:ListItem>
+                                        <asp:ListItem Value=2022>2022</asp:ListItem>
+                                        <asp:ListItem Value="2023">2023</asp:ListItem>
+                                        <asp:ListItem Value="2024">2024</asp:ListItem>
+                                        <asp:ListItem Value="2025">2025</asp:ListItem>
                                     </asp:DropDownList>
                                     </div>
                                    

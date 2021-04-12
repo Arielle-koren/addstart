@@ -16,6 +16,11 @@ namespace BooksStore.App_Code
             string sql = "SELECT TOP 7 ID, Name, Auther, Price, Image1 FROM Books WHERE STOCK>0 ORDER BY NumSold DESC";
             return dal.excuteQuery(sql);
         }
+        public DataSet getBooksByCategory(int type)// שאילתה שמחזירה ספרים מהסוג type
+        {
+            string sql = "SELECT TOP 7 ID, Name, Auther, Price, Image1 FROM Books WHERE STOCK>0 AND Type="+type +" ORDER BY NumSold DESC";
+            return dal.excuteQuery(sql);
+        }
         public DataSet getBooks(int id)// שאילתה לדף הבית, מחזירה ספרים מקטגוריה אידי
         {
 

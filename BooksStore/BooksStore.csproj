@@ -73,6 +73,7 @@
     <Content Include="AddBooks.aspx" />
     <Content Include="AddManager.aspx" />
     <Content Include="App_Data\Database11.accdb" />
+    <Content Include="BooksByCategory.aspx" />
     <Content Include="BooksManager.aspx" />
     <Content Include="Cart.aspx" />
     <Content Include="OrderManager.aspx" />
@@ -257,6 +258,13 @@
     <Compile Include="App_Code\OrdersLogic.cs" />
     <Compile Include="App_Code\RequestsLogic.cs" />
     <Compile Include="App_Code\MoreInfoLogic.cs" />
+    <Compile Include="BooksByCategory.aspx.cs">
+      <DependentUpon>BooksByCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BooksByCategory.aspx.designer.cs">
+      <DependentUpon>BooksByCategory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BooksManager.aspx.cs">
       <DependentUpon>BooksManager.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
