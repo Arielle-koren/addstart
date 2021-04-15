@@ -21,5 +21,11 @@ namespace BooksStore
                 GridView1.DataBind();
             }
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            string email = (String)((sender as LinkButton).CommandName);
+            ClientScript.RegisterStartupScript(this.GetType(), "mailto", "parent.location='mailto:" + email + "'", true);
+        }
     }
 }

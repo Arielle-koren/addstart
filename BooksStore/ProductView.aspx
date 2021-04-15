@@ -63,9 +63,9 @@
                
               </p>
               <div class="product_meta">
-                  <span class="posted_in" style="flow-from:rtl"> <strong>זאנר:</strong> <a rel="tag" href="#">  <asp:Label ID="Label4" runat="server" Text=""></asp:Label></a></span>
+                  <span class="posted_in" style="flow-from:rtl"> <strong>זאנר: </strong><asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">  <asp:Label ID="Label4" runat="server" Text=""></asp:Label></asp:LinkButton> </span>
                   <br>
-                  <span class="tagged_as"><strong>סופר:</strong> <asp:Label ID="Label5" runat="server" Text=""></asp:Label> </span>
+                  <span class="tagged_as"><strong>סופר: </strong> <asp:Label ID="Label5" runat="server" Text=""></asp:Label> </span>
               </div>
               <div class="m-bot15"> <strong>מחיר: </strong> <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
               <div class="form-group">

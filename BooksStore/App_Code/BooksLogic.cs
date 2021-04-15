@@ -16,15 +16,11 @@ namespace BooksStore.App_Code
             string sql = "SELECT TOP 7 ID, Name, Auther, Price, Image1 FROM Books WHERE STOCK>0 ORDER BY NumSold DESC";
             return dal.excuteQuery(sql);
         }
-        public DataSet getBooksByCategory(int type)// שאילתה שמחזירה ספרים מהסוג type
-        {
-            string sql = "SELECT TOP 7 ID, Name, Auther, Price, Image1 FROM Books WHERE STOCK>0 AND Type="+type +" ORDER BY NumSold DESC";
-            return dal.excuteQuery(sql);
-        }
-        public DataSet getBooks(int id)// שאילתה לדף הבית, מחזירה ספרים מקטגוריה אידי
+        
+        public DataSet getBooks(int id)// שאילתה שמחזירה ספרים מקטגוריה אידי
         {
 
-            string sql = "SELECT TOP 8 ID, Name, Price, Image1 FROM Books WHERE STOCK>0 AND Type="+id+" ORDER BY NumSold DESC";
+            string sql = "SELECT TOP 8 ID, Name, Price, Auther, Image1 FROM Books WHERE STOCK>0 AND Type=" + id+" ORDER BY NumSold DESC";
             return dal.excuteQuery(sql);
         }
         public DataSet getRecommendedBooks(int userID)// שאילתה לדף הבית, מחזירה ספרים שמומלצים למשתמש
@@ -57,7 +53,7 @@ namespace BooksStore.App_Code
         }
         public DataSet getBooksByID(int ID) // שאילתה שמחזירה ספר לפי ה איי די שהוכנס
         {
-            string sql = "SELECT Books.ID, Books.Name, Books.Auther, Books.Price, Books.Image1, Books.Description, Type.Name FROM Books INNER JOIN Type ON Books.Type = Type.ID WHERE Books.ID=" + ID;
+            string sql = "SELECT Books.ID, Books.Name, Books.Auther, Books.Price, Books.Image1, Books.Description, Type.Name, Type.ID FROM Books INNER JOIN Type ON Books.Type = Type.ID WHERE Books.ID=" + ID;
             return dal.excuteQuery(sql);
         }
         public double getPrice(int ID) // שאילתה שמחזירה מחיר של ספר
@@ -91,6 +87,18 @@ namespace BooksStore.App_Code
         {
             string sql = "SELECT ID, Name FROM Type";
             return dal.excuteQuery(sql);
+
+        }
+        public string getTypeName(int id) // שאילתה שמחזירה את שם הקטוגריה
+        {
+            string sql = "SELECT Name FROM Type where ID="+id;
+            return dal.excuteQuery(sql).Tables[0].Rows[0][0].ToString();
+
+        }
+        public int getTypeID(string name) // שאילתה שמחזירה את אי די הקטוגריה
+        {
+            string sql = "SELECT ID FROM Type where Name='" + name+"'";
+            return Int32.Parse(dal.excuteQuery(sql).Tables[0].Rows[0][0].ToString());
 
         }
         public bool checkExistBook(string name, string auther)// מחזיר אם קיים ספר כזה במערכת true

@@ -50,5 +50,10 @@ namespace BooksStore
             else
                 Label6.Text = "לצערנו אין את הכמות שהזנת במלאי";
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("BooksByCategory.aspx?type=" + bl.getTypeID(Label4.Text));
+        }
     }
 }

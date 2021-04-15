@@ -55,7 +55,7 @@ namespace BooksStore
                 Label11.Text = "לא נמצאו תוצאות מתאימות";
             }
             else
-                Label11.Text = "תוצאות לחיפושך: '"+ s+ "' ";
+                Label11.Text = "תוצאות לחיפושך: '"+ TextBox1.Text + "' ";
         }
         
     }

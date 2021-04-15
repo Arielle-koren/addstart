@@ -14,8 +14,11 @@
        
        
         <asp:BoundField DataField="Name" HeaderText="שם" />
-       
-        <asp:BoundField DataField="Email" HeaderText="אימייל" />
+        <asp:TemplateField HeaderText="אימייל">
+            <ItemTemplate>
+                <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" CommandName='<%# Eval ("Email") %>' Text='<%# Eval ("Email") %>'></asp:LinkButton>
+            </ItemTemplate>
+        </asp:TemplateField>
         <asp:BoundField DataField="Birthday" HeaderText="תאריך לידה" DataFormatString="{0:d}"/>
         <asp:BoundField DataField="Pass" HeaderText="סיסמה" />
         <asp:TemplateField HeaderText="מספר הזמנות">

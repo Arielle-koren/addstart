@@ -202,7 +202,6 @@ textarea:focus::-webkit-input-placeholder {
                 <div class="form-group" style="margin-bottom:30px;">
                        <div class="col-sm-9">
                              <asp:TextBox ID="description" runat="server" placeholder="תיאור" class="form-control"></asp:TextBox>
-                           <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="שדה חובה" ControlToValidate="description"></asp:RequiredFieldValidator>
                     </div>
                     </div>
                  <div class="form-group" style="margin-bottom:30px;">

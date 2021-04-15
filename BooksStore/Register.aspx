@@ -159,8 +159,9 @@ textarea:focus::-webkit-input-placeholder {
                 </div>
                 <div class="form-group" >
                       <div class="col-sm-9">
+
                           <asp:Label ID="Label2" runat="server" Text="תאריך לידה"></asp:Label>
-                            <asp:TextBox ID="birthDate" runat="server" class="form-control" placeholder="תאריך לידה" TextMode="Date"></asp:TextBox>
+                            <asp:TextBox ID="birthDate" runat="server" class="form-control" placeholder="תאריך לידה"></asp:TextBox>
                           <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="שדה חובה" ControlToValidate="birthDate"></asp:RequiredFieldValidator>
                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="שים לב, התאריך לא נכון" ControlToValidate="birthDate" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[-/.](0[1-9]|1[012])[-/.](19|20)\d\d$"></asp:RegularExpressionValidator>                        
                          
@@ -169,7 +170,7 @@ textarea:focus::-webkit-input-placeholder {
        
                   
                 </div>
-
+   
                 <asp:Button ID="Button1" runat="server" Text="הירשם" class="btn btn-outline-info btn-rounded waves-effect" onClick="Button1_Click" style="background-color:gray; color:white; margin-right:15px; margin-left:430px; margin-bottom:100px; width:805px;"/>
           
         </div> <!-- ./container -->
