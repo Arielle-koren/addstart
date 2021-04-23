@@ -1,6 +1,7 @@
 ﻿using BooksStore.App_Code;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,6 +12,7 @@ namespace BooksStore
     public partial class BooksManager : System.Web.UI.Page
     {
         BooksLogic bl = new BooksLogic();
+        string search = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["IsAdmin"].ToString() != "yes")
@@ -26,7 +28,11 @@ namespace BooksStore
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
             GridView1.EditIndex = e.NewEditIndex;
+            if (search=="")
             GridView1.DataSource = bl.getAllBooksDetail1();
+            else
+                GridView1.DataSource = bl.managerBooksBySearch(search);
+
             GridView1.DataBind();
         }
 
@@ -44,8 +50,11 @@ namespace BooksStore
 
                 //יציאה ממצב עריכה
                 GridView1.EditIndex = -1;
+            if (search == "")
                 GridView1.DataSource = bl.getAllBooksDetail1();
-                GridView1.DataBind();
+            else
+                GridView1.DataSource = bl.managerBooksBySearch(search);
+            GridView1.DataBind();
          //   }
            /* catch (Exception e)
             {
@@ -56,7 +65,10 @@ namespace BooksStore
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             GridView1.EditIndex = -1;
-            GridView1.DataSource = bl.getAllBooksDetail1();
+            if (search == "")
+                GridView1.DataSource = bl.getAllBooksDetail1();
+            else
+                GridView1.DataSource = bl.managerBooksBySearch(search);
             GridView1.DataBind();
 
         }
@@ -73,14 +85,30 @@ namespace BooksStore
 
                 //יציאה ממצב עריכה
                 GridView1.EditIndex = -1;
+            if (search == "")
                 GridView1.DataSource = bl.getAllBooksDetail1();
-                GridView1.DataBind();
+            else
+                GridView1.DataSource = bl.managerBooksBySearch(search);
+            GridView1.DataBind();
       //      }
          /*   catch (Exception e)
             {
                 label1.Text = "הודעת מערכת: הנתונים לא נשמרו, נסה עוד פעם מאוחר יותר";
             }
             */
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+                String s = TextBox4.Text.Replace("'", "''");
+           
+                GridView1.DataSource = bl.getBooksBySearch(s);
+            GridView1.DataBind();
+            
+                label1.Text = "תוצאות לחיפושך: '" + TextBox4.Text + "' ";
+                search = s;
+            
+            
         }
     }
 }

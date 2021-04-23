@@ -31,7 +31,7 @@ namespace BooksStore.App_Code
         }
         public DataSet getUsersOrder( int ID)// מקבלת ID ומחזירה את כל ההזמנות שלו
         {
-            string sql = "SELECT Orders.ID, Orders.Hour, Orders.Date1, Orders.Phone, Orders.More, Orders.Address+ ' '+Cities.City AS Address, Sum(BooksOrders.NumBooks) AS S, SUM(BooksOrders.PricePerOne*BooksOrders.NumBooks) AS Total, Orders.DelieveryPrice FROM ((Orders INNER JOIN BooksOrders ON Orders.ID=BooksOrders.OrdersID) INNER JOIN Cities ON Orders.City= Cities.ID) WHERE Orders.UsersID= " + ID+ " GROUP BY Orders.ID, Orders.Hour, Orders.Date1, Orders.Address,Orders.Address+ ' '+ Cities.City, Orders.Phone, Orders.More, Orders.DelieveryPrice";
+            string sql = "SELECT Orders.ID, Orders.Hour, Orders.Date1, Orders.Phone, Orders.More, Orders.Address+ ' '+Cities.City AS Address, Sum(BooksOrders.NumBooks) AS S, SUM(BooksOrders.PricePerOne*BooksOrders.NumBooks) AS Total, Orders.DelieveryPrice FROM ((Orders INNER JOIN BooksOrders ON Orders.ID=BooksOrders.OrdersID) INNER JOIN Cities ON Orders.City= Cities.ID) WHERE Orders.UsersID= " + ID+ " GROUP BY Orders.ID, Orders.Hour, Orders.Date1, Orders.Address,Orders.Address+ ' '+ Cities.City, Orders.Phone, Orders.More, Orders.DelieveryPrice ORDER BY Orders.Date1 DESC, Orders.Hour DESC";
             return dal.excuteQuery(sql);
         }
 

@@ -101,7 +101,7 @@ button:before, button:after {
                                                                                     
                 </div>
                 <ul class="social">
-                    <li><a href="ProductView.aspx?data=<%# Eval ("ID") %>" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                    <li><a href="ProductView.aspx?data=<%# Eval ("ID") %>" data-tip="עוד על הספר"><i class="fa fa-search"></i></a></li>
                     
                 </ul>
                 

@@ -117,7 +117,7 @@ textarea:focus::-webkit-input-placeholder {
                 <h3  class="text-info" style="color: #34b2a4; margin-left:350px; margin-top:10px; font-size:40px; font-family:Arial, Helvetica, sans-serif;">הרשמה</h3>
                 <div class="form-group" style="margin-bottom:30px;">
                     <div class="col-sm-9" >
-                        <asp:TextBox ID="firstName" type="text" runat="server" text-align=center; placeholder="שם פרטי (זהו שם המשתמש)" class="form-control" ></asp:TextBox>
+                        <asp:TextBox ID="firstName" type="text" runat="server" text-align=center; placeholder="שם פרטי" class="form-control" ></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="שדה חובה" ControlToValidate="firstName"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="השם יכול להכיל בין 2-25 תווים" ControlToValidate="firstName" ValidationExpression="^.{2,25}$"></asp:RegularExpressionValidator>
                     </div>
@@ -142,7 +142,7 @@ textarea:focus::-webkit-input-placeholder {
                 </div>
                 <div class="form-group" style="margin-bottom:30px">
                      <div class="col-sm-9">
-                             <asp:TextBox ID="password" type="password" runat="server" placeholder="סיסמא" class="form-control"></asp:TextBox>
+                             <asp:TextBox ID="password" type="password" runat="server" placeholder="סיסמה" class="form-control"></asp:TextBox>
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="שדה חובה" ControlToValidate="password"></asp:RequiredFieldValidator>
                          <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="הסיסמה צריכה להיות בין 4-8 תווים (מספרים או אותיות באנגלית), ולכלול לפחות ספרה אחת"  ValidationExpression="^(?=.*\d).{4,8}$" ControlToValidate="password"></asp:RegularExpressionValidator>
                          <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ErrorMessage="רק אותיות באנגלית וספרות יתקבלו" ControlToValidate="password" ValidationExpression="[a-zA-Z0-9.]*$"></asp:RegularExpressionValidator>
@@ -160,8 +160,7 @@ textarea:focus::-webkit-input-placeholder {
                 <div class="form-group" >
                       <div class="col-sm-9">
 
-                          <asp:Label ID="Label2" runat="server" Text="תאריך לידה"></asp:Label>
-                            <asp:TextBox ID="birthDate" runat="server" class="form-control" placeholder="תאריך לידה"></asp:TextBox>
+                            <asp:TextBox ID="birthDate" runat="server" class="form-control" placeholder=" תאריך לידה (הקפד על צורת כתיבה DD/MM/YYYY)" autocomplete="off" title="הקפד על צורת כתיבה DD/MM/YYYY"></asp:TextBox>
                           <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="שדה חובה" ControlToValidate="birthDate"></asp:RequiredFieldValidator>
                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="שים לב, התאריך לא נכון" ControlToValidate="birthDate" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[-/.](0[1-9]|1[012])[-/.](19|20)\d\d$"></asp:RegularExpressionValidator>                        
                          

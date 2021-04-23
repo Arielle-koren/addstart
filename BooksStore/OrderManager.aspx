@@ -150,9 +150,11 @@
   
 
     <asp:Label ID="Label2" runat="server" Text="הזמנות מתאריך"  Width="200" Style="float:right; margin-right:5px; margin-top:5px"></asp:Label>
-    <asp:TextBox ID="TextBox1" runat="server" TextMode="Date" Width="200" Style="float:right; margin-right:5px; margin-top:5px" ></asp:TextBox>
+    <asp:TextBox ID="TextBox1" runat="server" Width="200" Style="float:right; margin-right:5px; margin-top:5px" placeholder="DD/MM/YYYY"></asp:TextBox>
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="שים לב, התאריך לא נכון" ControlToValidate="TextBox1" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[-/.](0[1-9]|1[012])[-/.](19|20)\d\d$"></asp:RegularExpressionValidator>                        
     <asp:Label ID="Label3" runat="server" Text="עד לתאריך"  Width="200" Style="float:right; margin-right:5px; margin-top:5px"></asp:Label>
-    <asp:TextBox ID="TextBox2" runat="server" TextMode="Date" Width="200" Style="float:right; margin-right:5px; margin-top:5px; margin-bottom:5px"></asp:TextBox>
+    <asp:TextBox ID="TextBox2" runat="server" Width="200" Style="float:right; margin-right:5px; margin-top:5px; margin-bottom:5px" placeholder="DD/MM/YYYY"></asp:TextBox>
+     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="שים לב, התאריך לא נכון" ControlToValidate="TextBox2" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[-/.](0[1-9]|1[012])[-/.](19|20)\d\d$"></asp:RegularExpressionValidator>                        
     <asp:LinkButton ID="LinkButton1" runat="server" class="btn-gradient instagram" Text="חפש" Style="float:right; margin-right:5px; margin-top:5px; margin-bottom:5px" OnClick="Button1_Click"><i class="fa fa-search" ></i></asp:LinkButton>
    
     <br />

@@ -7,7 +7,24 @@
         }
     </style>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="row"  dir="ltr">
+        <div class="col-md-6">
+            <div id="custom-search-input">
+                <div class="input-group col-md-12" style="margin:10px">
+                    <span class="input-group-btn" >
+                    <asp:Button ID="Button1" runat="server" Text="חפש" class="btn btn-info btn-lg" type="button" Style=" padding:3px 12px" OnClick="Button1_Click"/>
+                    </span>
+                    <asp:TextBox ID="TextBox4" runat="server" class="form-control input-lg" placeholder=" איזה ספר בא לך היום? הקלד שם ספר או סופר" style="margin-left:15px;"></asp:TextBox>
+                   
+                </div>
+
+            </div>
+
+        </div>
+            
+	</div>
     <asp:Label ID="label1" runat="server" Text=""></asp:Label>
     <asp:gridview runat="server" ID="GridView1" AutoGenerateColumns="False" Height="16px" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal" style="text-align:right" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting">
         <Columns>
