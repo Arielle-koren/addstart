@@ -66,16 +66,12 @@ namespace BooksStore.App_Code
         //      string sql = "SELECT Books.Name, Books.Auther, Books.Price, Books.Image, Books.Description, Type.Name FROM Books INNER JOIN Type ON Books.Type = Type.ID";
         //       return dal.excuteQuery(sql);  
         //  }
-        public DataSet getAllBooksDetail1() // שאילתה שמביאה את כל נתוני הספרים כולל נתונים שחשופים רק למנהל
-        {
-            string sql = "SELECT Books.Name, Books.Auther, Books.Price, Books.Image1, Books.Stock, Books.NumSold, Type.Name, Books.ID FROM Books INNER JOIN Type ON Books.Type = Type.ID";
-            return dal.excuteQuery(sql);  
-        }
-        public DataSet managerBooksBySearch(string name) // שאילתה שמביאה את כל נתוני הספרים כולל נתונים שחשופים רק למנהל שחיפש המנהל
+        public DataSet getAllBooksDetail1(string name) //  שאילתה שמביאה את כל נתוני הספרים כולל נתונים שחשופים רק למנהל שמתאימים לחיפוש
         {
             string sql = "SELECT Books.Name, Books.Auther, Books.Price, Books.Image1, Books.Stock, Books.NumSold, Type.Name, Books.ID FROM Books INNER JOIN Type ON Books.Type = Type.ID WHERE Books.Name Like '" + name + "%' OR Books.Auther Like '" + name + "%'";
-            return dal.excuteQuery(sql);
+            return dal.excuteQuery(sql);  
         }
+        
         public void updateProd(double price, int stock, int ID) // שאילתת עדכון מחיר
         {
             string sql = "UPDATE Books SET Price="+price+", Stock="+stock +" WHERE ID="+ID;
