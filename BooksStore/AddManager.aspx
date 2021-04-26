@@ -170,10 +170,10 @@ textarea:focus::-webkit-input-placeholder {
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container" style="text-align:center">
            
-                <h3  class="text-info" style="color: #34b2a4; margin-left:350px; margin-top:10px; font-size:40px; font-family:Arial, Helvetica, sans-serif;">הרשמה</h3>
+                <h3  class="text-info" style="color: #34b2a4; margin-left:350px; margin-top:10px; font-size:40px; font-family:Arial, Helvetica, sans-serif;">הוספת מנהל</h3>
                 <div class="form-group" style="margin-bottom:30px;">
                     <div class="col-sm-9" >
-                        <asp:TextBox ID="firstName" type="text" runat="server" text-align=center; placeholder="שם פרטי (זהו שם המשתמש)" class="form-control" ></asp:TextBox>
+                        <asp:TextBox ID="firstName" type="text" runat="server" text-align=center; placeholder="שם פרטי " class="form-control" ></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="שדה חובה" ControlToValidate="firstName"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="השם יכול להכיל בין 2-25 תווים" ControlToValidate="firstName" ValidationExpression="^.{2,25}$"></asp:RegularExpressionValidator>
                     </div>

@@ -16,7 +16,7 @@
                     <span class="input-group-btn" >
                     <asp:Button ID="Button1" runat="server" Text="חפש" class="btn btn-info btn-lg" type="button" Style=" padding:3px 12px" OnClick="Button1_Click"/>
                     </span>
-                    <asp:TextBox ID="TextBox4" runat="server" class="form-control input-lg" placeholder=" איזה ספר בא לך היום? הקלד שם ספר או סופר" style="margin-left:15px;"></asp:TextBox>
+                    <asp:TextBox ID="TextBox4" runat="server" class="form-control input-lg" placeholder=" לחיפוש ספר הקלד שם ספר או סופר" style="margin-left:15px;"></asp:TextBox>
                    
                 </div>
 

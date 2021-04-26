@@ -42,9 +42,10 @@ namespace BooksStore
         {
             search = TextBox4.Text.Replace("'", "''");
             label1.Text = "";
-          //  try
-          //  {
+            try
+            {
                 // לקיחת הנתונים
+
                 double price = Double.Parse(((TextBox)(GridView1.Rows[e.RowIndex].Cells[4].Controls[0])).Text);
                 int stock = Int32.Parse(((TextBox)(GridView1.Rows[e.RowIndex].Cells[5].Controls[0])).Text);
 
@@ -56,11 +57,11 @@ namespace BooksStore
             
                 GridView1.DataSource = bl.getAllBooksDetail1(search);
             GridView1.DataBind();
-         //   }
-           /* catch (Exception e)
+            }
+            catch (Exception ex)
             {
-                label1.Text = "הודעת מערכת: הנתונים לא נשמרו, נסה עוד פעם מאוחר יותר";
-            }*/
+                label1.Text = "הודעת מערכת: הנתונים לא נשמרו, בדוק אם הנתונים שהזנת תקינים ונסה עוד פעם מאוחר יותר";
+            }
         }
 
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)

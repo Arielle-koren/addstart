@@ -189,7 +189,8 @@ textarea:focus::-webkit-input-placeholder {
                       <div class="col-sm-9">
                              <asp:TextBox ID="price" runat="server" placeholder="מחיר" class="form-control"></asp:TextBox>
                           <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="שדה חובה" ControlToValidate="price"></asp:RequiredFieldValidator>
-                    </div>
+                          <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="לא תקין" ControlToValidate="price" ValidationExpression="^\d{0,8}(\.\d{1,4})?$"></asp:RegularExpressionValidator>
+                      </div>
                   
                 </div>
                 <div class="form-group" style="margin-bottom:30px">
@@ -208,7 +209,9 @@ textarea:focus::-webkit-input-placeholder {
                        <div class="col-sm-9">
                              <asp:TextBox ID="stock" runat="server" placeholder="מלאי" class="form-control"></asp:TextBox>
                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="שדה חובה" ControlToValidate="stock"></asp:RequiredFieldValidator>
-                    </div>
+                           <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="לא תקין" ControlToValidate="stock" ValidationExpression="^[1-9][0-9]*$"></asp:RegularExpressionValidator>
+
+                           </div>
                      </div>
 
                   <div class="form-group" style="margin-bottom:30px;">
