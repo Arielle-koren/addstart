@@ -21,7 +21,7 @@ namespace BooksStore.App_Code
             myConnection = new OleDbConnection(connectionString);
         }
 
-        //פעולה המפעילה את השאילתא שנשלחת על בסיס הנתונים
+        //פעולה המפעילה את השאילתה שנשלחת על בסיס הנתונים
         public DataSet excuteQuery(String sql)
         {
             DataSet dataset = new DataSet();

@@ -1,6 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Manager.Master" AutoEventWireup="true" CodeBehind="RequestsManager.aspx.cs" Inherits="BooksStore.CommentsManager" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
+      body{
+          background-image: url("https://s3-eu-west-1.amazonaws.com/schooly/hayovel/news/f_205201293133371212.jpg");
+          border-image-width: 500px
+      }
         .card-white  .card-heading {
   color: #333;
   background-color: #fff;
@@ -127,7 +131,7 @@
                 <div class="post-heading">
                     <div class="float-left meta">
                         <div class="title h5">
-                            <asp:HyperLink ID="HyperLink1" runat="server" Href=""><asp:Label ID="Label1" runat="server" Text='<%# Eval ("Name") %>'></asp:Label></asp:HyperLink>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Eval ("Name") %>'></asp:Label>
                             
                         </div>
                         <asp:Label ID="Label2" runat="server" Text='<%# Eval ("Date1") %>' DataFormatString="{0:d}"></asp:Label>

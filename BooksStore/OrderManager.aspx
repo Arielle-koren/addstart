@@ -150,11 +150,11 @@
   
 
     <asp:Label ID="Label2" runat="server" Text="הזמנות מתאריך"  Width="200" Style="float:right; margin-right:5px; margin-top:5px"></asp:Label>
-    <asp:TextBox ID="TextBox1" runat="server" Width="200" Style="float:right; margin-right:5px; margin-top:5px" placeholder="DD/MM/YYYY"></asp:TextBox>
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="שים לב, התאריך לא נכון" ControlToValidate="TextBox1" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[-/.](0[1-9]|1[012])[-/.](19|20)\d\d$"></asp:RegularExpressionValidator>                        
+    <asp:TextBox ID="TextBox1" runat="server" Width="200" Style="float:right; margin-right:5px; margin-top:5px;" placeholder="DD/MM/YYYY"></asp:TextBox>
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="שים לב, התאריך לא נכון" Style="color:red"  ControlToValidate="TextBox1" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[-/.](0[1-9]|1[012])[-/.](19|20)\d\d$"></asp:RegularExpressionValidator>                        
     <asp:Label ID="Label3" runat="server" Text="עד לתאריך"  Width="200" Style="float:right; margin-right:5px; margin-top:5px"></asp:Label>
     <asp:TextBox ID="TextBox2" runat="server" Width="200" Style="float:right; margin-right:5px; margin-top:5px; margin-bottom:5px" placeholder="DD/MM/YYYY"></asp:TextBox>
-     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="שים לב, התאריך לא נכון" ControlToValidate="TextBox2" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[-/.](0[1-9]|1[012])[-/.](19|20)\d\d$"></asp:RegularExpressionValidator>                        
+     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="שים לב, התאריך לא נכון" Style="color:red" ControlToValidate="TextBox2" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[-/.](0[1-9]|1[012])[-/.](19|20)\d\d$"></asp:RegularExpressionValidator>                        
     <asp:LinkButton ID="LinkButton1" runat="server" class="btn-gradient instagram" Text="חפש" Style="float:right; margin-right:5px; margin-top:5px; margin-bottom:5px" OnClick="Button1_Click"><i class="fa fa-search" ></i></asp:LinkButton>
    
     <br />
@@ -193,6 +193,7 @@
     <asp:Label ID="Label1" runat="server" Text="" Style="float:right; font-size:x-large; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif  "></asp:Label>
     
     <div class="container">
+       <center>
         <div id="login-row" class="row justify-content-center align-items-center">
             <div id="login-column" class="col-md-6">
                 <div class="box">
@@ -222,14 +223,16 @@
                 </div>
             </div>
         </div>
+           </center>
     </div>
+
 
     <asp:GridView ID="GridView2" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" style="text-align:right" Width="1053px" AutoGenerateColumns="False">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
-            <asp:BoundField DataField="Y" HeaderText="הזמנות משנת" />
-            <asp:BoundField DataField="M" HeaderText="מחודש" />
-            <asp:BoundField DataField="S" HeaderText="סכום המשלוחים לחודש זה" />
+            <asp:BoundField DataField="Y" HeaderText="שנה" />
+            <asp:BoundField DataField="M" HeaderText="חודש" />
+            <asp:BoundField DataField="S" HeaderText="סכום הכסף שהועבר לחברת המשלוחים בחודש זה" />
         </Columns>
         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
         <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

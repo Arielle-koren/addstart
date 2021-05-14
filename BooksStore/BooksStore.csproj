@@ -257,7 +257,6 @@
     <Compile Include="App_Code\UsersLogic.cs" />
     <Compile Include="App_Code\OrdersLogic.cs" />
     <Compile Include="App_Code\RequestsLogic.cs" />
-    <Compile Include="App_Code\MoreInfoLogic.cs" />
     <Compile Include="BooksByCategory.aspx.cs">
       <DependentUpon>BooksByCategory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
