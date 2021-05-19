@@ -17,6 +17,7 @@ namespace BooksStore
     {
         WebService1 wb = new WebService1();
         BooksLogic bl = new BooksLogic();
+        OrdersLogic ol = new OrdersLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -29,14 +30,33 @@ namespace BooksStore
                 Chart1.Series["Series1"].YValueMembers = "num";
                 Chart1.DataBind();
 
+                DataTable dt2 = ol.ordersByMonth2().Tables[0];
+                DataTable dt3 = wb.paymentsDetail();
+                DataTable dt4 = new DataTable();
+                dt4.Columns.Add("M", typeof(string));
+                dt4.Columns.Add("in", typeof(string));
+                dt4.Columns.Add("out", typeof(string));
                
 
-              //  String[] classArrAlloted = { "A1", "B1", "B2", "C1" };
-               // int[] countAlloted = { A1Alloted, B1Alloted, B2Alloted, C1Alloted };
+                for (int i=0; i<dt2.Rows.Count ; i++)
+                {
+                    dt4.Rows.Add(dt2.Rows[i]["M"].ToString(), dt2.Rows[i]["Total"].ToString()+10, dt2.Rows[i]["Out"].ToString());
+                }
 
-              //  Chart1.Series["SeriesAllotedClass"].Points.DataBindXY(classArrAlloted, countAlloted);
 
-                
+                Chart2.DataSource = dt4;
+                Chart2.Series["Series1"].XValueMember = "M";
+                Chart2.Series["Series1"].YValueMembers = "in";
+                Chart2.Series["Series2"].YValueMembers = "out";
+                Chart2.DataBind();
+
+
+                //  String[] classArrAlloted = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
+                //String[] countAlloted = { 100, 200, 300, "400", "500", "600", "700", "800", "900", "1000", "1100", "1200" };
+
+                //  Chart1.Series["Series1"].Points.DataBindXY(classArrAlloted, countAlloted);
+
+
             }
 
         }

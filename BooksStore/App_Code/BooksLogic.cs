@@ -125,7 +125,7 @@ namespace BooksStore.App_Code
         }
         public DataSet types() // שאילתה שמחזירה כמה ספרים נקנו מכל סוג
         {
-            string sql = "SELECT Type.Name, Type.ID, COUNT(Books.numSold) AS num FROM (((Orders INNER JOIN BooksOrders ON Orders.ID = BooksOrders.OrdersID) INNER JOIN Books ON BOOKS.ID = BooksOrders.BooksID) INNER JOIN Type ON Books.Type=Type.ID) GROUP BY Type.Name, Type.ID";
+            string sql = "SELECT Type.Name, Type.ID, SUM(Books.numSold) AS num FROM (((Orders INNER JOIN BooksOrders ON Orders.ID = BooksOrders.OrdersID) INNER JOIN Books ON BOOKS.ID = BooksOrders.BooksID) INNER JOIN Type ON Books.Type=Type.ID) GROUP BY Type.Name, Type.ID";
             return dal.excuteQuery(sql);
             
         }

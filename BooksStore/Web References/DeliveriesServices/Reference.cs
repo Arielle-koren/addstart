@@ -30,15 +30,13 @@ namespace BooksStore.DeliveriesServices {
     [System.Web.Services.WebServiceBindingAttribute(Name="WebService1Soap", Namespace="http://tempuri.org/")]
     public partial class WebService1 : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
-        private System.Threading.SendOrPostCallback HelloWorldOperationCompleted;
-        
         private System.Threading.SendOrPostCallback AddOrderOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetStatusOperationCompleted;
         
         private System.Threading.SendOrPostCallback paymentsDetailOperationCompleted;
         
-        private System.Threading.SendOrPostCallback aOperationCompleted;
+        private System.Threading.SendOrPostCallback AnotherTryForFindingAgentsOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -79,9 +77,6 @@ namespace BooksStore.DeliveriesServices {
         }
         
         /// <remarks/>
-        public event HelloWorldCompletedEventHandler HelloWorldCompleted;
-        
-        /// <remarks/>
         public event AddOrderCompletedEventHandler AddOrderCompleted;
         
         /// <remarks/>
@@ -91,34 +86,7 @@ namespace BooksStore.DeliveriesServices {
         public event paymentsDetailCompletedEventHandler paymentsDetailCompleted;
         
         /// <remarks/>
-        public event aCompletedEventHandler aCompleted;
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string HelloWorld() {
-            object[] results = this.Invoke("HelloWorld", new object[0]);
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void HelloWorldAsync() {
-            this.HelloWorldAsync(null);
-        }
-        
-        /// <remarks/>
-        public void HelloWorldAsync(object userState) {
-            if ((this.HelloWorldOperationCompleted == null)) {
-                this.HelloWorldOperationCompleted = new System.Threading.SendOrPostCallback(this.OnHelloWorldOperationCompleted);
-            }
-            this.InvokeAsync("HelloWorld", new object[0], this.HelloWorldOperationCompleted, userState);
-        }
-        
-        private void OnHelloWorldOperationCompleted(object arg) {
-            if ((this.HelloWorldCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.HelloWorldCompleted(this, new HelloWorldCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
+        public event AnotherTryForFindingAgentsCompletedEventHandler AnotherTryForFindingAgentsCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddOrder", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -190,24 +158,22 @@ namespace BooksStore.DeliveriesServices {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/paymentsDetail", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public System.Data.DataTable paymentsDetail(int costumerID) {
-            object[] results = this.Invoke("paymentsDetail", new object[] {
-                        costumerID});
+        public System.Data.DataTable paymentsDetail() {
+            object[] results = this.Invoke("paymentsDetail", new object[0]);
             return ((System.Data.DataTable)(results[0]));
         }
         
         /// <remarks/>
-        public void paymentsDetailAsync(int costumerID) {
-            this.paymentsDetailAsync(costumerID, null);
+        public void paymentsDetailAsync() {
+            this.paymentsDetailAsync(null);
         }
         
         /// <remarks/>
-        public void paymentsDetailAsync(int costumerID, object userState) {
+        public void paymentsDetailAsync(object userState) {
             if ((this.paymentsDetailOperationCompleted == null)) {
                 this.paymentsDetailOperationCompleted = new System.Threading.SendOrPostCallback(this.OnpaymentsDetailOperationCompleted);
             }
-            this.InvokeAsync("paymentsDetail", new object[] {
-                        costumerID}, this.paymentsDetailOperationCompleted, userState);
+            this.InvokeAsync("paymentsDetail", new object[0], this.paymentsDetailOperationCompleted, userState);
         }
         
         private void OnpaymentsDetailOperationCompleted(object arg) {
@@ -218,28 +184,28 @@ namespace BooksStore.DeliveriesServices {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/a", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void a() {
-            this.Invoke("a", new object[0]);
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AnotherTryForFindingAgents", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AnotherTryForFindingAgents() {
+            this.Invoke("AnotherTryForFindingAgents", new object[0]);
         }
         
         /// <remarks/>
-        public void aAsync() {
-            this.aAsync(null);
+        public void AnotherTryForFindingAgentsAsync() {
+            this.AnotherTryForFindingAgentsAsync(null);
         }
         
         /// <remarks/>
-        public void aAsync(object userState) {
-            if ((this.aOperationCompleted == null)) {
-                this.aOperationCompleted = new System.Threading.SendOrPostCallback(this.OnaOperationCompleted);
+        public void AnotherTryForFindingAgentsAsync(object userState) {
+            if ((this.AnotherTryForFindingAgentsOperationCompleted == null)) {
+                this.AnotherTryForFindingAgentsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAnotherTryForFindingAgentsOperationCompleted);
             }
-            this.InvokeAsync("a", new object[0], this.aOperationCompleted, userState);
+            this.InvokeAsync("AnotherTryForFindingAgents", new object[0], this.AnotherTryForFindingAgentsOperationCompleted, userState);
         }
         
-        private void OnaOperationCompleted(object arg) {
-            if ((this.aCompleted != null)) {
+        private void OnAnotherTryForFindingAgentsOperationCompleted(object arg) {
+            if ((this.AnotherTryForFindingAgentsCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.aCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.AnotherTryForFindingAgentsCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -259,32 +225,6 @@ namespace BooksStore.DeliveriesServices {
                 return true;
             }
             return false;
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void HelloWorldCompletedEventHandler(object sender, HelloWorldCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class HelloWorldCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal HelloWorldCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
         }
     }
     
@@ -368,7 +308,7 @@ namespace BooksStore.DeliveriesServices {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void aCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    public delegate void AnotherTryForFindingAgentsCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

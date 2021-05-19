@@ -2,16 +2,6 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
-      <s:element name="HelloWorld">
-        <s:complexType />
-      </s:element>
-      <s:element name="HelloWorldResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="AddOrder">
         <s:complexType>
           <s:sequence>
@@ -46,11 +36,7 @@
         </s:complexType>
       </s:element>
       <s:element name="paymentsDetail">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="costumerID" type="s:int" />
-          </s:sequence>
-        </s:complexType>
+        <s:complexType />
       </s:element>
       <s:element name="paymentsDetailResponse">
         <s:complexType>
@@ -66,20 +52,14 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="a">
+      <s:element name="AnotherTryForFindingAgents">
         <s:complexType />
       </s:element>
-      <s:element name="aResponse">
+      <s:element name="AnotherTryForFindingAgentsResponse">
         <s:complexType />
       </s:element>
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="HelloWorldSoapIn">
-    <wsdl:part name="parameters" element="tns:HelloWorld" />
-  </wsdl:message>
-  <wsdl:message name="HelloWorldSoapOut">
-    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
-  </wsdl:message>
   <wsdl:message name="AddOrderSoapIn">
     <wsdl:part name="parameters" element="tns:AddOrder" />
   </wsdl:message>
@@ -98,17 +78,13 @@
   <wsdl:message name="paymentsDetailSoapOut">
     <wsdl:part name="parameters" element="tns:paymentsDetailResponse" />
   </wsdl:message>
-  <wsdl:message name="aSoapIn">
-    <wsdl:part name="parameters" element="tns:a" />
+  <wsdl:message name="AnotherTryForFindingAgentsSoapIn">
+    <wsdl:part name="parameters" element="tns:AnotherTryForFindingAgents" />
   </wsdl:message>
-  <wsdl:message name="aSoapOut">
-    <wsdl:part name="parameters" element="tns:aResponse" />
+  <wsdl:message name="AnotherTryForFindingAgentsSoapOut">
+    <wsdl:part name="parameters" element="tns:AnotherTryForFindingAgentsResponse" />
   </wsdl:message>
   <wsdl:portType name="WebService1Soap">
-    <wsdl:operation name="HelloWorld">
-      <wsdl:input message="tns:HelloWorldSoapIn" />
-      <wsdl:output message="tns:HelloWorldSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="AddOrder">
       <wsdl:input message="tns:AddOrderSoapIn" />
       <wsdl:output message="tns:AddOrderSoapOut" />
@@ -121,22 +97,13 @@
       <wsdl:input message="tns:paymentsDetailSoapIn" />
       <wsdl:output message="tns:paymentsDetailSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="a">
-      <wsdl:input message="tns:aSoapIn" />
-      <wsdl:output message="tns:aSoapOut" />
+    <wsdl:operation name="AnotherTryForFindingAgents">
+      <wsdl:input message="tns:AnotherTryForFindingAgentsSoapIn" />
+      <wsdl:output message="tns:AnotherTryForFindingAgentsSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="HelloWorld">
-      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="AddOrder">
       <soap:operation soapAction="http://tempuri.org/AddOrder" style="document" />
       <wsdl:input>
@@ -164,8 +131,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="a">
-      <soap:operation soapAction="http://tempuri.org/a" style="document" />
+    <wsdl:operation name="AnotherTryForFindingAgents">
+      <soap:operation soapAction="http://tempuri.org/AnotherTryForFindingAgents" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -176,15 +143,6 @@
   </wsdl:binding>
   <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="HelloWorld">
-      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="AddOrder">
       <soap12:operation soapAction="http://tempuri.org/AddOrder" style="document" />
       <wsdl:input>
@@ -212,8 +170,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="a">
-      <soap12:operation soapAction="http://tempuri.org/a" style="document" />
+    <wsdl:operation name="AnotherTryForFindingAgents">
+      <soap12:operation soapAction="http://tempuri.org/AnotherTryForFindingAgents" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

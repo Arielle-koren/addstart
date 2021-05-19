@@ -8,22 +8,38 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    
-  <div id="myPlot" style="width:100%;max-width:700px"></div>
-
-<script>
-var xArray = ["Italy", "France", "Spain", "USA", "Argentina"];
-var yArray = [55, 49, 44, 24, 15];
-
-var layout = {title:"World Wide Wine Production"};
-
-var data = [{labels:xArray, values:yArray, type:"pie"}];
-
-Plotly.newPlot("myPlot", data, layout);
-</script>
-  
-   <asp:Chart ID="Chart1" runat="server">
+   <aside class="col-md-6" >
+    <asp:Chart ID="Chart2" runat="server" Height="700px" Width="1000px" >
         <Series>
-            <asp:Series Name="Series1" ChartType="pie" YValueMembers="num"></asp:Series>
+            <asp:Series Name="Series1" IsValueShownAsLabel="true" LegendText="הכנסות"  ChartType="Column" YValueMembers="in" XValueMember="M" Font="Microsoft Sans Serif, 12pt" Legend="LegendClass" Color="Green"></asp:Series>
+        </Series>
+        <Series>
+            <asp:Series Name="Series2" IsValueShownAsLabel="true" LegendText="הוצאות"  ChartType="Column" YValueMembers="out" XValueMember="M" Font="Microsoft Sans Serif, 12pt" Legend="LegendClass" Color="red"></asp:Series>
+        </Series>
+        <ChartAreas>
+            <asp:ChartArea Name="ChartArea1" >
+                 <AxisY Title="סכום" >
+                        </AxisY>
+                        <AxisX Title="חודש">
+                        </AxisX>
+            </asp:ChartArea>
+           
+        </ChartAreas>
+         <Legends>
+                    <asp:Legend Docking="Bottom" Name="LegendClass"></asp:Legend>
+                </Legends>
+                <Titles>
+                    <asp:Title Name="TitleChart" Font="Microsoft Sans Serif, 15pt, style=Bold" Text="הוצאות והכנסות מהשנה הנוכחית" Alignment="TopCenter"></asp:Title>
+                </Titles>
+    </asp:Chart>
+   
+   </aside>
+
+     <aside class="col-md-6" >
+
+   <asp:Chart ID="Chart1" runat="server" Height="500px" Width="720px">
+        <Series>
+            <asp:Series Name="Series1" ChartType="pie" YValueMembers="num" IsValueShownAsLabel="True" Font="Microsoft Sans Serif, 12pt" Legend="LegendClass"></asp:Series>
         </Series>
         <ChartAreas>
             <asp:ChartArea Name="ChartArea1">
@@ -38,10 +54,9 @@ Plotly.newPlot("myPlot", data, layout);
                     <asp:Legend Docking="Bottom" Name="LegendClass"></asp:Legend>
                 </Legends>
                 <Titles>
-                    <asp:Title Name="TitleChart" Font="Microsoft Sans Serif, 15pt, style=Bold" Text="Beds Statistics Summary (Class)" Alignment="TopCenter"></asp:Title>
+                    <asp:Title Name="TitleChart" Font="Microsoft Sans Serif, 15pt, style=Bold" Text="מספר הספרים שנמכרו מכל זאנר" Alignment="TopCenter"></asp:Title>
                 </Titles>
     </asp:Chart>
+         </aside>
 
-   
-   
 </asp:Content>

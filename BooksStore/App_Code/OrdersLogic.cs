@@ -113,10 +113,16 @@ namespace BooksStore.App_Code
             string sql = "UPDATE Orders SET DelieveryPrice="+ price+ " WHERE ID="+ID;
             dal.excuteQuery(sql);
         }
-        public DataSet chart()
+        public DataSet ordersByMonth()// מחזיר מספר הזמנות מכל חודש בשנתיים האחרונות
         {
-            string sql = "SELECT COUNT(),  FROM ORDERS INNER JOIN BooksOrders ON Orders.ID=BooksOrders.OrdersID";
-                return dal.excuteQuery(sql);
+            string sql = "SELECT Count(ID) AS C, Date1 AS M FROM Orders WHERE Year(Date1)>"+DateTime.Now.Year +"-1 GROUP BY Month(Date1), Date1 ORDER BY Date1 DESC";
+            return dal.excuteQuery(sql);
         }
+        public DataSet ordersByMonth2()// מחזיר מספר הזמנות מכל חודש בשנתיים האחרונות
+        {
+            string sql = "SELECT SUM(PricePerOne* NumBooks)+10 AS TOTAL, Month(Date1) AS M, SUM(DelieveryPrice) AS Out FROM Orders INNER JOIN BooksOrders ON Orders.ID= BooksOrders.OrdersID WHERE Year(Date1)=" + DateTime.Now.Year + " GROUP BY Month(Date1) ORDER BY Month(Date1)";
+            return dal.excuteQuery(sql);
+        }
+
     }
 }

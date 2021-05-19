@@ -22,8 +22,7 @@ namespace BooksStore
             {
                 GridView1.DataSource = ol.showAllOrders1();
                 GridView1.DataBind();
-                GridView2.DataSource = ws.paymentsDetail(1);
-                GridView2.DataBind();
+                
                 
 
             }
