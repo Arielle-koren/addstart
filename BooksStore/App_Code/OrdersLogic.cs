@@ -113,5 +113,10 @@ namespace BooksStore.App_Code
             string sql = "UPDATE Orders SET DelieveryPrice="+ price+ " WHERE ID="+ID;
             dal.excuteQuery(sql);
         }
+        public DataSet chart()
+        {
+            string sql = "SELECT COUNT(),  FROM ORDERS INNER JOIN BooksOrders ON Orders.ID=BooksOrders.OrdersID";
+                return dal.excuteQuery(sql);
+        }
     }
 }
