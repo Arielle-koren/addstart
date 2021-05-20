@@ -236,7 +236,7 @@ textarea:focus::-webkit-input-placeholder {
         $(function () {
             $("#dialog").html(message);
             $("#dialog").dialog({
-                title: "הודעת מערכת",
+                title: "<- לסגירה|__ הודעת מערכת",
               
                 modal: true
                 
