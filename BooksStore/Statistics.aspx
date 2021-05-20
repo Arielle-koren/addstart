@@ -9,7 +9,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    
    <aside class="col-md-6" >
-    <asp:Chart ID="Chart2" runat="server" Height="700px" Width="1000px" >
+    <asp:Chart ID="Chart2" runat="server" Height="700px" Width="1300px" >
         <Series>
             <asp:Series Name="Series1" IsValueShownAsLabel="true" LegendText="הכנסות"  ChartType="Column" YValueMembers="in" XValueMember="M" Font="Microsoft Sans Serif, 12pt" Legend="LegendClass" Color="Green"></asp:Series>
         </Series>
@@ -37,7 +37,7 @@
 
      <aside class="col-md-6" >
 
-   <asp:Chart ID="Chart1" runat="server" Height="500px" Width="720px">
+   <asp:Chart ID="Chart1" runat="server" Height="600px" Width="720px">
         <Series>
             <asp:Series Name="Series1" ChartType="pie" YValueMembers="num" IsValueShownAsLabel="True" Font="Microsoft Sans Serif, 12pt" Legend="LegendClass"></asp:Series>
         </Series>
@@ -45,7 +45,7 @@
             <asp:ChartArea Name="ChartArea1">
                  <AxisY Title="מספר" >
                         </AxisY>
-                        <AxisX Title="זאנר" Interval="60">
+                        <AxisX Title="זאנר">
                         </AxisX>
             </asp:ChartArea>
            
