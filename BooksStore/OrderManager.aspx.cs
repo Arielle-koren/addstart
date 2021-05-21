@@ -60,7 +60,7 @@ namespace BooksStore
             try
             {
                 if (TextBox3.Text != "")
-                    Label4.Text = ws.GetStatus(Int32.Parse(TextBox3.Text));
+                    Label4.Text = ws.GetStatus(Int32.Parse(TextBox3.Text),1);
                 else
                     Label4.Text = "חובה להזין קוד הזמנה";
             }

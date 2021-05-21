@@ -25,7 +25,7 @@ namespace BooksStore
                     Repeater1.DataSource = ol.getOrder(orderID);
                     Repeater1.DataBind();
                     Label5.Text = (Double.Parse(ol.getTotal(orderID).Tables[0].Rows[0]["Total"].ToString())+10).ToString();//מחיר ספרים כולל+ 10 שח למשלוח
-                    Label8.Text = ws.GetStatus(orderID); // סטטוס ההזמנה
+                    Label8.Text = ws.GetStatus(orderID, 1); // סטטוס ההזמנה
                 
             }
             else

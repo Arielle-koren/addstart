@@ -10,14 +10,14 @@ namespace BooksStore
 {
     public partial class UsersManager : System.Web.UI.Page
     {
-        UsersLogic bl = new UsersLogic();
+        UsersLogic ul = new UsersLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["IsAdmin"].ToString() != "yes")
                 Response.Redirect("Home.aspx");
             if (!IsPostBack)
             {
-                GridView1.DataSource = bl.getUsers();
+                GridView1.DataSource = ul.getUsers();
                 GridView1.DataBind();
             }
         }
