@@ -15,16 +15,16 @@ namespace BooksStore
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)//כפתור הרשמה
         {
             Label1.Text = "";
             UsersLogic us = new UsersLogic();
-            if (us.checkExistEmail(email.Text))
+            if (us.checkExistEmail(email.Text))//בדיקה אם המשתמש קיים, כלומר אם האימייל כבר שמור אצל משתמש אחר
             {
                 string message = "זהו משתמש קיים, אנא החלף אימייל";
                 ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + message + "');", true);
             }
-            else
+            else// האימייל לא קיים במסד הנתונים ולכן ניתן להירשם איתו
             {
                 String nameS = firstName.Text.Replace("'", "");
                 String lastnameS = lastName.Text.Replace("'", "");

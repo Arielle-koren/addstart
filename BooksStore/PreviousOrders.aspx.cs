@@ -13,7 +13,7 @@ namespace BooksStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["ID"] == null)
+            if (Session["ID"] == null)//אורח ולא משתמש רשום
             {
                 Response.Redirect("Login.aspx");
             }

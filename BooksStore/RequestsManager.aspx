@@ -141,7 +141,7 @@
                     <p><asp:Label ID="Label3" runat="server" Text='<%# Eval ("Content") %>'></asp:Label></p>
                     <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" CommandName='<%# Eval ("Email") %>' Text='<%# Eval ("Email") %>'></asp:LinkButton>
                  <br />
-                 <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Eval ("Done") %>' OnCheckedChanged="CheckBox1_CheckedChanged"  Enabled="False"></asp:CheckBox>
+                 <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Eval ("Done") %>'   Enabled="False"></asp:CheckBox>
                    <asp:Label ID="Label4" runat="server" Text="בקשה נענתה"></asp:Label>
                 <asp:Button ID="Button1" runat="server" Text="לחץ לשינוי סטטוס הבקשה" CommandName='<%# Eval ("ID") %>' OnClick="Button1_Click" Visible="True"></asp:Button>
                 

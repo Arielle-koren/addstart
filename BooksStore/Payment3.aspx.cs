@@ -20,7 +20,7 @@ namespace BooksStore
           
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
+        protected void LinkButton1_Click(object sender, EventArgs e)//מעבר לקבלה
         {
             Response.Redirect("OrderReciept.aspx?data="+orderID);
         }

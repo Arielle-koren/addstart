@@ -29,7 +29,7 @@ namespace BooksStore
             }
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
+        protected void LinkButton1_Click(object sender, EventArgs e)// הגדלת כמות הספר באחד
         {
             string Booksid = (String)((sender as LinkButton).CommandName);
             cl.add1(Int32.Parse(Booksid), Int32.Parse(Session["ID"].ToString()));
@@ -42,7 +42,7 @@ namespace BooksStore
             Label8.Text = (Double.Parse(total) + Double.Parse(Label7.Text)).ToString();
         }
 
-        protected void LinkButton3_Click(object sender, EventArgs e)
+        protected void LinkButton3_Click(object sender, EventArgs e)// הורדת כמות הספר באחד
         {
             string Booksid = (String)((sender as LinkButton).CommandName);
             cl.remove1(Int32.Parse(Booksid), Int32.Parse(Session["ID"].ToString()));
@@ -55,7 +55,7 @@ namespace BooksStore
             Label8.Text = (Double.Parse(total) + Double.Parse(Label7.Text)).ToString();
         }
 
-        protected void LinkButton2_Click(object sender, EventArgs e)
+        protected void LinkButton2_Click(object sender, EventArgs e)//מחיקת הספר מהעגלה
         {
             string Booksid = (String)((sender as LinkButton).CommandName);
             cl.deleteFromCart(Int32.Parse(Booksid), Int32.Parse(Session["ID"].ToString()));
@@ -68,7 +68,7 @@ namespace BooksStore
             Label8.Text = (Double.Parse(total) + Double.Parse(Label7.Text)).ToString();
         }
 
-        protected void LinkButton6_Click(object sender, EventArgs e)
+        protected void LinkButton6_Click(object sender, EventArgs e)// מעבר לביצוע הזמנה
         {
             if (Label6.Text != "0")//ניתן לבצע הזמנה רק כאשר העגלה לא ריקה
             {

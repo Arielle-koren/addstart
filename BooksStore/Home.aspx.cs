@@ -44,7 +44,7 @@ namespace BooksStore
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)//חיפוש ספר
         {
             String s = TextBox1.Text.Replace("'", "''");
             DataSet ds = bl.getBooksBySearch(s);

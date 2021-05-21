@@ -22,7 +22,6 @@ namespace BooksStore
         WebService1 ws = new WebService1();
         protected void Page_Load(object sender, EventArgs e)
         {
-            pd = (paymentsDetail)Session["pd"];
             if (!string.IsNullOrEmpty(Request.QueryString["price"]))
             {
                 pd = (paymentsDetail)Session["pd"];
@@ -33,12 +32,12 @@ namespace BooksStore
                 Label2.Text = "מצטערים, משהו התפקשש :-(  ....  חזור בבקשה לעגלת הקניות";
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)// חזרה לשלב ראשון בהזמנה
         {
             Response.Redirect("Payment1.aspx?data=" + Request.QueryString["price"]);
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
+        protected void Button2_Click(object sender, EventArgs e)// ביצוע הזמנה
         {
 
             if (!string.IsNullOrEmpty(Request.QueryString["price"]))

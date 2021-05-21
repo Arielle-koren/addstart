@@ -36,12 +36,9 @@ namespace BooksStore
                 Label2.Text = "מצטערים, משהו התפקשש :-(  ....  חזור בבקשה לעגלת הקניות";
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
+      
 
-        }
-
-        protected void Button2_Click(object sender, EventArgs e)
+        protected void Button2_Click(object sender, EventArgs e)// מעבר לשלב הבא בהזמנה
         {
             if (!string.IsNullOrEmpty(Request.QueryString["data"]))
             {

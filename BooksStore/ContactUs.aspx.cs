@@ -15,7 +15,7 @@ namespace BooksStore
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)// שליחת הבקשה
         {
             RequestsLogic rl = new RequestsLogic();
             String nameS = name.Text.Replace("'", "''");

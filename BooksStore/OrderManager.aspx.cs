@@ -31,7 +31,7 @@ namespace BooksStore
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)// מציאת הזמנות בין טווח תאריכים
         {
             if (!(TextBox1.Text.Equals("") || TextBox2.Text.Equals("")))
             {
@@ -55,7 +55,7 @@ namespace BooksStore
             }
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
+        protected void Button2_Click(object sender, EventArgs e)// מציאת סטטוס הזמנה לפי הקוד שלה
         {
             try
             {

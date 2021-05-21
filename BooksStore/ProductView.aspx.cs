@@ -35,13 +35,13 @@ namespace BooksStore
             }
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
+        protected void Button2_Click(object sender, EventArgs e)//הוספת ספר לעגלה
         {
             if (Session["ID"] == null)
             {
                 Response.Redirect("LogIn.aspx");
             }
-            else if (cl.inStock(Int32.Parse(Request.QueryString["data"]), Int32.Parse(TextBox1.Text)))
+            else if (cl.inStock(Int32.Parse(Request.QueryString["data"]), Int32.Parse(TextBox1.Text)))// בדיקה שהספר במלאי
             {
                 cl.addToCart(Int32.Parse(Request.QueryString["data"]), Int32.Parse(Session["ID"].ToString()), Int32.Parse(TextBox1.Text));
                 Label6.Text = "הספר נוסף בהצלחה";
@@ -51,7 +51,7 @@ namespace BooksStore
                 Label6.Text = "לצערנו אין את הכמות שהזנת במלאי";
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
+        protected void LinkButton1_Click(object sender, EventArgs e)// מעבר לעמוד שבו מוצגים בפרים מאותו הזאנר
         {
             Response.Redirect("BooksByCategory.aspx?type=" + bl.getTypeID(Label4.Text));
         }

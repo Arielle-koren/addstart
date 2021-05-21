@@ -18,7 +18,7 @@ namespace BooksStore
             Session["email"] = null;
             Session["IsAdmin"] = "no";
             Session["ID"] = null;
-            Session["PD"] = null;
+            Session["PD"] = null;// paymentsDetail- משמש בשמירת נתוני התשלום בביצוע ההזמנה
             Session["cart"] = null;
             Application.UnLock();
 

@@ -25,12 +25,12 @@ namespace BooksStore
         }
 
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)//שינוי סטטוס הבקשה
         {
             int id = Int32.Parse((sender as Button).CommandName);
-            if (rl.getDone(id).Tables[0].Rows[0]["Done"].ToString().Equals("True"))
+            if (rl.getDone(id).Tables[0].Rows[0]["Done"].ToString().Equals("True"))//בקשה שכתוב שהיא נענתה והמנהל רוצה לשנות ללא נענתה
                 rl.changeToNotDone(id);
-            else
+            else// בקשה שהמנהל רוצה לשנות לנענתה
                 rl.changeToDone(id);
 
 
@@ -38,7 +38,7 @@ namespace BooksStore
             Repeater1.DataBind();
         }
 
-        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)//בחירת סוג הבקשות שיופיעו על המסך
         {
             if (DropDownList1.SelectedItem.Value.Equals("1"))
             {
@@ -55,11 +55,6 @@ namespace BooksStore
                 Repeater1.DataSource = rl.getDoneRequests();
                 Repeater1.DataBind();
             }
-        }
-
-        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)

@@ -63,14 +63,6 @@ namespace BooksStore
             }
         }
 
-        /*protected void Button1_Click(object sender, EventArgs e)
-       {
-           BooksLogic bl = new BooksLogic();
-           if (bl.checkExistBook(name.Text))
-               Label1.Text = "הספר כבר קיים במערכת";
-           //else
-             //  bl.addNewBook(name.Text, auther.Text, price.Text, Double.Parse(type.Text), description.Text, stock.Text, image.Text);
-           // פנייה לשאילתת הכנסה ספר חדש
-       } */
+       
     }
 }

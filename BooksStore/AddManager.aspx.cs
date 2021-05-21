@@ -32,7 +32,7 @@ namespace BooksStore
                 String lastnameS = lastName.Text.Replace("'", "");
 
                 us.addNewManager(nameS, lastnameS, email.Text, birthDate.Text, password.Text);
-                string message = "המנהל הוסף בהצלחה";
+                string message = "המנהל נוסף בהצלחה";
                 ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + message + "');", true);
             }
 
