@@ -122,7 +122,7 @@ img {width:100%;}
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="שדה חובה" ControlToValidate="City" BackColor="WhiteSmoke" ></asp:RequiredFieldValidator>
                                 </div>
                                 <div class="form-group">
-                                    <label style="font-weight:bold;"> רחוב+ מספר דירה</label>
+                                    <label style="font-weight:bold;"> רחוב+ מספר בית</label>
                                     <asp:TextBox ID="TextBox2" runat="server" type="text" class="form-control"  title="הקלד את הכתובת לשם תרצה שההזמנה תישלח" ></asp:TextBox>
                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="שדה חובה" ControlToValidate="TextBox2" BackColor="WhiteSmoke"></asp:RequiredFieldValidator>
                                 </div>
