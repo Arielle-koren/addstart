@@ -75,7 +75,7 @@
                         <div class="card-body">
                             <h3 class="text-center" >ההזמנה נקלטה!</h3>
                             <hr>
-
+                            <label>אנחנו גאים לומר שמרגע זה ואילך המשלוח שלך יטופל בצורה היעילה ביותר תוך מציאת השליח הקרוב ביותר לביתך על מנת שהמשלוח יגיע מהר ככל הניתן</label>
                             <form class="form" role="form" autocomplete="off">
 
 

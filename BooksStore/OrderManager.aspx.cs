@@ -22,6 +22,7 @@ namespace BooksStore
             {
                 GridView1.DataSource = ol.showAllOrders1();
                 GridView1.DataBind();
+                TextBox2.Text = DateTime.Now.ToShortDateString();
                 
                 
 
@@ -57,17 +58,7 @@ namespace BooksStore
 
         protected void Button2_Click(object sender, EventArgs e)// מציאת סטטוס הזמנה לפי הקוד שלה
         {
-            try
-            {
-                if (TextBox3.Text != "")
-                    Label4.Text = ws.GetStatus(Int32.Parse(TextBox3.Text),1);
-                else
-                    Label4.Text = "חובה להזין קוד הזמנה";
-            }
-            catch (Exception ex)
-            {
-                Label4.Text = "משהו השתבש, בדוק  אם קוד ההזמנה תקין";
-            }
+            Response.Redirect("OrderStatus.aspx");
         }
 
         

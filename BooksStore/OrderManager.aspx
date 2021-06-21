@@ -60,80 +60,7 @@
 	animation:Gradient 5s ease infinite
 }
       
-    .box {
-    width: 500px;
-    margin: 200px 0;
-}
 
-.shape1{
-    position: relative;
-    height: 150px;
-    width: 150px;
-    background-color: #0074d9;
-    border-radius: 80px;
-    float: left;
-    margin-right: -50px;
-}
-.shape2 {
-    position: relative;
-    height: 150px;
-    width: 150px;
-    background-color: #0074d9;
-    border-radius: 80px;
-    margin-top: -30px;
-    float: left;
-}
-.shape3 {
-    position: relative;
-    height: 150px;
-    width: 150px;
-    background-color: #0074d9;
-    border-radius: 80px;
-    margin-top: -30px;
-    float: left;
-    margin-left: -31px;
-}
-.shape4 {
-    position: relative;
-    height: 150px;
-    width: 150px;
-    background-color: #0074d9;
-    border-radius: 80px;
-    margin-top: -25px;
-    float: left;
-    margin-left: -32px;
-}
-.shape5 {
-    position: relative;
-    height: 150px;
-    width: 150px;
-    background-color: #0074d9;
-    border-radius: 80px;
-    float: left;
-    margin-right: -48px;
-    margin-left: -32px;
-    margin-top: -30px;
-}
-.shape6 {
-    position: relative;
-    height: 150px;
-    width: 150px;
-    background-color: #0074d9;
-    border-radius: 80px;
-    float: left;
-    margin-right: -20px;
-    margin-top: -35px;
-}
-.shape7 {
-    position: relative;
-    height: 150px;
-    width: 150px;
-    background-color: #0074d9;
-    border-radius: 80px;
-    float: left;
-    margin-right: -20px;
-    margin-top: -57px;
-}
 .float {
     position: absolute;
     z-index: 2;
@@ -156,7 +83,7 @@
     <asp:TextBox ID="TextBox2" runat="server" Width="200" Style="float:right; margin-right:5px; margin-top:5px; margin-bottom:5px" placeholder="DD/MM/YYYY"></asp:TextBox>
      <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="שים לב, התאריך לא נכון" Style="color:red" ControlToValidate="TextBox2" ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[-/.](0[1-9]|1[012])[-/.](19|20)\d\d$"></asp:RegularExpressionValidator>                        
     <asp:LinkButton ID="LinkButton1" runat="server" class="btn-gradient instagram" Text="חפש" Style="float:right; margin-right:5px; margin-top:5px; margin-bottom:5px" OnClick="Button1_Click"><i class="fa fa-search" ></i></asp:LinkButton>
-   
+<div class="fixed">  <p><b><a href="OrderStatus.aspx" class="btn btn-outline-info btn-rounded waves-effect"  style="margin:15px; text-decoration: underline; font-size: 18px">לקבלת סטטוס הזמנה לפי קוד הזמנה</a></b></p> </div>
     <br />
     <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" style="text-align:right" Width="1053px" AutoGenerateColumns="False">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
@@ -191,40 +118,8 @@
 
     </asp:GridView>
     <asp:Label ID="Label1" runat="server" Text="" Style="float:right; font-size:x-large; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif  "></asp:Label>
-    
-    <div class="container">
-       <center>
-        <div id="login-row" class="row justify-content-center align-items-center">
-            <div id="login-column" class="col-md-6">
-                <div class="box">
-                    <div class="shape1"></div>
-                    <div class="shape2"></div>
-                    <div class="shape3"></div>
-                    <div class="shape4"></div>
-                    <div class="shape5"></div>
-                    <div class="shape6"></div>
-                    <div class="shape7"></div>
-                    <div class="float">
-                        <form class="form" action="">
-                            <div class="form-group">
-                                <label for="username" class="text-white" style="text-align:right; float:right" >קוד הזמנה:</label><br>
-                                <asp:TextBox ID="TextBox3" runat="server" class="form-control"></asp:TextBox>
 
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="לא תקין" ControlToValidate="TextBox3" ValidationExpression="^[1-9][0-9]*$"></asp:RegularExpressionValidator>
-                            
-                            </div>
-
-                            <div class="form-group">
-                            <asp:Button ID="Button2" runat="server" Text="חפש סטטוס הזמנה" class="btn btn-info btn-md" OnClick="Button2_Click" Style="float:right"/>
-                            </div>
-                            <asp:Label ID="Label4" runat="server" Text=""></asp:Label>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-           </center>
-    </div>
+                      
 
 
     
