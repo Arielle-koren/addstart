@@ -45,7 +45,7 @@
             <asp:BoundField DataField="ID" ReadOnly="True" Visible="True">
 <ItemStyle Width="0px" CssClass="hide"></ItemStyle>
             </asp:BoundField>
-            <asp:CommandField ShowDeleteButton="True" DeleteText="מחק ספר"/>
+            <asp:CommandField ShowDeleteButton="True" DeleteText="מחק ספר מהמלאי"/>
         </Columns>
         
         <FooterStyle BackColor="White" ForeColor="#333333" />

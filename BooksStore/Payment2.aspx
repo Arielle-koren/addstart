@@ -119,7 +119,7 @@ img {width:100%;}
                                     <label for="cc_name" style="font-weight:bold;">שם בעל הכרטיס</label>
                                     <asp:TextBox ID="TextBox1" runat="server" type="text" class="form-control" title="שם פרטי ושם משפחה"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="שדה חובה" ControlToValidate="TextBox1" BackColor="WhiteSmoke" ></asp:RequiredFieldValidator>
-                                   <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="לא תקין" ControlToValidate="TextBox1" ValidationExpression="^[אבגדהוזחטיכלמנסעפצקרשתץףןםך]+(?:\s[אבגדהוזחטיכלמנסעפצקרשתץףןםך]+)+$" BackColor="WhiteSmoke"></asp:RegularExpressionValidator>
+                                   <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="לא תקין" ControlToValidate="TextBox1" ValidationExpression="/^[a-z\u0590-\u05fe]+$/i" BackColor="WhiteSmoke"></asp:RegularExpressionValidator>
                                 </div>
                                 <div class="form-group">
                                     <label style="font-weight:bold;">מספר כרטיס</label>

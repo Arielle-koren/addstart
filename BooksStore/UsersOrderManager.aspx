@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
    <h2> <asp:Label ID="Label1" runat="server" Text="" Style="color: #ffc000; font-weight: 500; font-size:large;	text-align: center; float:right"></asp:Label></h2>
-    <asp:gridview ID="GridView1" runat="server" AutoGenerateColumns="False" style="text-align:right; float:right;"  CellPadding="4" ForeColor="#333333" GridLines="None"  DataKeyNames="ID" Height="129px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="1083px">
+    <asp:gridview ID="GridView1" runat="server" AutoGenerateColumns="False" style="text-align:right; float:right;"  CellPadding="4" ForeColor="#333333" GridLines="None"  DataKeyNames="ID" Height="129px" Width="1083px">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:BoundField DataField="Date1" HeaderText="יום" DataFormatString="{0:d}"/>

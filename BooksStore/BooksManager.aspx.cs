@@ -57,6 +57,7 @@ namespace BooksStore
             
                 GridView1.DataSource = bl.getAllBooksDetail1(search);
             GridView1.DataBind();
+
             }
             catch (Exception ex)
             {
@@ -89,6 +90,11 @@ namespace BooksStore
             
                 GridView1.DataSource = bl.getAllBooksDetail1(search);
             GridView1.DataBind();
+
+                string strLoginPage = "BooksManager.aspx"; // getting page url from web.config;
+                string scriptText = "alert('הספר נמחק מהמלאי בהצלחה, לא תהיה אפשרות לרכוש ספר זה עד שיהיה במלאי'); window.location='" + Request.ApplicationPath + strLoginPage + "'";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", scriptText, true);
+
             }
             catch (Exception ex)
             {

@@ -44,8 +44,11 @@ namespace BooksStore
             else if (cl.inStock(Int32.Parse(Request.QueryString["data"]), Int32.Parse(TextBox1.Text)))// בדיקה שהספר במלאי
             {
                 cl.addToCart(Int32.Parse(Request.QueryString["data"]), Int32.Parse(Session["ID"].ToString()), Int32.Parse(TextBox1.Text));
-                Label6.Text = "הספר נוסף בהצלחה";
-                Response.Redirect("ProductView.aspx?data=" + Request.QueryString["data"]);
+                string strLoginPage = "Home.aspx"; // getting page url from web.config;
+
+                string scriptText = "alert('הספר נוסף בהצלחה'); window.location='" + Request.ApplicationPath + strLoginPage + "'";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", scriptText, true);
+               
             }
             else
                 Label6.Text = "לצערנו אין את הכמות שהזנת במלאי";

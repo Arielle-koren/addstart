@@ -53,7 +53,13 @@ namespace BooksStore
                     bl.addNewBook(nameS, autherS, Int32.Parse(type1.SelectedValue), Double.Parse(price.Text), descS, stock.Text, imageName);
                     string message = "הספר נשמר בהצלחה";
                     ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + message + "');", true);
-               }
+                    name.Text = "";
+                    auther.Text = "";
+                    price.Text = "";
+                    type1.SelectedValue ="1";
+                    description.Text = "";
+                    stock.Text = "";
+                }
                catch(Exception ex)
                 {
                     string message = "ייתכן שהקובץ לא נמצא, נסה שוב בעוד כמה דקות";

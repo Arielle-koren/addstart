@@ -22,9 +22,12 @@ namespace BooksStore.App_Code
 
         public DataSet getByMonthAndYear(string d1, string d2)// מחזירה הזמנות שבוצעו בין הזמנים  שהשאילתה מקבלת
         {
-           
-            string sql = String.Format("SELECT Orders.ID, Orders.UsersID, Orders.Hour, Orders.Date1, Cities.City, Orders.Address, Orders.Phone, Orders.More, Users.Name+' '+ Users.LastName AS FullName, Orders.DelieveryPrice FROM ((Orders INNER JOIN Users ON Orders.UsersID = Users.ID) INNER JOIN Cities ON Orders.City= Cities.ID) WHERE ((Orders.Date1 >=#{0}#) AND (Orders.Date1 <=#{1}#))", d1, d2);
-
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-FR");
+            DateTime dt1 = DateTime.Parse(d1);
+            DateTime dt2 = DateTime.Parse(d2);
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+            string sql = String.Format("SELECT Orders.ID, Orders.UsersID, Orders.Hour, Orders.Date1, Cities.City, Orders.Address, Orders.Phone, Orders.More, Users.Name+' '+ Users.LastName AS FullName, Orders.DelieveryPrice FROM ((Orders INNER JOIN Users ON Orders.UsersID = Users.ID) INNER JOIN Cities ON Orders.City= Cities.ID) WHERE ((Orders.Date1 >=#{0}#) AND (Orders.Date1 <=#{1}#))", dt1, dt2);
+          //  Date1.Year >={0}
             DataSet ds = dal.excuteQuery(sql);
             return ds;
         }
