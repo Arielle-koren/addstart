@@ -50,6 +50,11 @@ namespace BooksStore.App_Code
             string sql = "SELECT Done FROM Requests WHERE ID="+id;
             return dal.excuteQuery(sql);
         }
+        public DataSet getMyRequest(string email)
+        {
+            string sql = "SELECT TOP 8 ID, Name, Email, Date1, Content, Done FROM Requests WHERE Email='" + email + "' ORDER BY Date1 DESC";
+            return dal.excuteQuery(sql);
+        }
     }
 
 }
