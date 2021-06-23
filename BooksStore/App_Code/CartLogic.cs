@@ -28,7 +28,7 @@ namespace BooksStore.App_Code
 
         }
 
-        public string booksExists(int booksID, int ID)// בודקת האם הספר נמצא בעגלת קניות של המשתמש
+        public string booksExists(int booksID, int ID)// בודקת האם הספר נמצא בעגלת קניות של המשתמש ומחזירה את מספר הספרים הקיימים או null אם לא קיימים
         {
             string sql = "SELECT NumBooks FROM BooksCart WHERE BooksID= " + booksID + " AND UsersID= " + ID;
             int num = dal.excuteQuery(sql).Tables[0].Rows.Count;
@@ -96,7 +96,7 @@ namespace BooksStore.App_Code
 
         public int countCart(int id)// כמות הפריטים בעגלה
         {
-            string sql = "SELECT BooksID FROM BooksCart INNER JOIN Books ON Books.ID= BooksCart.BooksID WHERE UsersID=" + id;
+            string sql = "SELECT BooksID FROM BooksCart WHERE UsersID=" + id;
             return dal.excuteQuery(sql).Tables[0].Rows.Count;
         }
 

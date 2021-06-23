@@ -12,7 +12,7 @@ namespace BooksStore.App_Code
     {
         DAL dal = new DAL();
 
-        public DataSet showAllOrders1()//מחזירה את כל ההזמנות
+        public DataSet showAllOrders1()//מחזירה 20 הזמנות אחרונות 
         {
             string sql = "SELECT TOP 20 Orders.ID, Orders.UsersID, Orders.Hour, Orders.Date1, Cities.City, Orders.Address, Orders.Phone, More , Users.Name+' '+ Users.LastName AS FullName,  Orders.DelieveryPrice  FROM ((Orders INNER JOIN Users ON Orders.UsersID = Users.ID) INNER JOIN Cities ON Orders.City= Cities.ID) ORDER BY Date1 DESC, Hour DESC";
             DataSet ds = dal.excuteQuery(sql);
@@ -116,14 +116,14 @@ namespace BooksStore.App_Code
             string sql = "UPDATE Orders SET DelieveryPrice="+ price+ " WHERE ID="+ID;
             dal.excuteQuery(sql);
         }
-        public DataSet ordersByMonth()// מחזיר מספר הזמנות מכל חודש בשנתיים האחרונות
+        public DataSet ordersByMonth()// מחזיר מספר הזמנות מכל חודש בשנתיים האחרונות-לא בשימוש
         {
             string sql = "SELECT Count(ID) AS C, Date1 AS M FROM Orders WHERE Year(Date1)>"+DateTime.Now.Year +"-1 GROUP BY Month(Date1), Date1 ORDER BY Date1 DESC";
             return dal.excuteQuery(sql);
         }
-        public DataSet ordersByMonth2()// מחזיר מספר הזמנות מכל חודש בשנתיים האחרונות
+        public DataSet ordersByMonth2()// מחזיר מספר הזמנות מכל חודש בשנה האחרונה 
         {
-            string sql = "SELECT SUM(PricePerOne* NumBooks)+10 AS TOTAL, Month(Date1) AS M, SUM(DelieveryPrice) AS Out FROM Orders INNER JOIN BooksOrders ON Orders.ID= BooksOrders.OrdersID WHERE Year(Date1)=" + DateTime.Now.Year + " GROUP BY Month(Date1) ORDER BY Month(Date1)";
+            string sql = "SELECT SUM(PricePerOne* NumBooks+10) AS TOTAL, Month(Date1) AS M, SUM(DelieveryPrice) AS Out FROM Orders INNER JOIN BooksOrders ON Orders.ID= BooksOrders.OrdersID WHERE Year(Date1)=" + DateTime.Now.Year + " GROUP BY Month(Date1) ORDER BY Month(Date1)";
             return dal.excuteQuery(sql);
         }
 
