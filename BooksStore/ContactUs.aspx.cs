@@ -22,6 +22,9 @@ namespace BooksStore
             String messageS = message.Text.Replace("'", "''");
             rl.addNewRequest(nameS, email.Text, messageS);
             Label1.Text="בקשתך התקבלה";
+            name.Text = "";
+            message.Text = "";
+            email.Text = "";
 
         }
     }
